@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 2019_02_25_154026) do
     t.index ["user_id"], name: "index_towns_on_user_id"
   end
 
+  create_table "towns", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_towns_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
