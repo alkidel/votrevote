@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_02_25_154026) do
 
   # These are extensions that must be enabled in order to support this database
@@ -26,6 +27,14 @@ ActiveRecord::Schema.define(version: 2019_02_25_154026) do
     t.datetime "updated_at", null: false
     t.bigint "town_id"
     t.index ["town_id"], name: "index_decisions_on_town_id"
+  end
+
+  create_table "towns", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_towns_on_user_id"
   end
 
   create_table "towns", force: :cascade do |t|
