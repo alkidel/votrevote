@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :decisions do
-    resources :votes, only: [:create, :new, :edit, :update, :destroy]
+    resources :votes, only: [:create, :new]
   end
+  resources :votes, only: [:edit, :update, :destroy]
   resources :town, only: [:create, :new]
   resources :users, only: [:destroy, :edit, :update, :show]
 end

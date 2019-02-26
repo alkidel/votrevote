@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= content_for(:navbar_class, "navbar-home") %>
+<%= render 'shared/banner' %>
+<div class="container">
+  <h2>Dernier conseils municipaux</h2>
+  <div class="card-home">
+      <div class="card-home-display">
+        <%= render 'shared/cards' %> <!-- Add link_to to card path -->
+      </div>
+      <div class="card-home-display">
+        <%= render 'shared/cards' %> <!-- Add link_to to card path -->
+      </div>
+      <div class="card-home-display">
+        <%= render 'shared/cards' %> <!-- Add link_to to card path -->
+      </div>
+  </div>
+  <h2>Preview de la grid index</h2>
+    <div class="card-home">
+      <div class="card-home-display">
+        <%= render 'shared/cards_decisions' %> <!-- Add link_to to card path -->
+      </div>
+      <div class="card-home-display">
+        <%= render 'shared/cards_decisions' %> <!-- Add link_to to card path -->
+      </div>
+      <div class="card-home-display">
+        <%= render 'shared/cards_decisions' %> <!-- Add link_to to card path -->
+      </div>
+    </div>
+</div>
