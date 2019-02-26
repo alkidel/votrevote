@@ -1,8 +1,15 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "Vote_banner.jpg" %>')">
-  <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+  <div class="home-container">
+    <div class="title">
+      <% countdown = 11 %>
+      <h1><%= countdown %> jours avant le prochain vote</h1>
+    </div>
+    <div class="tagline">
+      <p>Prenez part aux prochaines décisions de <"town.name">.</p>
+    </div>
+    <div class="call_to_action">
+      <a class="btn btn-primary" href="#"><i class="fas fa-person-booth"></i> Prochaines décisions</a>
+    </div>
   </div>
 </div>
 
