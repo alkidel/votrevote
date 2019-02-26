@@ -1,27 +1,60 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-  height: 100vh;
+  // padding: 130px 0;
+  height: 90vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: right;
+  align-items: flex-end;
   .home-container{
-    width:60%;
-  }
-  h1 {
-    color: white;
-    font-weight: bold;
-    font-size: 45px;
-  }
-  p {
-    color: white;
-    opacity: .8;
-    font-size: 25px;
-    font-weight: lighter;
-    margin-bottom: 30px;
-  }
-  .btn {
-    padding: 15px 50px;
+    width: 30%;
+    right: 53px;
+    position: relative;
+    bottom: 20px;
+    .category{
+      padding-bottom: 10px;
+      h3 {
+        font-weight: bold;
+        font-size: 16px;
+        color:white;
+        border: 1px solid white;
+        position: relative;
+        bottom: 10px;
+        padding: 10px;
+        display:inline;
+        margin-bottom: 10px;
+        transition: .4s;
+        &:hover {
+        color:$green;
+        background-color: white;
+        transition: .4s;
+        }
+      }
+    }
+    .white-background{
+      background-color: white;
+      color: black;
+      padding: 10px 10px;
+      .title{
+        font-weight: bold;
+        font-size: 24px;
+        font-family: 'Playfair Display', serif;
+      }
+      p {
+        opacity: .8;
+        font-size: 16px;
+        font-weight: lighter;
+      }
+      .call_to_action{
+        display: flex;
+        justify-content: right;
+        margin-top: -7px;
+        .btn{
+          text-decoration: none;
+          background-color: $green;
+          color: white;
+        }
+      }
+    }
   }
 }

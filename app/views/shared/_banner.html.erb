@@ -1,14 +1,16 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "Vote_banner.jpg" %>')">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path Decision.last.photo %>')">
   <div class="home-container">
-    <div class="title">
-      <% countdown = 11 %>
-      <h1><%= countdown %> jours avant le prochain vote</h1>
+    <div class="category">
+      <h3><%= Decision.last.category %></h3>
     </div>
-    <div class="tagline">
-      <p>Prenez part aux prochaines décisions de <"town.name">.</p>
-    </div>
-    <div class="call_to_action">
-      <a class="btn btn-primary" href="#"><i class="fas fa-person-booth"></i> Prochaines décisions</a>
+    <div class="white-background">
+      <div class="title"> <%= Decision.last.title %></div>
+      <div class="tagline">
+        <p><%= Decision.last.description %></p>
+      </div>
+      <div class="call_to_action">
+        <a class="btn" href="#"> Prochaines décisions</a>
+      </div>
     </div>
   </div>
 </div>
