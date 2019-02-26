@@ -3,7 +3,9 @@ class Decision < ApplicationRecord
   has_many :votes
   has_many :users, through: :votes
 
-  enum result: %i[accepted pending rejected deferred]
+  mount_uploader :photo, PhotoUploader
+
+  enum result: %i[pending accepted rejected deferred]
 
   validates :title, presence: true
   validates :category, presence: true
