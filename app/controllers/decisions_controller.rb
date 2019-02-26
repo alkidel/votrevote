@@ -3,6 +3,7 @@ class DecisionsController < ApplicationController
 
   def index
     @decisions = Decision.all
+    @future_decisions = Decision.where("council_date > ?", DateTime.now)
       # @category = params[:query]
       # @address = params[:address]
       # if @address.present? && @category.present?
