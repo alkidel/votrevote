@@ -1,17 +1,25 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path Decision.last.photo %>')">
-  <div class="home-container">
-    <div class="category">
-      <h3><%= Decision.last.category %></h3>
-    </div>
-    <div class="white-background">
-      <div class="title"> <%= Decision.last.title %></div>
-      <div class="tagline">
-        <p><%= Decision.last.description %></p>
+<div class="container">
+  <div class="banner-container">
+    <div class="banner-countdown">
+      <div class="text">
+        <h3><i class="far fa-calendar-alt"></i> J-11</h3>
       </div>
-      <div class="call_to_action">
-        <a class="btn" href="#"> Prochaines décisions</a>
+    </div>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path Decision.last.photo %>')">
+      <div class="home-container">
+        <div class="category">
+          <h3><%= Decision.last.category %></h3>
+        </div>
+        <div class="white-background">
+          <div class="title"> <%= Decision.last.title %></div>
+          <div class="tagline">
+            <p><%= Decision.last.description %></p>
+          </div>
+          <div class="call_to_action">
+            <a class="btn" href="#"> Prochaines décisions</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-

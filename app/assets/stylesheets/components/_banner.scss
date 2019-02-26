@@ -2,15 +2,16 @@
   background-size: cover;
   background-position: center;
   // padding: 130px 0;
-  height: 90vh;
+  height: 70vh;
   display: flex;
   justify-content: right;
   align-items: flex-end;
   .home-container{
-    width: 30%;
+    width: 47%;
     right: 53px;
     position: relative;
     bottom: 20px;
+    padding: 40px 119px;
     .category{
       padding-bottom: 10px;
       h3 {
@@ -26,13 +27,13 @@
         transition: .4s;
         &:hover {
         color:$green;
-        background-color: white;
+        background-color: $white;
         transition: .4s;
         }
       }
     }
     .white-background{
-      background-color: white;
+      background-color: $white;
       color: black;
       padding: 10px 10px;
       .title{
@@ -57,4 +58,28 @@
       }
     }
   }
+}
+
+.banner-countdown{
+  position:absolute;
+  .text{
+    color: $white;
+    text-align: center;
+    position: relative;
+    bottom: -80px;
+    padding: 0px 20px;
+    left: 112px;
+    border: 1px solid white;
+    margin: 0px 0px;
+    h3{
+      font-size: 32px;
+      margin: 7px 1px;
+    }
+    p{
+      margin-top:-12px;
+    }
+  }
+}
+.banner-container{
+
 }
