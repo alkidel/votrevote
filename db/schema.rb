@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_164538) do
+ActiveRecord::Schema.define(version: 2019_02_25_170824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_164538) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "result"
+    t.integer "result", default: 1
     t.integer "vote_as"
     t.bigint "user_id"
     t.bigint "decision_id"
