@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :decisions do
     resources :votes, only: [:create, :new]
   end
-  resources :votes [:edit, :update, :destroy]
+  resources :votes, only: [:edit, :update, :destroy]
   resources :town, only: [:create, :new]
   resources :users, only: [:destroy, :edit, :update, :show]
 end
