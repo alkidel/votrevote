@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
+    <div class="show-banner-card">
+
+      <div class="info">
+      <div class="category">
+        <h3> <%= @decision.category %></h3>
+      </div>
+
+      <div class="votes-number">
+        <h3><%= @decision.votes.count %>votes</h3>
+      </div>
+      </div>
+
+        <h1> <%= @decision.title %> </h1>
+    </div>
+  </div>
+
+  <div class="body-show-description">
+   <h1><%= @decision.description %></h1>
+  </div>
+</div>
