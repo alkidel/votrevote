@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_164538) do
+ActiveRecord::Schema.define(version: 2019_02_26_110352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,13 @@ ActiveRecord::Schema.define(version: 2019_02_25_164538) do
     t.string "title"
     t.string "category"
     t.text "description"
-    t.integer "result", default: 1
+    t.integer "result", default: 0
     t.text "minutes"
     t.date "council_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "town_id"
+    t.string "photo"
     t.index ["town_id"], name: "index_decisions_on_town_id"
   end
 
@@ -52,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_164538) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "result"
+    t.integer "result", default: 0
     t.integer "vote_as"
     t.bigint "user_id"
     t.bigint "decision_id"
