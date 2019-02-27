@@ -99,16 +99,17 @@
   color: black;
   opacity: 0.8;
   padding: 10px;
-  &:hover {
+  &:hover, &.selected {
     color: $green;
   }
+
 }
 
 .fa-thumbs-down {
   color: black;
   opacity: 0.8;
   padding: 10px;
-  &:hover {
+  &:hover, &.selected {
     color: $red;
   }
 }

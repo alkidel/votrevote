@@ -3,6 +3,7 @@ class DecisionsController < ApplicationController
 
   def show
     @decision = Decision.find(params[:id])
+    @user_result = Vote.where(user: current_user, decision: @decision).first.result
   end
 
   def index

@@ -1,1 +1,10 @@
 document.getElementById('votes-count').innerHTML = "<%= @vote.decision.votes_count %>";
+
+function button {
+  if (@vote.result === "accepted"){
+    return document.getElementById('selected');
+  }else{
+    return document.getElementById('rejected');
+  }
+
+}
