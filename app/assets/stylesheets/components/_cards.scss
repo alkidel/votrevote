@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
 }
-
+x
 .card-product img {
   height: 100%;
   width: 120px;
@@ -35,24 +35,57 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 10px;
+  color-background: black;
+  opacity: 1;
+  &:hover {
+    opacity: 0.5;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
-.card-decision > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+// .card-decision:hover {
+//   margin-top: -1px;
+// }
+
+// .card-decision > img {
+//   height: 200px;
+//   width: 100%;
+//   object-fit: cover;
+// }
+
+.card-decision .card-decision-title {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    padding: 30px;
+
+
 }
+
+// .card-decision a {
+//   opacity: 0.5 !important;
+// }
+
+// .card-decision a:hover {
+//   text-decoration: none !important;
+//   opacity: 0.5 !important;
+// }
 
 .card-decision h2 {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
+  color: white;
 }
 
 .card-decision p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+
 }
 
 
@@ -60,15 +93,36 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
+  align-items: center;
 }
 
-.card-decision-infos .card-decision-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+.card-decision-infos-category {
+  border-bottom: 5px solid green;
+  padding: 0;
+  margin: 0;
+}
+
+
+.vote {
+  font-size: 32px;
+}
+
+.vote a {
+  color: gray;
+}
+
+.vote a:hover {
+  opacity: 0.3 !important;
+}
+
+.votes-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h4 {
+    margin: 0;
+  }
 }
 
 
