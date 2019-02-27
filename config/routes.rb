@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :decisions do
     resources :votes, only: [:create, :new]
   end
-  resources :votes, only: [:edit, :update, :destroy]
+  resources :votes, only: [:edit, :update, :destroy] do
+    member do
+      get 'accepted', to: 'votes#accepted'
+      get 'rejected', to: 'votes#rejected'
+    end
+  end
   resources :town, only: [:create, :new]
   resources :users, only: [:destroy, :edit, :update, :show]
 end
