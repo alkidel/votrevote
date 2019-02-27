@@ -1,5 +1,5 @@
 class Vote < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :decision, dependent: :destroy
 
   enum result: %i[pending accepted rejected blank_vote]

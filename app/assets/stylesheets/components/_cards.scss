@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
 }
-x
+
 .card-product img {
   height: 100%;
   width: 120px;
@@ -38,12 +38,9 @@ x
   margin: 10px;
   color-background: black;
   opacity: 1;
-  &:hover {
-    opacity: 0.5;
-  }
   a:hover {
-    text-decoration: none;
-  }
+      text-decoration: none;
+    }
 }
 
 // .card-decision:hover {
@@ -61,6 +58,9 @@ x
     width: 100%;
     background-size: cover;
     padding: 30px;
+    &:hover {
+      opacity: 0.7;
+    }
 
 
 }
@@ -98,31 +98,91 @@ x
 }
 
 .card-decision-infos-category {
-  border-bottom: 5px solid green;
-  padding: 0;
   margin: 0;
+  padding: 5px;
+  font-size: 11px;
+  &:hover {
+    color: white;
+  }
+}
+
+.education {
+  border: 1px solid $education;
+  &:hover {
+    color: white;
+    background-color: $education;
+  }
+}
+
+.environment {
+  border: 1px solid $environment;
+  &:hover {
+    color: white;
+    background-color: $environment;
+  }
+}
+
+.transport {
+  border: 1px solid $transport;
+  &:hover {
+    color: white;
+    background-color: $transport;
+  }
+}
+
+.public {
+  border: 1px solid $public-works;
+  &:hover {
+    color: white;
+    background-color: $public-works;
+  }
+}
+
+.waste {
+  border: 1px solid $waste-mgmt;
+  &:hover {
+    color: white;
+    background-color: $waste-mgmt;
+  }
+}
+
+.commerce {
+  border: 1px solid $commerce;
+  &:hover {
+    color: white;
+    background-color: $commerce;
+  }
 }
 
 
 .vote {
-  font-size: 32px;
-}
-
-.vote a {
-  color: gray;
-}
-
-.vote a:hover {
-  opacity: 0.3 !important;
-}
-
-.votes-infos {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  h4 {
-    margin: 0;
+  justify-content: space-between;
+  font-size: 40px;
+}
+
+.fa-thumbs-up {
+  color: black;
+  opacity: 0.8;
+  padding: 10px;
+  &:hover {
+    color: $green;
   }
 }
+
+.fa-thumbs-down {
+  color: black;
+  opacity: 0.8;
+  padding: 10px;
+  &:hover {
+    color: $red;
+  }
+}
+
+
+.votes-infos h4 {
+    font-size: 20px;
+    margin: 0;
+  }
 
 
