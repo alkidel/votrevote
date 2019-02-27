@@ -1,84 +1,132 @@
 .btn-all {
   color: black;
-  padding: 5px;
+  padding: 10px;
   background-color: white;
   border: 1px solid $education;
+  transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
     background-color: $education;
+    transition: .4s;
   }
+}
+
+.btn-category {
+  color: white;
+  padding: 10px;
+  transition: .4s;
+  border: 1px solid white;
+  transition: .4s;
+  font-size: 12px;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+    color:$green;
+    background-color: $white;
+    transition: .4s;
+    }
+}
+
+.btn-category-decisions {
+  color: $green;
+  padding: 10px;
+  transition: .4s;
+  background-color: $white;
+  border: 1px solid white;
+  transition: .4s;
+  font-size: 12px;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    transition: .4s;
+    }
 }
 
 
 .education {
   color: black;
-  padding: 5px;
+  padding: 10px;
   background-color: white;
   border: 1px solid $education;
+  transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
     background-color: $education;
+    transition: .4s;
   }
 }
 
 .environment {
   color: black;
-  padding: 5px;
+  padding: 10px;
   background-color: white;
   border: 1px solid $environment;
+  transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
     background-color: $environment;
+    transition: .4s;
   }
 }
 
 .transport {
   color: black;
-  padding: 5px;
+  padding: 10px;
   background-color: white;
   border: 1px solid $transport;
+  transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
     background-color: $transport;
+    transition: .4s;
   }
 }
 
 .public {
   color: black;
-  padding: 5px;
+  padding: 10px;
   background-color: white;
   border: 1px solid $public-works;
+  transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
     background-color: $public-works;
+    transition: .4s;
   }
 }
 
 .waste {
   color: black;
-  padding: 5px;
+  padding: 10px;
   background-color: white;
   border: 1px solid $waste-mgmt;
+  transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
     background-color: $waste-mgmt;
+    transition: .4s;
   }
 }
 
 .commerce {
   color: black;
-  padding: 5px;
+  padding: 10px;
   background-color: white;
   border: 1px solid $commerce;
+  transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
     background-color: $commerce;
+    transition: .4s;
   }
 }
