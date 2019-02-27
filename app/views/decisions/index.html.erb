@@ -1,5 +1,15 @@
 <div class="container">
-  <h1>Next decisions</h2>
+  <div class="decisions-intro">
+    <div><h2>Vote today!</h2>
+      <h4>Next council meeting: <strong><%= @future_decisions.first.council_date.strftime("%B %C, %Y") %></strong></h4>
+    </div>
+    <div class="text-right">
+      <p>You have voted for</p>
+      <h4>1/<%= @future_decisions.length %></h4>
+      <p>decisions</p>
+    </div>
+  </div>
+
     <hr>
   <div class="row">
     <% @future_decisions.each do |decision| %>
@@ -7,19 +17,18 @@
 
         <div class="card-decision">
           <%= link_to decision_path(decision) do %>
-            <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= decision.photo.url %>');">
+            <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 200, crop: :fill %>');">
 
                 <h2><%=decision.title %></h2>
             </div>
           <% end %>
           <div class="card-decision-infos">
-            <div class="card-decision-infos-category">
-              <p><%= decision.category %></p>
+            <div class="card-decision-infos-category <%= decision.category.downcase %>">
+              <%= decision.category %>
             </div>
             <div class="vote">
-              <a href="#"><i class="far fa-check-circle"></i></a>
-              <a href="#"><i class="far fa-times-circle"></i></a>
-              <a href="#"><i class="far fa-question-circle"></i></a>
+              <div><a href="#"><i class="far fa-thumbs-up"></i></a></div>
+              <div><a href="#"><i class="far fa-thumbs-down"></i></a></div>
             </div>
             <div class="votes-infos">
               <h4 class="text-center"><%= decision.votes.count %> </h4>
