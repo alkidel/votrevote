@@ -1,12 +1,9 @@
 class DecisionsController < ApplicationController
-  def index
-    @decisions = Decision.all
-  end
+    before_action :set_decision, only: [:show, :edit, :update, :destroy]
 
   def show
     @decision = Decision.find(params[:id])
-
-  before_action :set_decision, only: [:show, :edit, :update, :destroy]
+  end
 
   def index
     @decisions = Decision.all
@@ -25,11 +22,6 @@ class DecisionsController < ApplicationController
       # else
       #   @boats = policy_scope(Boat)
       #   @boats = Boat.where.not(latitude: nil, longitude: nil)
-  end
-
-  def show
-    # authorize @boat
-    # @decision = Decision.where(id: params[:id])
   end
 
   def new
