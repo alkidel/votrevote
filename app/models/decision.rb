@@ -14,6 +14,10 @@ class Decision < ApplicationRecord
   validates :council_date, presence: true
   validates :result, presence: true
 
+  scope :future, -> { where("council_date >= ?", DateTime.now) }
+  scope :past, -> { where("council_date < ?", DateTime.now) }
+  scope :category, -> (category) { where(category: category) }
+
   def future?
     council_date > Date.today
   end
