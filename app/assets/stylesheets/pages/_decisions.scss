@@ -1,21 +1,51 @@
+
+.decisions-intro h2 {
+  margin: 5px;
+}
+
+
+.decisions-intro h4 {
+  margin: 5px;
+}
+
+.decisions-intro p {
+  font-size: 10px;
+  margin: 5px;
+}
+
+
+
+@media (min-width: 720px) {
 .decisions-intro {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 20px;
   padding-top: 10px;
+  }
+
+.categories-decisions {
+  width: 700px;
+  font-size: 12px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+
 }
 
-.decisions-intro h2 {
-  margin: 0px;
 }
 
 
-.decisions-intro h4 {
-  margin: 0px;
-}
+@media (max-width: 720px) {
+.decisions-intro {
+  display: block;
+  margin-top: 30px;
+  }
 
-.decisions-intro p {
-  font-size: 10px;
-  margin: 0px;
+.categories-decisions {
+  display: block;
+  font-size: 12px;
+  padding: 10px;
+  margin: 10px;
+  }
 }

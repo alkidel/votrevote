@@ -1,0 +1,10 @@
+  <%= form_tag decisions_path, method: "GET" do |f| %>
+    <div class="form-group col-md-4">
+      <%= select_tag :query, options_for_select(["Education","Environment","Commerce","Transport","Public Works", "Waste Management"]), prompt: "Category", class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= submit_tag "Discover", class: "education" %>
+    </div>
+  <% end %>
+
+

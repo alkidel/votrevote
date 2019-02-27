@@ -1,0 +1,84 @@
+.btn-all {
+  color: black;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid $education;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $education;
+  }
+}
+
+
+.education {
+  color: black;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid $education;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $education;
+  }
+}
+
+.environment {
+  color: black;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid $environment;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $environment;
+  }
+}
+
+.transport {
+  color: black;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid $transport;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $transport;
+  }
+}
+
+.public {
+  color: black;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid $public-works;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $public-works;
+  }
+}
+
+.waste {
+  color: black;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid $waste-mgmt;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $waste-mgmt;
+  }
+}
+
+.commerce {
+  color: black;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid $commerce;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $commerce;
+  }
+}

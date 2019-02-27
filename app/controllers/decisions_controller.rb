@@ -6,22 +6,14 @@ class DecisionsController < ApplicationController
   end
 
   def index
-    @decisions = Decision.all
-    @future_decisions = Decision.where("council_date > ?", DateTime.now)
-      # @category = params[:query]
-      # @address = params[:address]
-      # if @address.present? && @category.present?
-      #   @boats = policy_scope(Boat)
-      #   @boats = Boat.where(address: @address).where(category: @category).where.not(latitude: nil, longitude: nil)
-      # elsif @address.present?
-      #   @boats = policy_scope(Boat)
-      #   @boats = Boat.where(address: @address).where.not(latitude: nil, longitude: nil)
-      # elsif @category.present?
-      #   @boats = policy_scope(Boat)
-      #   @boats = Boat.where(category: @category).where.not(latitude: nil, longitude: nil)
-      # else
-      #   @boats = policy_scope(Boat)
-      #   @boats = Boat.where.not(latitude: nil, longitude: nil)
+    # @decisions = Decision.all
+    # @past_decisions = Decision.past
+    if params[:category]
+      @future_decisions = Decision.future.category(params[:category])
+    else
+      @future_decisions = Decision.future
+    end
+
   end
 
   def new
