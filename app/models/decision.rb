@@ -18,7 +18,19 @@ class Decision < ApplicationRecord
   scope :past, -> { where("council_date < ?", DateTime.now) }
   scope :category, -> (category) { where(category: category) }
 
+  def future?
+    council_date > Date.today
+  end
+
+  def past?
+    !future?
+  end
+
   def delete_photo
     photo.file.delete
+  end
+
+  def votes_count
+    votes.where.not(result: "pending").count
   end
 end

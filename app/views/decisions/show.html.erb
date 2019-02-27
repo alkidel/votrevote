@@ -1,22 +1,60 @@
 <div class="container">
-  <div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
-    <div class="show-banner-card">
+<div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
 
-      <div class="info">
-      <div class="category">
-        <h3> <%= @decision.category %></h3>
-      </div>
 
-      <div class="votes-number">
-        <h3><%= @decision.votes.count %>votes</h3>
-      </div>
-      </div>
+<%= link_to decisions_path do %>
+<div class="back">
+  <i class="fas fa-arrow-left"></i>
+  <p>Back</p>
+</div>
+  <% end %>
 
-        <h1> <%= @decision.title %> </h1>
+  <div class="show-banner-card">
+    <h1> <%= @decision.title %> </h1>
+
+    <div class="card-decision-infos">
+      <div class="card-decision-infos-category <%= @decision.category.downcase %>">
+        <%= @decision.category %>
+      </div>
+      <% if @decision.future? %>
+      <div class="vote">
+        <div>
+          <%= link_to accepted_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
+            <i class="far fa-thumbs-up"></i>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to rejected_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
+            <i class="far fa-thumbs-down"></i>
+          <% end %>
+        </div>
+        <!-- <div><a href="#"></a></div> -->
+        <!-- <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
+      </div>
+      <% end %>
+      <div class="votes-infos">
+        <h4 id="votes-count" class="text-center"><%= @decision.votes_count %> </h4>
+        <p class="text-center">votes</p>
+      </div>
     </div>
   </div>
+</div>
 
   <div class="body-show-description">
    <h1><%= @decision.description %></h1>
+   <% if @decision.past? %>
+    <ul class="list-inline tabs-underlined">
+  <li>
+    <a href="#" class="tab-underlined active">Description</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">Stats</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">Minutes</a>
+  </li>
+</ul>
+    <% end %>
   </div>
+
 </div>
