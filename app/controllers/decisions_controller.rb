@@ -1,4 +1,11 @@
 class DecisionsController < ApplicationController
+  def index
+    @decisions = Decision.all
+  end
+
+  def show
+    @decision = Decision.find(params[:id])
+
   before_action :set_decision, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -26,6 +33,7 @@ class DecisionsController < ApplicationController
 
   def new
     @decision = Decision.new
+    authorize @decision
     # authorize @boat
   end
 
@@ -44,11 +52,13 @@ class DecisionsController < ApplicationController
   end
 
   def update
+    authorize @decision
     # authorize @boat
     @decision.update(decision_params)
   end
 
   def destroy
+    authorize @decision
     # authorize @boat
     @decision.destroy
     redirect_to decisions_path
