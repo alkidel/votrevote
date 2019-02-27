@@ -1,0 +1,13 @@
+<div class="dataviz-container">
+  <div class="row">
+    <div class="dataviz col-xs-4">
+      <%= pie_chart Decision.group(:category).count, colors: ["#8380B6","#EE5F5B","#32B796","#62BDE9","#D34286","#FDB631"],donut:true, legend: false %>
+    </div>
+    <div class="dataviz col-xs-4">
+      <%= column_chart Vote.where(user: current_user).group(:result).count, colors: ["#8380B6","#EE5F5B","#32B796","#62BDE9","#D34286","#FDB631"],donut:true, legend: false %>
+    </div>
+    <div class="dataviz col-xs-4">
+      <%= pie_chart Vote.where(user: current_user).where.not(result: 0).group(:result).count, colors: ["#8380B6","#EE5F5B","#32B796","#62BDE9","#D34286","#FDB631"],donut:true, legend: false %>
+    </div>
+  </div>
+</div>
