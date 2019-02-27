@@ -11,4 +11,12 @@ class Decision < ApplicationRecord
   validates :category, presence: true
   validates :council_date, presence: true
   validates :result, presence: true
+
+  def future?
+    council_date > Date.today
+  end
+
+  def past?
+    !future?
+  end
 end
