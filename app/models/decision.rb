@@ -25,4 +25,8 @@ class Decision < ApplicationRecord
   def delete_photo
     photo.file.delete
   end
+
+  def votes_count
+    votes.where.not(result: "pending").count
+  end
 end

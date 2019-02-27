@@ -18,12 +18,22 @@
       </div>
       <% if @decision.future? %>
       <div class="vote">
-        <div><a href="#"><i class="far fa-thumbs-up"></i></a></div>
-        <div><a href="#"><i class="far fa-thumbs-down"></i></a></div>
+        <div>
+          <%= link_to accepted_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
+            <i class="far fa-thumbs-up"></i>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to rejected_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
+            <i class="far fa-thumbs-down"></i>
+          <% end %>
+        </div>
+        <!-- <div><a href="#"></a></div> -->
+        <!-- <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
       </div>
       <% end %>
       <div class="votes-infos">
-        <h4 class="text-center"><%= @decision.votes.count %> </h4>
+        <h4 id="votes-count" class="text-center"><%= @decision.votes_count %> </h4>
         <p class="text-center">votes</p>
       </div>
     </div>
