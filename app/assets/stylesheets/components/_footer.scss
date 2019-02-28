@@ -3,9 +3,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 40px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0,0,0,0.5);
+  font-size: 11px;
+    a {
+      color: rgba(0,0,0,0.5);
+    }
+    &:hover {
+      text-decoration: none;
+    }
+}
+
+.content {
+  min-height: calc(100vh - 50px - 40px);
+}
+
+
+.vv {
+  font-size: 18px;
 }
 .footer-links {
   display: flex;
@@ -22,5 +38,6 @@
   opacity: 1;
 }
 .footer .fa-heart {
-  color: #D23333;
+  color: $red;
 }
+

@@ -1,4 +1,7 @@
 <div class="container">
+
+  <%= render 'shared/categories' %>
+
   <div class="decisions-intro">
     <div><h2>Vote today!</h2>
       <h4>Next council meeting: <strong><%= @future_decisions.first.council_date.strftime("%B %C, %Y") %></strong></h4>
@@ -10,7 +13,7 @@
       <p>decisions</p>
     </div>
   </div>
-
+<%= render 'shared/searchbar' %>
   <div class="categories-decisions">
     <%= link_to "Commerce", decisions_path(category: "Commerce"), class: "commerce" %>
     <%= link_to "Education", decisions_path(category: "Education"), class: "education" %>
@@ -19,8 +22,8 @@
     <%= link_to "Transport", decisions_path(category: "Transport"), class: "transport" %>
     <%= link_to "Waste Management", decisions_path(category: "Waste Management"), class: "waste" %>
     <%= link_to "Show All", decisions_path, class: "btn-all" %>
-
   </div>
+
 
     <hr>
   <div class="row">
