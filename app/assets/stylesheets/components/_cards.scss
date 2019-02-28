@@ -43,7 +43,6 @@
     }
 }
 
-
 .card-decision .card-decision-title {
     height: 200px;
     width: 100%;
@@ -53,7 +52,6 @@
       opacity: 0.7;
     }
 }
-
 
 .card-decision h2 {
   font-size: 24px;
@@ -68,7 +66,6 @@
   margin: 0;
 
 }
-
 
 .card-decision-infos {
   padding: 16px;
@@ -87,13 +84,47 @@
   }
 }
 
-
+.result {
+  margin: 0;
+  padding: 5px;
+  font-size: 11px;
+}
 
 .vote {
   display: flex;
   justify-content: space-between;
   font-size: 40px;
 }
+
+.triangle-topright{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-left: 100px solid transparent;
+    border-top: 100px solid;  // border: 1px solid $red;
+    top: -60px;
+    right: -225px;
+    &.tr-rejected {
+      border-top-color: $red;  // border: 1px solid $red;
+    }
+    &.tr-deferred {
+      border-top-color: $orange;  // border: 1px solid $red;
+    }
+    &.tr-accepted {
+      border-top-color: $green;  // border: 1px solid $red;
+    }
+}
+.vote-logo{
+    font-size: 30px;
+    & i{
+      transform: translate(-118%, -180%);
+      position: relative;
+      color: white;
+      opacity: 1;
+      font-size: 23px;
+    }
+}
+
 
 .fa-thumbs-up {
   color: black;
@@ -118,5 +149,4 @@
     font-size: 20px;
     margin: 0;
   }
-
 

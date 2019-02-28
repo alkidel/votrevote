@@ -13,7 +13,16 @@ class DecisionsController < ApplicationController
     else
       @future_decisions = Decision.future
     end
+  end
 
+  def former
+    # @decisions = Decision.all
+    # @past_decisions = Decision.past
+    if params[:category]
+      @former_decisions = Decision.past.category(params[:category])
+    else
+      @former_decisions = Decision.past
+    end
   end
 
   def new

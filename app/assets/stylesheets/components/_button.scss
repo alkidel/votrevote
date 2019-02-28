@@ -130,3 +130,27 @@
     transition: .4s;
   }
 }
+
+.rejected {
+  color: $white;
+  padding: 10px;
+  background-color: $red;
+  // border: 1px solid $red;
+  transition: .4s;
+}
+
+.deferred {
+  color: $white;
+  padding: 10px;
+  background-color: $orange;
+  // border: 1px solid $red;
+  transition: .4s;
+}
+
+.accepted {
+  color: $white;
+  padding: 10px;
+  background-color: $green;
+  // border: 1px solid $red;
+  transition: .4s;
+}
