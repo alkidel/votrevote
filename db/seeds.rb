@@ -72,7 +72,7 @@ town = Town.create(name: 'Paris', user_id: alki.id)
 
 puts "Created #{User.count} users"
 
-DECISIONS_CATEGORY = ["Education", "Environment", "Public Works", "Commerce", "Transport", "Waste Management"]
+DECISIONS_CATEGORY = ["Education", "Environment", "Works", "Commerce", "Transport", "Waste"]
 DECISIONS_PAST = [Date.new(2019, 02, 12), Date.new(2019, 01, 15), Date.new(2018, 12, 11), Date.new(2018, 11, 13), Date.new(2018, 10, 16)]
 DECISIONS_PAST_RESULT = [1,1,1,2,2,2,3]
 PHOTOS = %w(aaron-burden-60068-unsplash rawpixel-744409-unsplash roman-mager-59976-unsplash christian-joudrey-90289-unsplash david-pennington-562462-unsplash cindy-bonfini-hotlosz-354736-unsplash fancycrave-371079-unsplash)
@@ -85,7 +85,7 @@ puts 'Creating 20 fake decisions for next city council...'
   decision = Decision.new(
     title: Faker::Lorem.sentence(5),
     category: DECISIONS_CATEGORY.sample,
-    description: Faker::Lorem.paragraphs(2, true),
+    description: Faker::Lorem.paragraph(2, true),
     result: 0,
     minutes: "",
     council_date: Date.new(2019, 03, 12),
@@ -110,7 +110,7 @@ puts 'Creating 100 fake decisions for last 5 city councils...'
   decision = Decision.new(
     title: Faker::Lorem.sentence(5),
     category: DECISIONS_CATEGORY.sample,
-    description: Faker::Lorem.paragraphs(2, true),
+    description: Faker::Lorem.paragraph(2, true),
     result: DECISIONS_PAST_RESULT.sample,
     minutes: Faker::Lorem.paragraphs(1, true),
     council_date: DECISIONS_PAST.sample,
