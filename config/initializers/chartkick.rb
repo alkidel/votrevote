@@ -1,5 +1,5 @@
 Chartkick.options = {
-  height: "400px",
+  # height: "100px",
 }
 
 Chartkick.options[:html] = '<div id="%{id}" style="height: %{height};">Loading...</div>'

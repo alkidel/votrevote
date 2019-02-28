@@ -1,0 +1,57 @@
+<div class="content">
+  <div class="container">
+
+      <h3>Hi <%= @user.first_name %>, here are your stats:</h3>
+      <div class='dashboard-group'>
+        You have voted <strong><%= @user.votes.with_results.count %></strong> times (accepted: <%= Vote.of(@user).with_results.group(:result).count["accepted"] %>, rejected: <%= Vote.of(@user).with_results.group(:result).count["rejected"] %>):
+
+        <div class="votes-global">
+          <div class="graph-council-dates">
+            <%= line_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count, height: "200px", colors: ["#32B796"] %>
+          </div>
+          <div class='accepted-rejected'>
+            <%= bar_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#D34286"] %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="dashboard-group">
+        The category for which you most voted is: <strong><%= Vote.of(@user).with_results.joins(:decision).group(:category).count.max[0] %></strong> (<%= ((Vote.of(@user).with_results.joins(:decision).group(:category).count.max[1].to_f / @user.votes.with_results.count.to_f)*100).round(2) %>% of your votes)
+        <div class="pie-chart-container">
+          <div class="pie-chart-legend">
+            <div class="legend-all legend-commerce">Commerce</div>
+            <div class="legend-all legend-education">Education</div>
+            <div class="legend-all legend-environment">Environment</div>
+            <div class="legend-all legend-public-works">Public Works</div>
+            <div class="legend-all legend-transport">Transport</div>
+            <div class="legend-all legend-waste-mgmt">Waste management</div>
+          </div>
+          <div class="pie-chart-categories">
+          <%= pie_chart Vote.of(@user).with_results.joins(:decision).group(:category).count, colors: ["#8380B6", "#D34286","#62BDE9","#FDB631", "#32B796", "#EE5F5B"], width: "200px", legend: false %>
+          </div>
+        </div>
+      </div>
+
+
+Agreed with council:
+<%= Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count %> times
+
+<%= ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)%>%
+
+
+
+
+
+Agreed with public:
+  <%= Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max }.count %>
+
+<%= ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)%>%
+
+
+ </div>
+
+
+
+</div>
+
