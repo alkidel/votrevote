@@ -27,7 +27,7 @@
     <% @future_decisions.each do |decision| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
 
-        <div class="card-decision">
+        <div class="card-decision" id="decision-<%= decision.id %>">
           <%= link_to decision_path(decision) do %>
             <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 200, crop: :fill %>');">
 
@@ -40,11 +40,21 @@
               <%=  %>
             </div>
             <div class="vote">
-              <div><a href="#"><i class="far fa-thumbs-up"></i></a></div>
-              <div><a href="#"><i class="far fa-thumbs-down"></i></a></div>
+              <div>
+                <%= link_to accepted_vote_path(decision.votes.find_by(user: current_user)), remote: true do %>
+                  <i class="far fa-thumbs-up <%= 'selected' if decision.votes.where(result: "accepted").find_by(user: current_user) %>" id="change_a"></i>
+                <% end %>
+              </div>
+              <div>
+                <%= link_to rejected_vote_path(decision.votes.find_by(user: current_user)), remote: true do %>
+                  <i class="far fa-thumbs-down <%= 'selected' if decision.votes.where(result: "rejected").find_by(user: current_user) %> " id="change_r"></i>
+                <% end %>
+              </div>
+              <!-- <div><a href="#"><i class="far fa-thumbs-up"></i></a></div>
+              <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
             </div>
             <div class="votes-infos">
-              <h4 class="text-center"><%= decision.votes.count %> </h4>
+              <h4 class="text-center" id="decision-<%= decision.id %>-votes-count"><%= decision.votes_count %> </h4>
               <p class="text-center">votes</p>
             </div>
           </div>

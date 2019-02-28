@@ -41,7 +41,7 @@ class VotesController < ApplicationController
     else
       @vote.accepted!
     end
-    # equivalent @vote.result = "accepted" (gtrâce à enum sur result)
+    # equivalent @vote.result = "accepted" (grace a enum sur result)
     respond_to do |format|
       format.html do
         redirect_to decision_path(@vote.decision)

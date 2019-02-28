@@ -9,6 +9,7 @@ class DecisionsController < ApplicationController
   def index
     # @decisions = Decision.all
     # @past_decisions = Decision.past
+    @user_result = Vote.where(user: current_user)
     if params[:category]
       @future_decisions = Decision.future.category(params[:category])
     else

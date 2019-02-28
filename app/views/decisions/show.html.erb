@@ -17,7 +17,7 @@
         <%= @decision.category %>
       </div>
       <% if @decision.future? %>
-      <div class="vote">
+      <div class="vote" id="show-vote">
         <div>
           <%= link_to accepted_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
             <i class="far fa-thumbs-up <%= 'selected' if @user_result=='accepted' %>" id="change_a"></i>
