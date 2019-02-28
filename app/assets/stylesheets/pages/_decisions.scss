@@ -25,11 +25,11 @@
   }
 
 .categories-decisions {
-  width: 700px;
   font-size: 12px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
 }
 
@@ -48,4 +48,9 @@
   padding: 10px;
   margin: 10px;
   }
+}
+.navbar-decisions{
+  width: 650px;
+  display: flex;
+  justify-content: space-between;
 }

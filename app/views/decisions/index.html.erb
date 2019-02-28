@@ -1,5 +1,4 @@
 <div class="container">
-
   <%= render 'shared/categories' %>
 
   <div class="decisions-intro">
@@ -13,16 +12,7 @@
       <p>decisions</p>
     </div>
   </div>
-<%= render 'shared/searchbar' %>
-  <div class="categories-decisions">
-    <%= link_to "Commerce", decisions_path(category: "Commerce"), class: "commerce" %>
-    <%= link_to "Education", decisions_path(category: "Education"), class: "education" %>
-    <%= link_to "Environment", decisions_path(category: "Environment"), class: "environment" %>
-    <%= link_to "Public Works", decisions_path(category: "Public Works"), class: "public" %>
-    <%= link_to "Transport", decisions_path(category: "Transport"), class: "transport" %>
-    <%= link_to "Waste Management", decisions_path(category: "Waste Management"), class: "waste" %>
-    <%= link_to "Show All", decisions_path, class: "btn-all" %>
-  </div>
+
 
 
     <hr>
