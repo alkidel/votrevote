@@ -19,38 +19,42 @@ updateShowVotesCount();
 // gestion des class 'selected' sur les boutons
 // pour l'index
 function updateIndexButtonsClass() {
-  const showVoteButtons = document.querySelectorAll("#decision-<%= @vote.decision.id %> .far");
+  const card = document.querySelector("#decision-<%= @vote.decision.id %>");
+  const showVoteButtons = card.querySelectorAll(".far");
+  // console.log(showVoteButtons);
   if (showVoteButtons) {
     showVoteButtons.forEach((button) => {
       button.classList.remove('selected');
-      // if (button.classList.contains('selected')) {
-      // }
-    });
     <% if @vote.result === "accepted" %>
-      document.querySelector('.fa-thumbs-up').classList.add('selected');
+      if (button.classList.contains("fa-thumbs-up")) {
+        button.classList.add('selected');
+      }
     <% elsif @vote.result === "rejected" %>
-      document.querySelector('.fa-thumbs-down').classList.add('selected');
+      if (button.classList.contains("fa-thumbs-down")) {
+        button.classList.add('selected');
+      }
     <% end %>
+    });
   }
 }
-updateIndexButtonsClass();
 // pout la show
-function updateShowButtonsClass() {
-  const showVoteButtons = document.querySelectorAll("#show-vote .far");
-  if (showVoteButtons) {
-    showVoteButtons.forEach((button) => {
-      button.classList.remove('selected');
-      // if (button.classList.contains('selected')) {
-      // }
-    });
-    <% if @vote.result === "accepted" %>
-      document.querySelector('.fa-thumbs-up').classList.add('selected');
-    <% elsif @vote.result === "rejected" %>
-      document.querySelector('.fa-thumbs-down').classList.add('selected');
-    <% end %>
-  }
-}
-updateShowButtonsClass();
+// function updateShowButtonsClass() {
+//   const showVoteButtons = document.querySelectorAll("#show-vote .far");
+//   if (showVoteButtons) {
+//     showVoteButtons.forEach((button) => {
+//       button.classList.remove('selected');
+//       // if (button.classList.contains('selected')) {
+//       // }
+//     });
+//     <% if @vote.result === "accepted" %>
+//       document.querySelector('.fa-thumbs-up').classList.add('selected');
+//     <% elsif @vote.result === "rejected" %>
+//       document.querySelector('.fa-thumbs-down').classList.add('selected');
+//     <% end %>
+//   }
+// }
+// updateShowButtonsClass();
+updateIndexButtonsClass();
 
 // // function button {
 // //reset les deux boutons

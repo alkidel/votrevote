@@ -12,7 +12,7 @@
   <div class="show-banner-card">
     <h1> <%= @decision.title %> </h1>
 
-    <div class="card-decision-infos">
+    <div class="card-decision-infos" id="decision-<%= @decision.id %>">
       <div class="card-decision-infos-category <%= @decision.category.downcase %>">
         <%= @decision.category %>
       </div>
