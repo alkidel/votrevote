@@ -89,18 +89,18 @@ display: flex;
 height: 420px;
 position: relative;
 
-.back {
-  position: absolute;
-  left: 4%;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-  font-weight: bold;
-  color: $white;
-  margin-top: 30px;
-  width: 75px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  .back {
+    position: absolute;
+    left: 4%;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    font-weight: bold;
+    color: $white;
+    margin-top: 30px;
+    width: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
   .back:hover {
@@ -126,48 +126,12 @@ position: relative;
         line-height: 34px;
         font-weight: 700;
       }
-
-    .info {
-      display: flex;
-      justify-content: space-between;
-      .category{
-          h3 {
-            font-weight: bold;
-            font-size: 13px;
-            color:$header-grey;
-            border: 1px solid $green;
-            position: relative;
-            bottom: 10px;
-            padding: 10px;
-            display:inline;
-            margin-bottom: 10px;
-            transition: .4s;
-            &:hover {
-            color:$green;
-            background-color: white;
-            transition: .4s;
-            }
-          }
-        }
-      .votes-number {
-        h3 {
-        font-weight: bold;
-        font-size: 13px;
-        color:$header-grey;
-        position: relative;
-        display:inline;
-        margin-left: 170px;
-        padding: 10px;
-        margin-bottom: 10px;
-        bottom: 10px;
-        }
-      }
+      .card-decision-infos-show {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
     }
-      .show-votes {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-  }
 }
 
