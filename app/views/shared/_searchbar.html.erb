@@ -1,0 +1,11 @@
+
+<div class="search-control">
+<%= form_tag decisions_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "search decision"
+  %>
+<% end %>
+
+</div>
