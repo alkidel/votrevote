@@ -16,6 +16,7 @@ class DecisionsController < ApplicationController
       @future_decisions = Decision.future
     end
 
+
   end
 
   def new

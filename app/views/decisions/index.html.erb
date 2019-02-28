@@ -6,7 +6,7 @@
 
     <div class="text-right">
       <p>You have voted for</p>
-      <h4>1/<%= @future_decisions.length %></h4>
+      <h4><%= @future_decisions.where.not(result: "pending").count %>/<%= @future_decisions.length %></h4>
       <p>decisions</p>
     </div>
   </div>
