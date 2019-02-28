@@ -4,82 +4,75 @@
   // padding: 130px 0;
   height: 70vh;
   display: flex;
-  justify-content: right;
-  align-items: flex-end;
-  .home-container{
-    width: 47%;
-    right: 53px;
-    position: relative;
-    bottom: 20px;
-    padding: 40px 119px;
-    .category{
-      padding-bottom: 10px;
-      h3 {
-        font-weight: bold;
-        font-size: 16px;
-        color:white;
-        border: 1px solid white;
-        position: relative;
-        bottom: 10px;
-        padding: 10px;
-        display:inline;
-        margin-bottom: 10px;
-        transition: .4s;
-        &:hover {
-        color:$green;
-        background-color: $white;
-        transition: .4s;
-        }
-      }
-    }
-    .white-background{
-      background-color: $white;
-      color: black;
-      padding: 10px 10px;
-      .title{
-        font-weight: bold;
-        font-size: 24px;
-        font-family: 'Playfair Display', serif;
-      }
-      p {
-        opacity: .8;
-        font-size: 16px;
-        font-weight: lighter;
-      }
-      .call_to_action{
-        display: flex;
-        justify-content: right;
-        margin-top: -7px;
-        .btn{
-          text-decoration: none;
-          background-color: $green;
-          color: white;
-        }
-      }
-    }
-  }
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px;
 }
+  // .home-container{
+  //   width: 47%;
+  //   right: 53px;
+  //   position: relative;
+  //   bottom: 20px;
+  //   padding: 40px 119px;
 
 .banner-countdown{
-  position:absolute;
-  .text{
-    color: $white;
-    text-align: center;
-    position: relative;
-    bottom: -80px;
-    padding: 0px 20px;
-    left: 112px;
-    border: 1px solid white;
-    margin: 0px 0px;
+  color: $white;
+  background-color:rgba(255,255,255,0);
+  // border: 1px solid white;
     h3{
       font-size: 32px;
-      margin: 7px 1px;
-    }
-    p{
-      margin-top:-12px;
+      padding: 0px;
+      margin: 0px;
     }
   }
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  a:hover {
+      text-decoration: none;
+    }
 }
+
+.banner-buttons {
+  display: flex;
+  width: 220px;
+  justify-content: space-between;
+
+}
+
+.white-background{
+  background-color: $white;
+  color: black;
+  padding: 10px;
+  width: 600px;
+  transition: .4s;
+   &:hover {
+      text-decoration: none;
+      color: $green;
+      transition: .4s;
+      opacity: .5;
+    }
+}
+
+// .title{
+//     font-weight: bold;
+//     font-size: 24px;
+//     font-family: 'Playfair Display', serif;
+//       p {
+//         opacity: .8;
+//         font-size: 16px;
+//         font-weight: lighter;
+//       }
+// }
+
+.call_to_action{
+  margin-top: 20px;
+}
+
 
 
 .show-banner {
