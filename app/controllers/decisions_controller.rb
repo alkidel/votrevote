@@ -8,11 +8,14 @@ class DecisionsController < ApplicationController
   def index
     # @decisions = Decision.all
     # @past_decisions = Decision.past
-    if params[:category]
+    if params[:query].present?
+      @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
+    elsif params[:category]
       @future_decisions = Decision.future.category(params[:category])
     else
       @future_decisions = Decision.future
     end
+
 
   end
 
