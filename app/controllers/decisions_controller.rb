@@ -3,11 +3,15 @@ class DecisionsController < ApplicationController
 
   def show
     @decision = Decision.find(params[:id])
+    @user_result = Vote.where(user: current_user, decision: @decision).first.result
   end
 
   def index
     # @decisions = Decision.all
     # @past_decisions = Decision.past
+
+    @user_result = Vote.where(user: current_user)
+   
     if params[:query].present?
       @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
     elsif params[:category]
@@ -26,6 +30,7 @@ class DecisionsController < ApplicationController
     else
       @former_decisions = Decision.past
     end
+
 
   end
 

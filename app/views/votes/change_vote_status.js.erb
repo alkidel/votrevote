@@ -1,1 +1,85 @@
-document.getElementById('votes-count').innerHTML = "<%= @vote.decision.votes_count %>";
+// gestion du compteur de votes
+// pour l'index
+function updateIndexVotesCount() {
+  const decisionIndexVotesCount = document.getElementById('decision-<%= @vote.decision.id %>-votes-count');
+  if (decisionIndexVotesCount) {
+    decisionIndexVotesCount.innerHTML = "<%= @vote.decision.votes_count %>";
+  }
+}
+updateIndexVotesCount();
+// pour la show
+function updateShowVotesCount() {
+  const showVotesCount = document.getElementById('votes-count');
+  if (showVotesCount) {
+    showVotesCount.innerHTML = "<%= @vote.decision.votes_count %>";
+  }
+}
+updateShowVotesCount();
+
+// gestion des class 'selected' sur les boutons
+// pour l'index
+function updateIndexButtonsClass() {
+  const card = document.querySelector("#decision-<%= @vote.decision.id %>");
+  const showVoteButtons = card.querySelectorAll(".far");
+  // console.log(showVoteButtons);
+  if (showVoteButtons) {
+    showVoteButtons.forEach((button) => {
+      button.classList.remove('selected');
+    <% if @vote.result === "accepted" %>
+      if (button.classList.contains("fa-thumbs-up")) {
+        button.classList.add('selected');
+      }
+    <% elsif @vote.result === "rejected" %>
+      if (button.classList.contains("fa-thumbs-down")) {
+        button.classList.add('selected');
+      }
+    <% end %>
+    });
+  }
+}
+// pout la show
+// function updateShowButtonsClass() {
+//   const showVoteButtons = document.querySelectorAll("#show-vote .far");
+//   if (showVoteButtons) {
+//     showVoteButtons.forEach((button) => {
+//       button.classList.remove('selected');
+//       // if (button.classList.contains('selected')) {
+//       // }
+//     });
+//     <% if @vote.result === "accepted" %>
+//       document.querySelector('.fa-thumbs-up').classList.add('selected');
+//     <% elsif @vote.result === "rejected" %>
+//       document.querySelector('.fa-thumbs-down').classList.add('selected');
+//     <% end %>
+//   }
+// }
+// updateShowButtonsClass();
+updateIndexButtonsClass();
+
+// // function button {
+// //reset les deux boutons
+// //poser selected sur le bouton qui est concerné
+// //result accepted rejected
+
+// // let buttons = document.querySelectorAll('.far');
+// // buttons.forEach(button => {
+// document.querySelectorAll('.far').forEach(button => {
+//   if (button.classList.contains('selected')) {
+//     button.classList.remove('selected')
+//   }
+// });
+// console.log(<% @vote %>);
+
+// <% if @vote.result === "accepted" %>
+//   // let target = document.querySelector('.fa-thumbs-up');
+//   document.querySelector('.fa-thumbs-up').classList.add('selected');
+//   // document.querySelector('#decision-<%= @vote.decision.id %> .fa-thumbs-up').classList.add('selected');
+// <% elsif @vote.result === "rejected" %>
+//   // let target = document.querySelector('.fa-thumbs-down');
+//   document.querySelector('.fa-thumbs-down').classList.add('selected');
+//   // document.querySelector('#decision-<%= @vote.decision.id %> .fa-thumbs-down').classList.add('selected');
+// <% end %>
+
+// }
+
+// button();
