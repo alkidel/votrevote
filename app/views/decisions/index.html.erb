@@ -25,7 +25,6 @@
   <div class="row">
     <% @future_decisions.each do |decision| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-
         <div class="card-decision">
           <%= link_to decision_path(decision) do %>
             <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 200, crop: :fill %>');">
