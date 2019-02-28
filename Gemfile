@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'bundler', '~> 1.17.1'
 gem 'bootsnap', require: false
 gem "chartkick"
 gem 'devise'
