@@ -1,34 +1,31 @@
 .body-show-description {
-  height: 500px;
+  min-height: 500px;
   background-color: $white;
   display: block;
   width: 100%;
-  padding-left: 4%;
+  margin-top: 10px;
   h1{
     font-size: 25px;
     color:$body-grey;
     font-family:$body-font;
   }
-  .tabs-underlined {
-  display: flex;
-  align-items: center;
+
+  a.nav-link.active {
+    color: $body-grey;
 }
 
-.tabs-underlined .tab-underlined {
-  color: black;
-  padding: 8px;
-  margin: 8px 16px;
-  opacity: .4;
-  cursor: pointer;
-  text-decoration: none;
-  border-bottom: 4px solid transparent;
+a.nav-item.active {
+
+  background-color: red;
 }
 
-.tabs-underlined .tab-underlined.active {
-  opacity: 1;
-  border-bottom: 3px solid #555555;
+  .nav-link {
+    color: $body-grey;
+    font-family:$body-font;
+    font-size: 20px;
+  }
+.tab-content{
+  padding-left: 4%;
+  padding-right: 4%;
 }
-
 }
-
-

@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   end
   resources :town, only: [:create, :new]
   resources :users, only: [:destroy, :edit, :update, :show]
+
+  get 'former', to: 'decisions#former', as: :former
 end

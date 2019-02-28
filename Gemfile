@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'bundler', '~> 1.17.1'
 gem 'bootsnap', require: false
+gem "chartkick"
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
@@ -20,8 +22,8 @@ gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'faker'
+gem 'pg_search'
 gem 'postmark-rails'
-
 
 group :development do
   gem 'web-console', '>= 3.3.0'

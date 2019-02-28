@@ -1,0 +1,65 @@
+.dashboard-group {
+  padding: 10px;
+}
+.votes-global {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accepted-rejected {
+  width: 450px;
+  padding: 10px;
+}
+
+.graph-council-dates {
+  width: 450px;
+  padding: 10px;
+}
+
+.pie-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pie-chart-legend {
+  width: 350px;
+  padding: 10px;
+}
+
+.pie-chart-categories {
+  width: 350px;
+  padding: 10px;
+}
+
+.legend-all {
+  color: white;
+  font-size: 11px;
+  padding: 5px;
+  margin: 5px;
+  width: 150px;
+}
+
+.legend-education {
+  background-color: $education;
+}
+
+.legend-environment {
+  background-color: $environment;
+}
+
+.legend-transport {
+  background-color: $transport;
+}
+
+.legend-waste-mgmt {
+  background-color: $waste-mgmt;
+}
+
+.legend-public-works {
+  background-color: $public-works;
+}
+
+.legend-commerce {
+  background-color: $commerce;
+}

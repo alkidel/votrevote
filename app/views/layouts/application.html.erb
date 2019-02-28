@@ -3,18 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>VotreVote</title>
+    <%= favicon_link_tag asset_path('vote_favicon_black.png') %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+  <!--   <script src="/path/to/Chart.bundle.js"></script>
+    <script src="chartkick.js"></script> -->
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <div class="background">
     <%= yield %>
-    <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+      <%= render 'shared/footer' %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
+      <%= yield :charts_js %> <!-- Rails -->
+    </div>
   </body>
 </html>

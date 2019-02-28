@@ -33,4 +33,11 @@ class Decision < ApplicationRecord
   def votes_count
     votes.where.not(result: "pending").count
   end
+
+   include PgSearch
+  pg_search_scope :search_by_title_and_description_and_minutes,
+    against: [ :title, :description, :minutes ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
