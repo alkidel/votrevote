@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="decisions-intro">
+
+  </div>
+
+  <div class="categories-decisions">
+    <%= link_to "Commerce", former_path(category: "Commerce"), class: "commerce" %>
+    <%= link_to "Education", former_path(category: "Education"), class: "education" %>
+    <%= link_to "Environment", former_path(category: "Environment"), class: "environment" %>
+    <%= link_to "Public Works", former_path(category: "Public Works"), class: "public" %>
+    <%= link_to "Transport", former_path(category: "Transport"), class: "transport" %>
+    <%= link_to "Waste Management", former_path(category: "Waste Management"), class: "waste" %>
+    <%= link_to "Show All", former_path, class: "btn-all" %>
+
+  </div>
+
+    <hr>
+  <div class="row">
+    <% @former_decisions.each do |decision| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-decision">
+          <%= link_to decision_path(decision) do %>
+           <!--  <div class = "result <%= decision.result %>">
+            <%= decision.result.capitalize %>
+            </div> -->
+            <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 200, crop: :fill %>');">
+              <div class="vote-logo">
+                <div class="triangle-topright tr-<%= decision.result %>">
+                  <% if decision.result == "accepted" %>
+                      <i class="far fa-thumbs-up"></i>
+                    <% elsif decision.result == "rejected" %>
+                      <i class="far fa-thumbs-down"></i>
+                    <% else %>
+                      <i class="far fa-clock"></i>
+                    <% end %>
+                </div>
+              </div>
+              <h2><%=decision.title %></h2>
+            </div>
+          <% end %>
+          <div class="card-decision-infos">
+            <div class="card-decision-infos-category">
+              <%= link_to decision.category, decisions_path(category: decision.category), class: decision.category.downcase %>
+              <%=  %>
+            </div>
+            <div class="vote">
+              <% if decision.council_date > DateTime.now %>
+                <div><a href="#"><i class="far fa-thumbs-up"></i></a></div>
+                <div><a href="#"><i class="far fa-thumbs-down"></i></a></div>
+                <% else %>
+                  <!-- <div class = "result <%= decision.result %>">
+                    <%= decision.result.capitalize %>
+                  </div>
+ -->
+                <% end %>
+            </div>
+            <div class="votes-infos">
+              <h4 class="text-center"><%= decision.votes.where.not(result:0).count %> </h4>
+              <p class="text-center">votes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+</div>

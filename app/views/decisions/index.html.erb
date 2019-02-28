@@ -46,7 +46,7 @@
               <div><a href="#"><i class="far fa-thumbs-down"></i></a></div>
             </div>
             <div class="votes-infos">
-              <h4 class="text-center"><%= decision.votes.count %> </h4>
+              <h4 class="text-center"><%= decision.votes.where.not(result: 0).count %> </h4>
               <p class="text-center">votes</p>
             </div>
           </div>
