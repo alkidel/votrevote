@@ -78,18 +78,20 @@ puts "Created #{User.count} users"
 
 DECISIONS_CATEGORY = ["Education", "Environment", "Works", "Commerce", "Transport", "Waste"]
 DECISIONS_PAST = [Date.new(2019, 02, 12), Date.new(2019, 01, 15), Date.new(2018, 12, 11), Date.new(2018, 11, 13), Date.new(2018, 10, 16)]
-DECISIONS_PAST_RESULT = [1,1,1,2,2,2,3]
-PHOTOS = %w(aaron-burden-60068-unsplash rawpixel-744409-unsplash roman-mager-59976-unsplash christian-joudrey-90289-unsplash david-pennington-562462-unsplash cindy-bonfini-hotlosz-354736-unsplash fancycrave-371079-unsplash)
+DECISIONS_PAST_RESULT = [1,1,1,1,2,2,3]
+PHOTOS = %w(aaron-burden-60068-unsplash cindy-bonfini-hotlosz-354736-unsplash fancycrave-371079-unsplash nick-karvounis-451562-unsplash maxine-ficheux-1290089-unsplash christian-joudrey-90289-unsplash)
 VOTES_NUMBER = rand(50..500)
 VOTES_RESULT = []
 
+
 puts 'Creating 20 fake decisions for next city council...'
 20.times do
-  url = "https://res.cloudinary.com/alkidel/image/upload/v1551176533/votrevote/#{PHOTOS.sample}.jpg"
+  ran_num = rand(0..5)
+  url = "https://res.cloudinary.com/alkidel/image/upload/v1551176533/votrevote/#{PHOTOS[ran_num]}.jpg"
   decision = Decision.new(
     title: Faker::Lorem.sentence(5),
-    category: DECISIONS_CATEGORY.sample,
-    description: Faker::Lorem.paragraph(2, true),
+    category: DECISIONS_CATEGORY[ran_num],
+    description: Faker::Lorem.paragraph(3, true),
     result: 0,
     minutes: "",
     council_date: Date.new(2019, 03, 12),
@@ -110,13 +112,14 @@ end
 puts 'Creating 100 fake decisions for last 5 city councils...'
 
 100.times do
-  url = "https://res.cloudinary.com/alkidel/image/upload/v1551176533/votrevote/#{PHOTOS.sample}.jpg"
+  ran_num = rand(0..5)
+  url = "https://res.cloudinary.com/alkidel/image/upload/v1551176533/votrevote/#{PHOTOS[ran_num]}.jpg"
   decision = Decision.new(
     title: Faker::Lorem.sentence(5),
-    category: DECISIONS_CATEGORY.sample,
-    description: Faker::Lorem.paragraph(2, true),
+    category: DECISIONS_CATEGORY[ran_num],
+    description: Faker::Lorem.paragraph(3, true),
     result: DECISIONS_PAST_RESULT.sample,
-    minutes: Faker::Lorem.paragraphs(1, true),
+    minutes: Faker::Lorem.paragraph(10, true),
     council_date: DECISIONS_PAST.sample,
     town_id: Town.first.id
   )
@@ -126,7 +129,7 @@ puts 'Creating 100 fake decisions for last 5 city councils...'
       vote = Vote.new(
         user_id: user.id,
         decision_id: decision.id,
-        result: rand(0..3)
+        result: rand(0..2)
         )
       vote.save!
     end
