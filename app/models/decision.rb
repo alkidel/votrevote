@@ -26,6 +26,14 @@ class Decision < ApplicationRecord
     !future?
   end
 
+  def self.dates
+    dates = []
+    Decision.group(:council_date).count.each do |council|
+      dates << council[0]
+    end
+    dates
+  end
+
   def delete_photo
     photo.file.delete
   end
