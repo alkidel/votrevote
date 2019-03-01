@@ -1,4 +1,4 @@
-require 'faker'
+Towrequire 'faker'
 
 Vote.destroy_all
 Decision.destroy_all
