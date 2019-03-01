@@ -68,7 +68,7 @@
     <%= @decision.votes.where.not(result: 0).count %> votes
     <%= pie_chart Vote.where(decision: @decision).where.not(result: 0).group(:result).count, colors: ["#8380B6","#EE5F5B","#32B796","#62BDE9","#D34286","#FDB631"],donut:true, legend: false %>
   </div>
-  <div role="tabpanel" class="tab-pane fade" id="minutes">Here</div>
+  <div role="tabpanel" class="tab-pane fade" id="minutes"><h1><%= @decision.minutes %> </h1></div>
 </div>
 
   </div>

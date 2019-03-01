@@ -91,7 +91,7 @@ puts 'Creating 20 fake decisions for next city council...'
   decision = Decision.new(
     title: Faker::Lorem.sentence(5),
     category: DECISIONS_CATEGORY[ran_num],
-    description: Faker::Lorem.paragraph(2, true),
+    description: Faker::Lorem.paragraph(3, true),
     result: 0,
     minutes: "",
     council_date: Date.new(2019, 03, 12),
@@ -117,9 +117,9 @@ puts 'Creating 100 fake decisions for last 5 city councils...'
   decision = Decision.new(
     title: Faker::Lorem.sentence(5),
     category: DECISIONS_CATEGORY[ran_num],
-    description: Faker::Lorem.paragraph(2, true),
+    description: Faker::Lorem.paragraph(3, true),
     result: DECISIONS_PAST_RESULT.sample,
-    minutes: Faker::Lorem.paragraph(3, true),
+    minutes: Faker::Lorem.paragraph(10, true),
     council_date: DECISIONS_PAST.sample,
     town_id: Town.first.id
   )
