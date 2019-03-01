@@ -3,7 +3,7 @@
   background-color: $white;
   display: block;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 20px;
   h1{
     font-size: 25px;
     color:$body-grey;
@@ -14,6 +14,15 @@
     color: $body-grey;
 }
 
+.nav-tabs > li > a {
+  border-radius: 0px;
+}
+
+.nav-tabs > li.active > a {
+  background: white;
+  border-top: 2px solid #62BDE9;
+}
+
 a.nav-item.active {
 
   background-color: red;
@@ -22,10 +31,34 @@ a.nav-item.active {
   .nav-link {
     color: $body-grey;
     font-family:$body-font;
-    font-size: 20px;
+    // font-size: 20px;
   }
 .tab-content{
-  padding-left: 4%;
-  padding-right: 4%;
+  padding: 2% 4%;
+
 }
+}
+
+.active > .bdt-color-commerce {
+  border-top-color: $commerce !important;
+}
+
+.active > .bdt-color-environment {
+  border-top-color: $environment !important;
+}
+
+.active > .bdt-color-waste-management {
+  border-top-color: $waste-mgmt !important;
+}
+
+.active > .bdt-color-public-works {
+  border-top-color: $environment !important;
+}
+
+.active > .bdt-color-transport {
+  border-top-color: $environment !important;
+}
+
+.active > .bdt-color-education {
+  border-top-color: $environment !important;
 }

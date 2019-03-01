@@ -41,6 +41,7 @@ class VotesController < ApplicationController
     else
       @vote.accepted!
     end
+    @vote_counter = current_user.votes.joins(:decision).where("council_date >?",Date.today).where.not(result:"pending").count
     # equivalent @vote.result = "accepted" (grace a enum sur result)
     respond_to do |format|
       format.html do
@@ -58,6 +59,7 @@ class VotesController < ApplicationController
     else
       @vote.rejected!
     end
+    @vote_counter=current_user.votes.joins(:decision).where("council_date >?",Date.today).where.not(result:"pending").count
     respond_to do |format|
       format.html do
         redirect_to decision_path(@vote.decision)

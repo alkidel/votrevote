@@ -136,3 +136,13 @@ position: relative;
     }
 }
 
+.position-fixed{
+    position:fixed;
+    top: 212px;
+    right: 10px;
+    /* border: solid; */
+    border-right: none;
+    border-radius: 20px;
+    /* border-color: grey; */
+    background-color: rgb(230,230,230)
+}
