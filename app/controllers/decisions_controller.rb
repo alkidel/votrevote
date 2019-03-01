@@ -9,9 +9,10 @@ class DecisionsController < ApplicationController
   def index
     # @decisions = Decision.all
     # @past_decisions = Decision.past
+    @vote_counter=current_user.votes.joins(:decision).where("council_date >?",Date.today).where.not(result:"pending").count
 
     @user_result = Vote.where(user: current_user)
-   
+
     if params[:query].present?
       @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
     elsif params[:category]
