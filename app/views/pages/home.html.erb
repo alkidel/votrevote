@@ -4,15 +4,18 @@
 
   <h2>Dernier conseils municipaux</h2>
   <div class="card-home">
-      <div class="card-home-display">
-        <%= render 'shared/cards' %> <!-- Add link_to to card path -->
-      </div>
-      <div class="card-home-display">
-        <%= render 'shared/cards' %> <!-- Add link_to to card path -->
-      </div>
-      <div class="card-home-display">
-        <%= render 'shared/cards' %> <!-- Add link_to to card path -->
-      </div>
+    <% Decision.dates.first(3).each do |array| %>
+    <%= link_to former_path(council_date: array) do %>
+        <div class="card-home-display">
+          <div class="card-product">
+            <%= image_tag "Vote_banner.jpg" %>
+            <div class="card-product-infos">
+              <h2>Conseil municipal du <br> <%= array.strftime("%d %B %Y") %></h2>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
   </div>
 
 </div>
