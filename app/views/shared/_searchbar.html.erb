@@ -1,11 +1,19 @@
-
 <div class="search-control">
-<%= form_tag decisions_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "search decision"
-  %>
-<% end %>
-
+  <% if request.env['PATH_INFO'] == decisions_path %>
+    <%= form_tag decisions_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "search decision"
+      %>
+    <% end %>
+  <% else %>
+    <%= form_tag former_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "search decision"
+      %>
+    <% end %>
+  <% end %>
 </div>
