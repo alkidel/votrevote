@@ -16,7 +16,8 @@ class Decision < ApplicationRecord
 
   scope :future, -> { where("council_date >= ?", DateTime.now) }
   scope :past, -> { where("council_date < ?", DateTime.now) }
-  scope :category, -> (category) { where(category: category) }
+  scope :category, ->(category) { where(category: category) }
+  scope :council_date, -> { where(council_date: council_date) }
 
   def future?
     council_date > Date.today
@@ -24,6 +25,14 @@ class Decision < ApplicationRecord
 
   def past?
     !future?
+  end
+
+  def self.dates
+    dates = []
+    Decision.past.group(:council_date).order(council_date: :DESC).count.each do |council|
+      dates << council[0]
+    end
+    dates
   end
 
   def delete_photo
@@ -34,10 +43,10 @@ class Decision < ApplicationRecord
     votes.where.not(result: "pending").count
   end
 
-   include PgSearch
+  include PgSearch
   pg_search_scope :search_by_title_and_description_and_minutes,
-    against: [ :title, :description, :minutes ],
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: %i[title description minutes],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
