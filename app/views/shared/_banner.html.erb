@@ -10,8 +10,8 @@
       </div>
       <%= link_to decisions_path do %>
         <div class="white-background">
-          <h3><%= Decision.first.title %></h3>
-          <p><%= Decision.first.description %></p>
+          <h3><%= Decision.last.title %></h3>
+          <p><%= Decision.last.description %></p>
         </div>
       <% end %>
       <div class="call_to_action text-center">
