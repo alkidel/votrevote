@@ -17,6 +17,7 @@ class Decision < ApplicationRecord
   scope :future, -> { where("council_date >= ?", DateTime.now) }
   scope :past, -> { where("council_date < ?", DateTime.now) }
   scope :category, ->(category) { where(category: category) }
+  scope :council_date, -> { where(council_date: council_date) }
 
   def future?
     council_date > Date.today
@@ -28,7 +29,7 @@ class Decision < ApplicationRecord
 
   def self.dates
     dates = []
-    Decision.group(:council_date).count.each do |council|
+    Decision.past.group(:council_date).order(council_date: :DESC).count.each do |council|
       dates << council[0]
     end
     dates
