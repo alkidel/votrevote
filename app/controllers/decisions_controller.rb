@@ -1,5 +1,5 @@
 class DecisionsController < ApplicationController
-    before_action :set_decision, only: [:show, :edit, :update, :destroy]
+  before_action :set_decision, only: [:show, :edit, :update, :destroy]
 
   def show
     @decision = Decision.find(params[:id])
@@ -10,17 +10,19 @@ class DecisionsController < ApplicationController
     # @decisions = Decision.all
     # @past_decisions = Decision.past
 
-    @user_result = Vote.where(user: current_user)
-   
-    if params[:query].present?
-      @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
-    elsif params[:category]
-      @future_decisions = Decision.future.category(params[:category])
+    if Decision.all.length.positive?
+      @user_result = Vote.where(user: current_user)
+      if params[:query].present?
+        @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
+      elsif params[:category]
+        @future_decisions = Decision.future.category(params[:category])
+      else
+        @future_decisions = Decision.future
+      end
     else
-      @future_decisions = Decision.future
+      redirect_to root_path
     end
   end
-
 
   def former
     # @decisions = Decision.all
@@ -30,8 +32,6 @@ class DecisionsController < ApplicationController
     else
       @former_decisions = Decision.past
     end
-
-
   end
 
   def new
