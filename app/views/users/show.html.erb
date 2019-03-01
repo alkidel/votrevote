@@ -13,11 +13,11 @@
 
           <div class="chart-container">
             <div class="pie-chart-legend">
-              <div class="legend-all legend-commerce">Accepted</div>
+              <div class="legend-all legend-public-works">Accepted</div>
               <div class="legend-all legend-transport">Rejected</div>
             </div>
             <div class='accepted-rejected'>
-              <%= pie_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false %>
+              <%= pie_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#62BDE9", "#FDB631", "#D34286"], legend: false %>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
           </div> -->
           <div class="chart-container">
             <div class="categories-chart">
-              <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse, colors: ["#62BDE9"], height: "300px" %>
+              <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse, colors: ["#8380B6"], height: "300px" %>
             </div>
           </div>
 
