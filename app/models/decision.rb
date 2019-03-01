@@ -16,7 +16,7 @@ class Decision < ApplicationRecord
 
   scope :future, -> { where("council_date >= ?", DateTime.now) }
   scope :past, -> { where("council_date < ?", DateTime.now) }
-  scope :category, -> (category) { where(category: category) }
+  scope :category, ->(category) { where(category: category) }
 
   def future?
     council_date > Date.today
@@ -34,10 +34,10 @@ class Decision < ApplicationRecord
     votes.where.not(result: "pending").count
   end
 
-   include PgSearch
+  include PgSearch
   pg_search_scope :search_by_title_and_description_and_minutes,
-    against: [ :title, :description, :minutes ],
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: %i[title description minutes],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
