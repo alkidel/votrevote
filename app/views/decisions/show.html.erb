@@ -65,8 +65,23 @@
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane fade in active" id="description"><h1><%= @decision.description %></h1></div>
   <div role="tabpanel" class="tab-pane fade" id="stats">
-    <%= @decision.votes.where.not(result: 0).count %> votes
-    <%= pie_chart Vote.where(decision: @decision).where.not(result: 0).group(:result).count, colors: ["#8380B6","#EE5F5B","#32B796","#62BDE9","#D34286","#FDB631"],donut:true, legend: false %>
+    <% if @decision.result == Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0] %>
+      <h1 class="text-center">The city council and the public <strong>agree</strong> on this decision!</h1>
+      <% else %>
+      <h1 class="text-center">The city council and the public <strong>do not agree</strong> on this decision!</h1>
+    <% end %>
+
+    <p class="text-center">This decision has been<strong> <%= @decision.result %> </strong>by the city council</p>
+    <p class="text-center">This decision has been<strong> <%= Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0] %> </strong>by the majority of the public (number of public votes: <%= @decision.votes.with_results.count %>)</p>
+    <div class="chart-container">
+      <div class="pie-chart-legend">
+        <div class="legend-all legend-commerce">Accepted</div>
+        <div class="legend-all legend-transport">Rejected</div>
+      </div>
+      <div class='accepted-rejected'>
+        <%= pie_chart Vote.where(decision: @decision).with_results.group(:result).count, height: "250px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false, donut: true %>
+      </div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="minutes"><h1><%= @decision.minutes %> </h1></div>
 </div>
@@ -74,3 +89,5 @@
   </div>
 
 </div>
+
+
