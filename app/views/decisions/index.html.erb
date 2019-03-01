@@ -23,7 +23,7 @@
         <div class="card-decision" id="decision-<%= decision.id %>">
 
           <%= link_to decision_path(decision) do %>
-            <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 200, crop: :fill %>');">
+            <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 400, crop: :fill %>');">
 
                 <h2><%=decision.title %></h2>
             </div>
