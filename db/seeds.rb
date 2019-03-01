@@ -16,6 +16,7 @@ greg =  User.new({
   password_confirmation: 'topsecret'
 })
 
+greg.remote_photo_url = "https://avatars2.githubusercontent.com/u/27558438"
 greg.save!
 
 
@@ -27,7 +28,7 @@ alki = User.new({
   password: 'topsecret',
   password_confirmation: 'topsecret'
 })
-
+alki.remote_photo_url = "https://avatars3.githubusercontent.com/u/6272607"
 alki.save!
 
 pierre = User.new({
@@ -38,6 +39,7 @@ pierre = User.new({
   password: 'topsecret',
   password_confirmation: 'topsecret'
 })
+pierre.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/tmuwtd66xwga6yfafgpy.jpg"
 pierre.save!
 
 mathieu = User.new({
@@ -48,6 +50,7 @@ mathieu = User.new({
   password: 'topsecret',
   password_confirmation: 'topsecret'
 })
+mathieu.remote_photo_url = "https://avatars2.githubusercontent.com/u/45971412"
 mathieu.save!
 
 
@@ -61,6 +64,7 @@ mathieu.save!
     password: pwd,
     password_confirmation: pwd
   )
+  user.remote_photo_url = "http://kitt.lewagon.com/placeholder/users/ssaunier"
   user.save!
 end
 
