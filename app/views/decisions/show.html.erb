@@ -15,7 +15,7 @@
 
     <div class="card-decision-infos" id="decision-<%= @decision.id %>">
 
-    
+
       <div class="card-decision-infos-category <%= @decision.category.downcase %>">
         <%= @decision.category %>
       </div>
@@ -48,15 +48,15 @@
   <div class="body-show-description">
 
    <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" href="#description" role="tab" data-toggle="tab">Description</a>
+    <li class="nav-item active">
+      <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#description" role="tab" data-toggle="tab">Description</a>
     </li>
     <% if @decision.past? %>
     <li class="nav-item">
-      <a class="nav-link" href="#stats" role="tab" data-toggle="tab">Stats</a>
+      <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#stats" role="tab" data-toggle="tab">Stats</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#minutes" role="tab" data-toggle="tab">Minutes</a>
+      <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#minutes" role="tab" data-toggle="tab">Minutes</a>
     </li>
     <% end %>
   </ul>
