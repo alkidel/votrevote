@@ -9,6 +9,7 @@ class DecisionsController < ApplicationController
   def index
     # @decisions = Decision.all
     # @past_decisions = Decision.past
+    @vote_counter=current_user.votes.joins(:decision).where("council_date >?",Date.today).where.not(result:"pending").count
 
     if Decision.future.length.positive?
       @user_result = Vote.where(user: current_user)

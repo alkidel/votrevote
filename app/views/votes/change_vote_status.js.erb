@@ -16,6 +16,15 @@ function updateShowVotesCount() {
 }
 updateShowVotesCount();
 
+// pour updater le compteur
+function updateVoteCounter(){
+  const voteCounter = document.getElementById('vote_counter');
+  if (voteCounter){
+    voteCounter.innerHTML = "<%= @vote_counter %>";
+  }
+}
+updateVoteCounter();
+
 // gestion des class 'selected' sur les boutons
 // pour l'index
 function updateIndexButtonsClass() {
