@@ -18,6 +18,22 @@
   top: 0;
   z-index: 1;
 }
+
+.logo{
+  display: flex;
+  align-items: self-end;
+  color: white;
+}
+
+.brand-name{
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.logo-vote {
+  font-size: 30px;
+  font-weight: bolder;
+}
 /* Navbar in home */
 .navbar-home {
   // position: absolute;
@@ -32,7 +48,7 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 40px;
 }
 
 /* User Avatar */

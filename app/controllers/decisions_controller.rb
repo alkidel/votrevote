@@ -1,5 +1,5 @@
 class DecisionsController < ApplicationController
-    before_action :set_decision, only: [:show, :edit, :update, :destroy]
+  before_action :set_decision, only: [:show, :edit, :update, :destroy]
 
   def show
     @decision = Decision.find(params[:id])
@@ -11,28 +11,32 @@ class DecisionsController < ApplicationController
     # @past_decisions = Decision.past
     @vote_counter=current_user.votes.joins(:decision).where("council_date >?",Date.today).where.not(result:"pending").count
 
-    @user_result = Vote.where(user: current_user)
-
-    if params[:query].present?
-      @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
-    elsif params[:category]
-      @future_decisions = Decision.future.category(params[:category])
+    if Decision.future.length.positive?
+      @user_result = Vote.where(user: current_user)
+      if params[:query].present?
+        @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
+      elsif params[:category]
+        @future_decisions = Decision.future.category(params[:category])
+      else
+        @future_decisions = Decision.future
+      end
     else
-      @future_decisions = Decision.future
+      redirect_to root_path
     end
   end
-
 
   def former
     # @decisions = Decision.all
     # @past_decisions = Decision.past
-    if params[:category]
-      @former_decisions = Decision.past.category(params[:category])
+    if Decision.past.length.positive?
+      if params[:category]
+        @former_decisions = Decision.past.category(params[:category])
+      else
+        @former_decisions = Decision.past
+      end
     else
-      @former_decisions = Decision.past
+      redirect_to root_path
     end
-
-
   end
 
   def new
