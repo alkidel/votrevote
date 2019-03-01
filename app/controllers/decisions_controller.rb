@@ -29,7 +29,11 @@ class DecisionsController < ApplicationController
     # @decisions = Decision.all
     # @past_decisions = Decision.past
     if Decision.past.length.positive?
-      if params[:category]
+      if params[:query].present?
+        @former_decisions = Decision.past.search_by_title_and_description_and_minutes(params[:query])
+      elsif params[:council_date]
+        @former_decisions = Decision.past.where(council_date: params[:council_date])
+      elsif params[:category]
         @former_decisions = Decision.past.category(params[:category])
       else
         @former_decisions = Decision.past
