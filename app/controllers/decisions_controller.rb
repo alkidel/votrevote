@@ -9,16 +9,16 @@ class DecisionsController < ApplicationController
   def index
     # @decisions = Decision.all
     # @past_decisions = Decision.past
-    @vote_counter=current_user.votes.joins(:decision).where("council_date >?",Date.today).where.not(result:"pending").count
+    @vote_counter = current_user.votes.joins(:decision).where("council_date >?",Date.today).where.not(result:"pending").count
 
     if Decision.future.length.positive?
       @user_result = Vote.where(user: current_user)
       if params[:query].present?
-        @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
+        @future_decisions = Decision.future.order(created_at: :DESC).search_by_title_and_description_and_minutes(params[:query])
       elsif params[:category]
-        @future_decisions = Decision.future.category(params[:category])
+        @future_decisions = Decision.future.order(created_at: :DESC).category(params[:category])
       else
-        @future_decisions = Decision.future
+        @future_decisions = Decision.future.order(created_at: :DESC)
       end
     else
       redirect_to root_path
