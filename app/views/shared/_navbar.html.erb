@@ -2,7 +2,12 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <div class="logo">
     <%= image_tag "votre_vote.png", height: 50 %>
+    <div class="brand-name">
+      <span>otre </span>
+      <span class= "logo-vote">Vote</span></div>
+  </div>
   <% end %>
 
   <!-- Right Navigation -->
@@ -19,7 +24,7 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li> <%= link_to "Next Decisions", decisions_path %> </li>
             <li><%= link_to "My Dashboard", user_path(current_user) %></li>
