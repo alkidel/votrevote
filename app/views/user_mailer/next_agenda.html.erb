@@ -1,8 +1,11 @@
 <div class="container">
   <h1>Hello, <%= User.find(3).first_name %></h1>
   <h2> Voici l'agenda du prochain conseil municipal sur lequel nous vous invitons à vous prononcer</h2>
+  <h3>
+    Date <%= Decision[1].council_date %>
+  </h3>
 
   <p>
-    <%= @greeting %>, find me in app/views/user_mailer/next_agenda.html.erb
+    <% Decision %>
   </p>
 </div>
