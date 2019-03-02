@@ -48,7 +48,7 @@
   background-color: $white;
   color: black;
   padding: 20px;
-  width: 600px;
+  width: 80%;
   transition: .4s;
    &:hover {
       text-decoration: none;
@@ -79,6 +79,14 @@
 
 .call_to_action{
   margin-top: 20px;
+}
+
+
+@media (max-width: 568px) {
+.banner-content {
+  display: block;
+  margin-top: 30px;
+  }
 }
 
 
