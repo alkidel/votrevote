@@ -1,6 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path Decision.first.photo %>')">
     <div class="banner-countdown">
-        <h3><i class="far fa-calendar-alt"></i> J-10 until next council meeting</h3>
+        <h3>
+          <i class="far fa-calendar-alt"></i>
+          J-<%= (Decision.first.council_date - Date.today).to_i%> until next council
+        </h3>
     </div>
     <div class="banner-content">
       <div class="banner-buttons">
