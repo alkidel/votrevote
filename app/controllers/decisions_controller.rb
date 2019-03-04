@@ -55,6 +55,7 @@ class DecisionsController < ApplicationController
     @decision = Decision.new(decision_params)
     # @boat.user = current_user
     # authorize @boat
+
     if @decision.save
       redirect_to decision_path(@decision)
     else
@@ -79,7 +80,7 @@ class DecisionsController < ApplicationController
 
   def decision_params
     result = params[:result].to_i
-    params.require(:decision).permit(:title, :category, :description, :council_date, result, :minutes, :town_id, :photo)
+    params.require(:decision).permit(:title, :category, :description, :council_date, result, :minutes, :town_id, :photo, :accepted_votes, :rejected_votes, :deferred_votes)
   end
 
   def set_decision
