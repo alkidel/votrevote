@@ -3,6 +3,17 @@ class UsersController < ApplicationController
 
   def show
     # authorize @user
+    @user_council_accord = ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)
+    @user_public_accord = ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max[0] }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)
+    @user_categories = categories_by_numbers
+    @user_top_category = @user_categories.first[0]
+    @user_top_category_number_of_votes = ((Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse.first[1].to_f / @user.votes.with_results.count.to_f)*100).round(2)
+  end
+
+  def categories_by_numbers
+    Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse.map do |category|
+    [Decision.categories.key(category[0]), category[1]]
+  end
   end
 
   def new
