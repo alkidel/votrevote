@@ -97,6 +97,7 @@ background-position: center;
 display: flex;
 height: 420px;
 position: relative;
+overflow: hidden;
 
   .back {
     position: absolute;
@@ -155,20 +156,23 @@ position: relative;
     background-color: rgb(230,230,230)
 }
 .final_vote p{
+
     position: absolute;
-    top: 30px;
-    right: 30px;
-    font-size: 30px;
+    top: 53px;
+    right: -82px;
+    width: 355px;
+    font-size: 18px;
     border: solid;
     border-right: none;
     border-left: none;
     font-weight: bold;
-    margin-bottom:0px;
-    background-color:white;
     padding:10px;
-    opacity:0.65;
+    opacity:0.90;
     color:white;
+    -webkit-transform: rotate(40deg);
+    text-align: center;
 }
+
 #accept {
     border-color: green;
     background-color:green;
