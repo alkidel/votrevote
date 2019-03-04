@@ -1,12 +1,20 @@
 <div class="container">
 <div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
 
-
-  <%= link_to decisions_path do %>
-    <div class="back">
-      <i class="fas fa-arrow-left"></i>
-      <p>Back</p>
-    </div>
+  <% if @decision.future? %>
+    <%= link_to decisions_path do %>
+      <div class="back">
+        <i class="fas fa-arrow-left"></i>
+        <p>Back</p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to former_path do %>
+      <div class="back">
+        <i class="fas fa-arrow-left"></i>
+        <p>Back</p>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="show-banner-card">
