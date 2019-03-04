@@ -6,9 +6,10 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <div class="text-center">Vous êtes d'accord avec le conseil municipal <strong><%= @user_council_accord %>%</strong> du temps.</div>
+          <h4>Vous êtes d'accord avec :</h4>
+          <div class="text-center">le conseil municipal <strong><%= @user_council_accord %>%</strong> du temps.</div>
 
-           <div class="text-center">Vous êtes d'accord avec le public <strong><%= @user_public_accord %>%</strong> du temps.</div>
+           <div class="text-center">le public <strong><%= @user_public_accord %>%</strong> du temps.</div>
            <br>
 
           <% hash_votes = {"En accord avec le conseil" => @user_council_accord, "En accord avec le public" => @user_public_accord } %>
@@ -21,9 +22,9 @@
 
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
+          <h4>Votre catégorie préferée</h4>
           <div class="text-center">La catégorie pour laquelle vous avez la plus votée : <strong><%= @user_top_category %></strong>
-          </div>
-            <div>(<%= @user_top_category_number_of_votes %>% de vos votes)
+            (<%= @user_top_category_number_of_votes %>% de vos votes)
           </div>
 
           <div class="categories-chart">
@@ -34,12 +35,13 @@
 
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
+          <h4>Accepter, réfuser, quelle est votre tendance ?</h4>
             <div>Vous avez accepté <strong><%= Vote.of(@user).with_results.group(:result).count["accepté"] %></strong> décisions et refusé <strong><%= Vote.of(@user).with_results.group(:result).count["refusé"] %></strong> décisions :
             </div>
             <div class="pie-chart-container">
               <div class="pie-chart-legend">
-                <div class="legend-all legend-commerce">Accepté</div>
-                <div class="legend-all legend-transport">Refusé</div>
+                <div class="legend-all legend-finance">Accepté</div>
+                <div class="legend-all legend-culture">Refusé</div>
               </div>
               <div class='accepted-rejected'>
                 <%= pie_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false %>
@@ -50,8 +52,8 @@
 
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <div>Nombre de votes par date :
-          </div>
+          <h4>Quand est-ce que vous avez voté ?</h4>
+          <div>Nombre de votes par date :</div>
           <div class="graph-council-dates">
             <%= line_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count, height: "200px", colors: ["#32B796"] %>
           </div>

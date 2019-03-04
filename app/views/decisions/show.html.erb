@@ -19,7 +19,7 @@
 
       <div class="final_vote">
         <% if @decision.past?  %>
-          <% if @decision.result == "accepted" %>
+          <% if @decision.result == "accepté" %>
             <p id="accept">DÉCISION ACCEPTÉE </p>
           <% else %>
             <p id="reject"> DÉCISION REJETÉE </p>
@@ -83,23 +83,24 @@
 <!-- Tab panes -->
 
 <div class="tab-content">
-    <div role="tabpanel" class="tab-pane fade in active" id="description">
-      <h3><%= @decision.description %></h3>
+    <div role="tabpanel" class="tab-pane fade in active extra-padding" id="description">
+      <h4><%= @decision.description %></h4>
     </div>
 
 
-    <div role="tabpanel" class="tab-pane fade" id="stats">
+    <div role="tabpanel" class="tab-pane fade extra-padding" id="stats">
       <% if @decision.past? %>
         <%= render 'shared/stats_decision_show' %>
       <% end %>
 
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="minutes">
-      <h3><%= @decision.minutes %> </h3>
+    <div role="tabpanel" class="tab-pane fade extra-padding" id="minutes">
+      <h4><%= @decision.minutes %> </h4>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="commentaires">
-      <h3>CODE DE PIERRE </h3>
+    <div role="tabpanel" class="tab-pane fade extra-padding" id="commentaires">
+      <h4>CODE DE PIERRE </h4>
     </div>
+    <hr>
 
   </div>
 </div>

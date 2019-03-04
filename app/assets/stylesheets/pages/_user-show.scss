@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 400px;
+  height: 450px;
 
 
 }
@@ -22,6 +22,11 @@
 .pie-chart-container {
   display: flex;
   padding-top: 50px;
+}
+
+.pie-chart-container-decision {
+  display: flex;
+  padding-top: 20px;
 }
 
 .pie-chart-legend {
@@ -33,6 +38,7 @@
 .legend-all {
   color: white;
   font-size: 11px;
+  background-color: black;
   padding: 5px;
   margin: 5px;
   width: 100px;
