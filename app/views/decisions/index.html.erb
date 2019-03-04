@@ -30,7 +30,7 @@
           <% end %>
           <div class="card-decision-infos">
             <div class="card-decision-infos-category">
-              <%= link_to t("category", category: decision.category), decisions_path(category: decision.category), class: decision.category.downcase %>
+              <%= link_to decision.category, decisions_path(category: decision.category), class: decision.category.downcase %>
               <%=  %>
             </div>
             <div class="vote">
