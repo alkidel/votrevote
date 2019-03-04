@@ -86,6 +86,30 @@
 .dropdown {
   color: white;
 }
+
+.dropdown-black {
+  color: black;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-black-none {
+  display: none;
+}
+
+
+.dropdown-title {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  // border-bottom: 1px solid #999999;
+  padding: 5px;
+}
+
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
