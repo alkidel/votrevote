@@ -1,0 +1,31 @@
+
+        <h4 class="text-center">Le conseil municipal et le public sont en</h4>
+        <h3 class="text-center"><% if @decision.result == @public_result %>
+          <strong>accord</strong>
+        <% else %>
+          <strong>désaccord</strong>
+        <% end %>
+        </h3>
+        <h4 class="text-center">pour cette décision !</h4>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="chart-container extra-padding">
+            <p class="text-center">Cette décision a été<strong> <%= @decision.result %>e </strong>par le conseil municipal :</p>
+
+            <div class='accepted-rejected'>
+              <%= pie_chart @public_results, height: "250px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false, donut: true %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="chart-container">
+            <p class="text-center">Cette décision a été<strong> <%= @public_result %>e </strong>par la majorité du public (n° de votes publics : <%= @decision.votes.with_results.count %>)</p>
+
+            <div class='accepted-rejected'>
+              <%= pie_chart @public_results_by_numbers, height: "250px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false, donut: true %>
+            </div>
+          </div>
+        </div>
+      </div>

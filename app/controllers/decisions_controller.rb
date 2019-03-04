@@ -4,6 +4,8 @@ class DecisionsController < ApplicationController
   def show
     @decision = Decision.find(params[:id])
     @user_result = Vote.where(user: current_user, decision: @decision).first.result
+    @public_result = Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0]
+    @public_results_by_numbers = Vote.where(decision: @decision).with_results.group(:result).count
   end
 
   def index

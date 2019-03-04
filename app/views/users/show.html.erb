@@ -1,18 +1,17 @@
 <div class="content">
   <div class="container">
 
-
     <h3>Bonjour <%= @user.first_name %>, vous avez voté <strong><%= @user.votes.with_results.count %></strong> fois !</h3>
     <hr>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <div class="text-center">Vous êtes d'accord avec le conseil municipal <strong><%= ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)%>%</strong> du temps.</div>
+          <div class="text-center">Vous êtes d'accord avec le conseil municipal <strong><%= @user_council_accord %>%</strong> du temps.</div>
 
-           <div class="text-center">Vous êtes d'accord avec le public <strong><%= ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max[0] }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)%>%</strong> du temps.</div>
+           <div class="text-center">Vous êtes d'accord avec le public <strong><%= @user_public_accord %>%</strong> du temps.</div>
            <br>
 
-          <% hash_votes = {"En accord avec le conseil" => ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2), "En accord avec le public" => ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max[0] }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2) } %>
+          <% hash_votes = {"En accord avec le conseil" => @user_council_accord, "En accord avec le public" => @user_public_accord } %>
           <div class="categories-chart">
             <%= bar_chart hash_votes, max: 100, colors: ["#EE5F5B"], height: "200px" %>
           </div>
@@ -22,25 +21,25 @@
 
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <div class="text-center">La catégorie pour laquelle vous avez la plus votée : <strong><%= Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse.first[0] %></strong>
+          <div class="text-center">La catégorie pour laquelle vous avez la plus votée : <strong><%= @user_top_category %></strong>
           </div>
-            <div>(<%= ((Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse.first[1].to_f / @user.votes.with_results.count.to_f)*100).round(2) %>% de vos votes)
+            <div>(<%= @user_top_category_number_of_votes %>% de vos votes)
           </div>
 
           <div class="categories-chart">
-            <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse, colors: ["#62BDE9"], height: "300px" %>
+            <%= column_chart @user_categories, colors: ["#62BDE9"], height: "300px" %>
           </div>
         </div>
       </div>
 
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-            <div>Vous avez accepté <strong><%= Vote.of(@user).with_results.group(:result).count["accepted"] %></strong> décisions et refusé <strong><%= Vote.of(@user).with_results.group(:result).count["rejected"] %></strong> décisions :
+            <div>Vous avez accepté <strong><%= Vote.of(@user).with_results.group(:result).count["accepté"] %></strong> décisions et refusé <strong><%= Vote.of(@user).with_results.group(:result).count["refusé"] %></strong> décisions :
             </div>
             <div class="pie-chart-container">
               <div class="pie-chart-legend">
-                <div class="legend-all legend-commerce">Accepted</div>
-                <div class="legend-all legend-transport">Rejected</div>
+                <div class="legend-all legend-commerce">Accepté</div>
+                <div class="legend-all legend-transport">Refusé</div>
               </div>
               <div class='accepted-rejected'>
                 <%= pie_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false %>
