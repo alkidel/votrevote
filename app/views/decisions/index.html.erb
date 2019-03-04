@@ -2,11 +2,11 @@
   <%= render 'shared/categories' %>
 
   <div class="decisions-intro">
-    <div><h2>Vote today!</h2>
-      <h4>Next council meeting: <strong><%= @future_decisions.first.council_date.strftime("%B %C, %Y") %></strong></h4>
+    <div><h2></h2>
+      <h4>Prochain conseil municipal : <strong><%= l(@future_decisions.first.council_date, format: :long) %></strong></h4>
     </div>
       <div class="text-right">
-        <p>You have voted for</p>
+        <p>Vous avez donné votre avis sur</p>
         <h4><span id="vote_counter"><%= @vote_counter%></span>/<%= Decision.future.count %></h4>
         <p>decisions</p>
       </div>
@@ -31,17 +31,18 @@
           <div class="card-decision-infos">
             <div class="card-decision-infos-category">
               <%= link_to decision.category, decisions_path(category: decision.category), class: decision.category.downcase %>
+              <%=  %>
             </div>
             <div class="vote">
               <div>
                 <% user_vote = decision.votes.find_by(user: current_user) %>
                 <%= link_to accepted_vote_path(user_vote), remote: true do %>
-                  <i class="far fa-thumbs-up <%= 'selected' if user_vote %>"></i>
+                  <i class="far fa-thumbs-up <%= 'selected' if user_vote.result == "accepted" %>"></i>
                 <% end if user_vote %>
               </div>
               <div>
                 <%= link_to rejected_vote_path(user_vote), remote: true do %>
-                  <i class="far fa-thumbs-down <%= 'selected' if user_vote %>"></i>
+                  <i class="far fa-thumbs-down <%= 'selected' if user_vote.result == "rejected" %>"></i>
                 <% end if user_vote %>
               </div>
               <!-- <div><a href="#"><i class="far fa-thumbs-up"></i></a></div>

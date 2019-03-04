@@ -2,7 +2,7 @@
   <h1>Hello, <%= User.find(3).first_name %></h1>
   <h2> Voici l'agenda du prochain conseil municipal sur lequel nous vous invitons à vous prononcer</h2>
   <h3>
-    Date <%= Decision[1].council_date %>
+    <%= Date.today %>
   </h3>
 
   <p>

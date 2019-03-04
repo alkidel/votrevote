@@ -1,11 +1,21 @@
 <div class="container">
-  <div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
+<div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
+
+  <% if @decision.future? %>
     <%= link_to decisions_path do %>
       <div class="back">
         <i class="fas fa-arrow-left"></i>
         <p>Back</p>
       </div>
     <% end %>
+  <% else %>
+    <%= link_to former_path do %>
+      <div class="back">
+        <i class="fas fa-arrow-left"></i>
+        <p>Back</p>
+      </div>
+    <% end %>
+  <% end %>
 
     <div class="final_vote">
       <% if @decision.past?  %>
@@ -17,12 +27,12 @@
       <% end %>
     </div>
 
+
+
     <div class="show-banner-card">
       <h1> <%= @decision.title %> </h1>
 
-
       <div class="card-decision-infos" id="decision-<%= @decision.id %>">
-
 
         <div class="card-decision-infos-category <%= @decision.category.downcase %>">
           <%= @decision.category %>
@@ -54,20 +64,20 @@
   </div>
 
   <div class="body-show-description">
-
-   <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item active">
-      <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#description" role="tab" data-toggle="tab">Description</a>
-    </li>
-    <% if @decision.past? %>
-    <li class="nav-item">
-      <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#stats" role="tab" data-toggle="tab">Stats</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#minutes" role="tab" data-toggle="tab">Minutes</a>
-    </li>
-    <% end %>
-  </ul>
+     <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item active">
+        <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#description" role="tab" data-toggle="tab">Description</a>
+      </li>
+      <% if @decision.past? %>
+      <li class="nav-item">
+        <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#stats" role="tab" data-toggle="tab">Stats</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bdt-color-<%= @decision.category.downcase.gsub(" ", "-") %>" href="#minutes" role="tab" data-toggle="tab">Minutes</a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 
 <!-- Tab panes -->
 <div class="tab-content">
@@ -109,8 +119,25 @@
   <div role="tabpanel" class="tab-pane fade" id="minutes"><h1><%= @decision.minutes %> </h1></div>
 </div>
 
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="chart-container">
+            <p class="text-center">Cette décision a été<strong> <%= Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0] %> </strong>par la majorité du public (n° de votes publics : <%= @decision.votes.with_results.count %>)</p>
+            <div class="pie-chart-legend">
+              <div class="legend-all legend-commerce">Accepté</div>
+              <div class="legend-all legend-transport">Refusé</div>
+            </div>
+            <div class='accepted-rejected'>
+              <%= pie_chart Vote.where(decision: @decision).with_results.group(:result).count, height: "250px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false, donut: true %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <div role="tabpanel" class="tab-pane fade" id="minutes"><h1><%= @decision.minutes %> </h1></div>
   </div>
 
 </div>
+
 
 
