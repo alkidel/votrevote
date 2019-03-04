@@ -118,6 +118,19 @@ puts 'Creating 20 fake decisions for last 5 city councils...'
   decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
   decision.remote_photo_url = url
   decision.save!
-end
+
+  end
+
+  puts 'Adding fake votes for each decisions'
+  Decision.past.each do |decision|
+    User.all.each do |user|
+    vote = user.votes.where(decision_id: decision.id)
+    vote[0].result = rand(0..2)
+    vote[0].save!
+    end
+  end
+
+
+
 
 puts 'Finished!'
