@@ -1,49 +1,57 @@
 <div class="container">
-<div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
-
-
-  <%= link_to decisions_path do %>
-    <div class="back">
-      <i class="fas fa-arrow-left"></i>
-      <p>Back</p>
-    </div>
-  <% end %>
-
-  <div class="show-banner-card">
-    <h1> <%= @decision.title %> </h1>
-
-
-    <div class="card-decision-infos" id="decision-<%= @decision.id %>">
-
-
-      <div class="card-decision-infos-category <%= @decision.category.downcase %>">
-        <%= @decision.category %>
+  <div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
+    <%= link_to decisions_path do %>
+      <div class="back">
+        <i class="fas fa-arrow-left"></i>
+        <p>Back</p>
       </div>
+    <% end %>
 
-      <% if @decision.future? %>
-      <div class="vote" id="show-vote">
-        <div>
-          <%= link_to accepted_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
-            <i class="far fa-thumbs-up <%= 'selected' if @user_result=='accepted' %>" id="change_a"></i>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to rejected_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
-            <i class="far fa-thumbs-down <%= 'selected' if @user_result=='rejected' %> " id="change_r"></i>
-          <% end %>
-        </div>
-        <!-- <div><a href="#"></a></div> -->
-        <!-- <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
-      </div>
+    <div class="final_vote">
+      <% if @decision.past?  %>
+        <% if @decision.result == "accepted" %>
+          <p id="accept">DÉCISION ACCEPTÉE </p>
+        <% else %>
+          <p id="reject"> DÉCISION REJETÉE </p>
+        <% end %>
       <% end %>
+    </div>
 
-      <div class="votes-infos">
-        <h4 id="votes-count" class="text-center"><%= @decision.votes_count %> </h4>
-        <p class="text-center">votes</p>
+    <div class="show-banner-card">
+      <h1> <%= @decision.title %> </h1>
+
+
+      <div class="card-decision-infos" id="decision-<%= @decision.id %>">
+
+
+        <div class="card-decision-infos-category <%= @decision.category.downcase %>">
+          <%= @decision.category %>
+        </div>
+
+        <% if @decision.future? %>
+        <div class="vote" id="show-vote">
+          <div>
+            <%= link_to accepted_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
+              <i class="far fa-thumbs-up <%= 'selected' if @user_result=='accepted' %>" id="change_a"></i>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to rejected_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
+              <i class="far fa-thumbs-down <%= 'selected' if @user_result=='rejected' %> " id="change_r"></i>
+            <% end %>
+          </div>
+          <!-- <div><a href="#"></a></div> -->
+          <!-- <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
+        </div>
+        <% end %>
+
+        <div class="votes-infos">
+          <h4 id="votes-count" class="text-center"><%= @decision.votes_count %> </h4>
+          <p class="text-center">votes</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <div class="body-show-description">
 

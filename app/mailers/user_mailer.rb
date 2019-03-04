@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.next_agenda.subject
   #
-  def next_agenda
-    mail to: "to@example.org"
+  def next_agenda()
+    mail to: User.find(3).email
   end
 end
