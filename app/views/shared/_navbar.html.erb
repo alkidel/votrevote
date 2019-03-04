@@ -16,31 +16,31 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Next Decisions", decisions_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Dashboard", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Past Decisions", former_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Prochaines décisions", decisions_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Mon tableau de bord", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Anciennes décisions", former_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li> <%= link_to "Next Decisions", decisions_path %> </li>
-            <li><%= link_to "My Dashboard", user_path(current_user) %></li>
-            <li><%= link_to "Past Decisions", former_path %></li>
+            <li> <%= link_to "Prochaines décisions", decisions_path %> </li>
+            <li><%= link_to "Mon tableau de bord", user_path(current_user) %></li>
+            <li><%= link_to "Anciennes décisions", former_path %></li>
             <li>
               <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profil") %>
               <% end %>
             </li>
             <li>
               <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Réglages") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Se déconnecter") %>
               <% end %>
             </li>
           </ul>
