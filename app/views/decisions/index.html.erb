@@ -35,14 +35,15 @@
             </div>
             <div class="vote">
               <div>
-                <%= link_to accepted_vote_path(decision.votes.find_by(user: current_user)), remote: true do %>
-                  <i class="far fa-thumbs-up <%= 'selected' if decision.votes.where(result: "accepted").find_by(user: current_user) %>" id="change_a"></i>
-                <% end %>
+                <% user_vote = decision.votes.find_by(user: current_user) %>
+                <%= link_to accepted_vote_path(user_vote), remote: true do %>
+                  <i class="far fa-thumbs-up <%= 'selected' if user_vote %>"></i>
+                <% end if user_vote %>
               </div>
               <div>
-                <%= link_to rejected_vote_path(decision.votes.find_by(user: current_user)), remote: true do %>
-                  <i class="far fa-thumbs-down <%= 'selected' if decision.votes.where(result: "rejected").find_by(user: current_user) %> " id="change_r"></i>
-                <% end %>
+                <%= link_to rejected_vote_path(user_vote), remote: true do %>
+                  <i class="far fa-thumbs-down <%= 'selected' if user_vote %>"></i>
+                <% end if user_vote %>
               </div>
               <!-- <div><a href="#"><i class="far fa-thumbs-up"></i></a></div>
               <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
