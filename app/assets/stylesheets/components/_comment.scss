@@ -1,0 +1,26 @@
+.comment_list{
+  display: flex;
+  ul{
+    list-style-type: none;
+  }
+}
+#comment_content{
+  overflow: hidden;
+  width: 70vw;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 7px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin:5px;
+  border-radius: 5px;
+}
+
+.comment_user{
+  font-weight: bold;
+  margin:30px;
+}
+
+.comment_form{
+  margin-left:46px;
+}

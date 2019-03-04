@@ -1,8 +1,8 @@
 <div class="container">
-<div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
+  <div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
 
-  <% if @decision.future? %>
-    <%= link_to decisions_path do %>
+    <% if @decision.future? %>
+      <%= link_to decisions_path do %>
       <div class="back">
         <i class="fas fa-arrow-left"></i>
         <p>Back</p>
@@ -119,19 +119,27 @@
       </div>
     <div role="tabpanel" class="tab-pane fade" id="minutes"><h1><%= @decision.minutes %> </h1></div>
   </div>
-  <h3>
-    Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.
-  </h3>
+  <div class="comment_title">
+     <h3>
+      Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.
+    </h3>
+  </div>
   <div class="comment_list">
     <ul>
       <% @decision.comments.each do |comment| %>
-        <%= comment.user.photo %> <%= comment.user.first_name %>
         <li>
-           <%= comment.content %>
+           <div id="comment_content">
+            <div class="comment_user">
+              <%= comment.user.photo %> <%= comment.user.first_name %> <%= comment.user.last_name %>
+            </div>
+            <%= comment.content %>
+           </div>
         </li>
-        <% end %>
+      <% end %>
     </ul>
   </div>
+</div>
+
   <div class="comment_form">
     <%= simple_form_for [@decision, Comment.new ] do |f| %>
       <%= f.input :content, placeholder: "Laissez-nous votre avis", label:"Commentaires:"  %>
@@ -139,6 +147,5 @@
     <% end %>
   </div>
 </div>
-
 
 
