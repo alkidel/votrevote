@@ -1,4 +1,4 @@
-<div class="categories-decisions">
+<div class="categories-decisions hidden-xs">
   <div class="navbar-decisions">
   <% if request.env['PATH_INFO'] == decisions_path %>
   <%= link_to "Commerce", decisions_path(category: "Commerce"), class: "commerce" %>
@@ -21,4 +21,25 @@
   </div>
    <%= render 'shared/searchbar' %>
 </div>
+
+
+<div class="navbar-wagon-item hidden-sm hidden-md hidden-lg">
+    <div class="dropdown-black">
+      <div class="dropdown-title">
+        <div>Catégorie</div>
+        <div><i class="fa fa-bars dropdown-toggle" data-toggle="dropdown-black"></i></div>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to "Commerce", decisions_path(category: "Commerce") %></li>
+        <li><%= link_to "Education", decisions_path(category: "Education") %></li>
+        <li><%= link_to "Environment", decisions_path(category: "Environment") %></li>
+        <li><%= link_to "Transport", decisions_path(category: "Transport")%></li>
+        <li><%= link_to "Waste", decisions_path(category: "Waste") %></li>
+        <li><%= link_to "Show All", decisions_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
 
