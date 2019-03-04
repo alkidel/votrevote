@@ -220,6 +220,11 @@ fr:
 
   category:
     environment: "Environnement"
-
+    finance: "Finance"
+    education: "Education"
+    works: "Urbanisme"
+    culture: "Culture"
+    housing: "Logement"
+    show_all: "Tout voir"
   dashboard:
     title: "Hello %{user}, voici vos statistiques"

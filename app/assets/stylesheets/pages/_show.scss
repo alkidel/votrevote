@@ -39,26 +39,26 @@ a.nav-item.active {
 }
 }
 
-.active > .bdt-color-commerce {
-  border-top-color: $commerce !important;
+.active > .bdt-color-finance {
+  border-top-color: $finance !important;
 }
 
 .active > .bdt-color-environment {
   border-top-color: $environment !important;
 }
 
-.active > .bdt-color-waste-management {
-  border-top-color: $waste-mgmt !important;
+.active > .bdt-color-housing {
+  border-top-color: $housing !important;
 }
 
 .active > .bdt-color-public-works {
-  border-top-color: $environment !important;
+  border-top-color: $public-works !important;
 }
 
-.active > .bdt-color-transport {
-  border-top-color: $environment !important;
+.active > .bdt-color-culture {
+  border-top-color: $culture !important;
 }
 
 .active > .bdt-color-education {
-  border-top-color: $environment !important;
+  border-top-color: $education !important;
 }
