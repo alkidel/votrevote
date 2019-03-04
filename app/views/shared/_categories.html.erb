@@ -1,4 +1,4 @@
-<div class="categories-decisions">
+<div class="categories-decisions hidden-xs">
   <div class="navbar-decisions">
   <% if request.env['PATH_INFO'] == decisions_path %>
   <%= link_to "Finance", decisions_path(category: "Finance"), class: "finance" %>
@@ -22,4 +22,58 @@
   </div>
    <%= render 'shared/searchbar' %>
 </div>
+
+
+<div class="categories-decisions hidden-sm hidden-md hidden-lg">
+  <div class="navbar-decisions">
+    <% if request.env['PATH_INFO'] == decisions_path %>
+      <div class='extra-padding'>
+        <%= link_to "Commerce", decisions_path(category: "Commerce"), class: "commerce" %>
+        <%= link_to "Education", decisions_path(category: "Education"), class: "education" %>
+        <%= link_to "Environment", decisions_path(category: "Environment"), class: "environment" %>
+      </div>
+      <div class='extra-padding'>
+        <%= link_to "Transport", decisions_path(category: "Transport"), class: "transport" %>
+        <%= link_to "Waste", decisions_path(category: "Waste"), class: "waste" %>
+        <%= link_to "Show All", decisions_path, class: "btn-all" %>
+      </div>
+    <% else %>
+      <div>
+        <%= link_to "Commerce", former_path(category: "Commerce"), class: "commerce" %>
+        <%= link_to "Education", former_path(category: "Education"), class: "education" %>
+        <%= link_to "Environment", former_path(category: "Environment"), class: "environment" %>
+      </div>
+      <div>
+        <%= link_to "Transport", former_path(category: "Transport"), class: "transport" %>
+        <%= link_to "Waste", former_path(category: "Waste"), class: "waste" %>
+        <%= link_to "Show All", former_path, class: "btn-all" %>
+      </div>
+  <% end %>
+      <div class='extra-padding search-responsive'>
+        <%= render 'shared/searchbar' %>
+      </div>
+  </div>
+</div>
+
+<!--
+<div class="navbar-wagon-item hidden-sm hidden-md hidden-lg">
+  <div class="dropdown-black">
+    <div class="dropdown-title">
+      <div>Catégorie</div>
+      <div><i class="fa fa-bars dropdown-toggle dropdown-black" id="dropdown-black-btn"></i>
+      </div>
+    </div>
+    <ul class="dropdown-black-none navbar-wagon-dropdown-menu list-unstyled" id='dropdown-black-items'>
+      <li><%= link_to "Commerce", decisions_path(category: "Commerce") %></li>
+      <li><%= link_to "Education", decisions_path(category: "Education") %></li>
+      <li><%= link_to "Environment", decisions_path(category: "Environment") %></li>
+      <li><%= link_to "Transport", decisions_path(category: "Transport")%></li>
+      <li><%= link_to "Waste", decisions_path(category: "Waste") %></li>
+      <li><%= link_to "Show All", decisions_path %></li>
+    </ul>
+  </div>
+</div>
+
+
+ -->
 
