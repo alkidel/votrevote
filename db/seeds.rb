@@ -5,7 +5,7 @@ Decision.destroy_all
 Town.destroy_all
 User.destroy_all
 
-puts 'Creating 4 real users & 50 fake users ...'
+puts 'Creating 4 real users & 10 fake users ...'
 
 greg =  User.new({
   first_name: "Grégoire",
@@ -115,7 +115,7 @@ puts 'Creating 20 fake decisions for last 5 city councils...'
     council_date: DECISIONS_PAST.sample,
     town_id: Town.first.id
   )
-  decision.add_council_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
+  decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
   decision.remote_photo_url = url
   decision.save!
 end
