@@ -1,67 +1,63 @@
 <div class="content">
   <div class="container">
 
-    <h3>Hi <%= @user.first_name %>, you have voted <strong><%= @user.votes.with_results.count %></strong> times (accepted: <%= Vote.of(@user).with_results.group(:result).count["accepted"] %>, rejected: <%= Vote.of(@user).with_results.group(:result).count["rejected"] %>):</h3>
+    <h3>Bonjour <%= @user.first_name %>, vous avez voté <strong><%= @user.votes.with_results.count %></strong> fois !</h3>
     <hr>
-
-    <div class='dashboard-group'>
-      <div class="chart-container">
-        <div>You agree with the council: <strong><%= ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)%>%</strong> of the time.</div>
-
-         <div>You agree with the public: <strong><%= ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max[0] }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)%>%</strong> of the time.</div>
-         <br>
-
-        <% hash_votes = {"Agreed with council" => ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2), "Agreed with public" => ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max[0] }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2) } %>
-        <div class="categories-chart">
-          <%= bar_chart hash_votes, max: 100, colors: ["#EE5F5B"], height: "200px" %>
-        </div>
-      </div>
-      <div class="chart-container">
-        <div>The category for which you most voted is: <strong><%= Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse.first[0] %></strong>
-        </div>
-          <div>(<%= ((Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse.first[1].to_f / @user.votes.with_results.count.to_f)*100).round(2) %>% of your votes)
-        </div>
-
-        <div class="categories-chart">
-          <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse, colors: ["#62BDE9"], height: "300px" %>
-        </div>
-      </div>
-    </div>
-
-    <div class="dashboard-group">
-      <div class="chart-container">
-        <div class="graph-council-dates">
-          <%= line_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count, height: "200px", colors: ["#32B796"] %>
-        </div>
-      </div>
-
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <div class="pie-chart-legend">
-            <div class="legend-all legend-commerce">Accepted</div>
-            <div class="legend-all legend-transport">Rejected</div>
+          <div class="text-center">Vous êtes d'accord avec le conseil municipal <strong><%= ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)%>%</strong> du temps.</div>
+
+           <div class="text-center">Vous êtes d'accord avec le public <strong><%= ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max[0] }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2)%>%</strong> du temps.</div>
+           <br>
+
+          <% hash_votes = {"En accord avec le conseil" => ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2), "En accord avec le public" => ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max[0] }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2) } %>
+          <div class="categories-chart">
+            <%= bar_chart hash_votes, max: 100, colors: ["#EE5F5B"], height: "200px" %>
           </div>
-          <div class='accepted-rejected'>
-            <%= pie_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false %>
-          </div>
-        </div>
         </div>
       </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="chart-container">
+          <div class="text-center">La catégorie pour laquelle vous avez la plus votée : <strong><%= Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse.first[0] %></strong>
+          </div>
+            <div>(<%= ((Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse.first[1].to_f / @user.votes.with_results.count.to_f)*100).round(2) %>% de vos votes)
+          </div>
+
+          <div class="categories-chart">
+            <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:category).count.sort_by {|k,v| v}.reverse, colors: ["#62BDE9"], height: "300px" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="chart-container">
+            <div>Vous avez accepté <strong><%= Vote.of(@user).with_results.group(:result).count["accepted"] %></strong> décisions et refusé <strong><%= Vote.of(@user).with_results.group(:result).count["rejected"] %></strong> décisions :
+            </div>
+            <div class="pie-chart-container">
+              <div class="pie-chart-legend">
+                <div class="legend-all legend-commerce">Accepted</div>
+                <div class="legend-all legend-transport">Rejected</div>
+              </div>
+              <div class='accepted-rejected'>
+                <%= pie_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false %>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="chart-container">
+          <div>Nombre de votes par date :
+          </div>
+          <div class="graph-council-dates">
+            <%= line_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count, height: "200px", colors: ["#32B796"] %>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-
-
-
-<hr>
-
-
-
-
-
-
-<%#= bar_chart ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.result }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2), ((Vote.of(@user).with_results.select { |vote| vote.result == vote.decision.votes.group(:result).count.max[0] }.count.to_f /  @user.votes.with_results.count.to_f)*100).round(2), colors: ["#EE5F5B"]
-
-%>
-<hr>
-
+    <hr>
   </div>
 </div>
