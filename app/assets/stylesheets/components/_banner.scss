@@ -97,6 +97,7 @@ background-position: center;
 display: flex;
 height: 420px;
 position: relative;
+overflow: hidden;
 
   .back {
     position: absolute;
@@ -157,21 +158,18 @@ position: relative;
 .final_vote p{
 
     position: absolute;
-    top: 60px;
-    right: -10px;
-    width: 300px;
+    top: 53px;
+    right: -82px;
+    width: 355px;
     font-size: 18px;
     border: solid;
     border-right: none;
     border-left: none;
     font-weight: bold;
-    background-color:white;
     padding:10px;
-    opacity:0.75;
+    opacity:0.90;
     color:white;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(40deg);
     text-align: center;
 }
 
