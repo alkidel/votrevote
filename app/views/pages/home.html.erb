@@ -11,7 +11,7 @@
             <div class="card-product">
               <%= image_tag "Vote_banner.jpg" %>
               <div class="card-product-infos">
-                <h2>Conseil municipal du <br> <%= array.strftime("%d %B %Y") %></h2>
+                <h2>Conseil municipal du <br> <%= l(array, format: :long) %></h2>
               </div>
             </div>
           </div>

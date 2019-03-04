@@ -1,7 +1,7 @@
 <div class="content">
   <div class="container">
 
-      <h3>Hi <%= @user.first_name %>, here are your stats:</h3>
+      <h3><%= t("dashboard.title", user: @user.first_name) %></h3>
 
       <div class='dashboard-group'>
         You have voted <strong><%= @user.votes.with_results.count %></strong> times (accepted: <%= Vote.of(@user).with_results.group(:result).count["accepted"] %>, rejected: <%= Vote.of(@user).with_results.group(:result).count["rejected"] %>):
