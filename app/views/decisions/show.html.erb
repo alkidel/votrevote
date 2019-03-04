@@ -1,49 +1,57 @@
 <div class="container">
-<div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
-
-
-  <%= link_to decisions_path do %>
-    <div class="back">
-      <i class="fas fa-arrow-left"></i>
-      <p>Back</p>
-    </div>
-  <% end %>
-
-  <div class="show-banner-card">
-    <h1> <%= @decision.title %> </h1>
-
-
-    <div class="card-decision-infos" id="decision-<%= @decision.id %>">
-
-
-      <div class="card-decision-infos-category <%= @decision.category.downcase %>">
-        <%= @decision.category %>
+  <div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
+    <%= link_to decisions_path do %>
+      <div class="back">
+        <i class="fas fa-arrow-left"></i>
+        <p>Back</p>
       </div>
+    <% end %>
 
-      <% if @decision.future? %>
-      <div class="vote" id="show-vote">
-        <div>
-          <%= link_to accepted_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
-            <i class="far fa-thumbs-up <%= 'selected' if @user_result=='accepted' %>" id="change_a"></i>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to rejected_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
-            <i class="far fa-thumbs-down <%= 'selected' if @user_result=='rejected' %> " id="change_r"></i>
-          <% end %>
-        </div>
-        <!-- <div><a href="#"></a></div> -->
-        <!-- <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
-      </div>
+    <div class="final_vote">
+      <% if @decision.past?  %>
+        <% if @decision.result == "accepted" %>
+          <p id="accept">DÉCISION ACCEPTÉE </p>
+        <% else %>
+          <p id="reject"> DÉCISION REJETÉE </p>
+        <% end %>
       <% end %>
+    </div>
 
-      <div class="votes-infos">
-        <h4 id="votes-count" class="text-center"><%= @decision.votes_count %> </h4>
-        <p class="text-center">votes</p>
+    <div class="show-banner-card">
+      <h1> <%= @decision.title %> </h1>
+
+
+      <div class="card-decision-infos" id="decision-<%= @decision.id %>">
+
+
+        <div class="card-decision-infos-category <%= @decision.category.downcase %>">
+          <%= @decision.category %>
+        </div>
+
+        <% if @decision.future? %>
+        <div class="vote" id="show-vote">
+          <div>
+            <%= link_to accepted_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
+              <i class="far fa-thumbs-up <%= 'selected' if @user_result=='accepted' %>" id="change_a"></i>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to rejected_vote_path(@decision.votes.find_by(user: current_user)), remote: true do %>
+              <i class="far fa-thumbs-down <%= 'selected' if @user_result=='rejected' %> " id="change_r"></i>
+            <% end %>
+          </div>
+          <!-- <div><a href="#"></a></div> -->
+          <!-- <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
+        </div>
+        <% end %>
+
+        <div class="votes-infos">
+          <h4 id="votes-count" class="text-center"><%= @decision.votes_count %> </h4>
+          <p class="text-center">votes</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <div class="body-show-description">
 
@@ -66,14 +74,22 @@
   <div role="tabpanel" class="tab-pane fade in active" id="description"><h1><%= @decision.description %></h1></div>
   <div role="tabpanel" class="tab-pane fade" id="stats">
     <% if @decision.result == Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0] %>
-      <h1 class="text-center">The city council and the public <strong>agree</strong> on this decision!</h1>
+      <h1 class="text-center">Le conseil municipal et le public sont en <strong>accord</strong> pour cette décision !</h1>
       <% else %>
-      <h1 class="text-center">The city council and the public <strong>do not agree</strong> on this decision!</h1>
+      <h1 class="text-center">Le conseil municipal et le public sont en <strong>désaccord</strong> pour cette décision !</h1>
     <% end %>
-
-    <p class="text-center">This decision has been<strong> <%= @decision.result %> </strong>by the city council</p>
-    <p class="text-center">This decision has been<strong> <%= Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0] %> </strong>by the majority of the public (number of public votes: <%= @decision.votes.with_results.count %>)</p>
     <div class="chart-container">
+      <p class="text-center">Cette décision a été<strong> <%= @decision.result %> </strong>par le conseil municipal :</p>
+      <div class="pie-chart-legend">
+        <div class="legend-all legend-commerce">Accepté</div>
+        <div class="legend-all legend-transport">Refusé</div>
+      </div>
+      <div class='accepted-rejected'>
+        <%= pie_chart Vote.where(decision: @decision).with_results.group(:result).count, height: "250px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false, donut: true %>
+      </div>
+    </div>
+    <div class="chart-container">
+      <p class="text-center">This decision has been<strong> <%= Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0] %> </strong>by the majority of the public (number of public votes: <%= @decision.votes.with_results.count %>)</p>
       <div class="pie-chart-legend">
         <div class="legend-all legend-commerce">Accepted</div>
         <div class="legend-all legend-transport">Rejected</div>
@@ -89,5 +105,6 @@
   </div>
 
 </div>
+
 
 
