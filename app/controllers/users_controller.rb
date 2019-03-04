@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     # authorize @user
+    @user.votes.with_results.count
   end
 
   def new
