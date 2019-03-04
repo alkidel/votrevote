@@ -1,6 +1,7 @@
 <div class="content">
   <div class="container">
 
+
     <h3>Bonjour <%= @user.first_name %>, vous avez voté <strong><%= @user.votes.with_results.count %></strong> fois !</h3>
     <hr>
     <div class="row">
@@ -17,6 +18,7 @@
           </div>
         </div>
       </div>
+
 
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">

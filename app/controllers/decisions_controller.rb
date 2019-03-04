@@ -56,7 +56,6 @@ class DecisionsController < ApplicationController
     # @boat.user = current_user
     # authorize @boat
     if @decision.save
-      Vote.new
       redirect_to decision_path(@decision)
     else
       render :new

@@ -19,6 +19,8 @@ class Decision < ApplicationRecord
   scope :category, ->(category) { where(category: category) }
   scope :council_date, -> { where(council_date: council_date) }
 
+  after_create :add_vote_to_users
+
   def future?
     council_date > Date.today
   end
@@ -41,6 +43,15 @@ class Decision < ApplicationRecord
 
   def votes_count
     votes.where.not(result: "pending").count
+  end
+
+  def add_vote_to_users
+    User.all.each do |user|
+      vote = Vote.new
+      vote.user = user
+      vote.decision = self
+      vote.save!
+    end
   end
 
   include PgSearch

@@ -79,16 +79,16 @@
   }
 }
 
-.transport {
+.culture {
   color: black;
   padding: 5px;
   // background-color: white;
-  border: 1px solid $transport;
+  border: 1px solid $culture;
   transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
-    background-color: $transport;
+    background-color: $culture;
     transition: .4s;
   }
 }
@@ -107,30 +107,30 @@
   }
 }
 
-.waste {
+.housing {
   color: black;
   padding: 5px;
   // background-color: white;
-  border: 1px solid $waste-mgmt;
+  border: 1px solid $housing;
   transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
-    background-color: $waste-mgmt;
+    background-color: $housing;
     transition: .4s;
   }
 }
 
-.commerce {
+.finance {
   color: black;
   padding: 5px;
   // background-color: white;
-  border: 1px solid $commerce;
+  border: 1px solid $finance;
   transition: .4s;
   &:hover {
     text-decoration: none;
     color: white;
-    background-color: $commerce;
+    background-color: $finance;
     transition: .4s;
   }
 }
