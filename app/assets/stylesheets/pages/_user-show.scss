@@ -1,19 +1,32 @@
 .dashboard-group {
-  padding: 50px 0px;
-}
-.votes-global {
+  padding: 20px 0px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .chart-container {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  padding: 20px;
+  margin: 5px;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  height: 400px;
+
+
+}
+
+.pie-chart-container {
+  display: flex;
+  padding-top: 50px;
 }
 
 .pie-chart-legend {
   width: 100px;
+  padding-top: 50px;
   padding-left: 100px;
 }
 
@@ -38,13 +51,13 @@
 
 .graph-council-dates {
   width: 500px;
-  padding: 10px;
+  padding: 50px 10px 10px 10px;
 }
 
 
 
 .categories-chart {
-  width: 800px;
+  width: 400px;
   padding: 10px;
 }
 
