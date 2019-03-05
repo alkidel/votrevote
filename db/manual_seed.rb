@@ -7,7 +7,7 @@ decision = Decision.new(
   description: "Livraison courant 2020",
   result: 0,
   minutes: '',
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url
@@ -21,7 +21,7 @@ decision = Decision.new(
   description: "Libération d'espaces",
   result: 0,
   minutes: '',
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url
@@ -35,7 +35,7 @@ decision = Decision.new(
   description: "Traitement des déchets",
   result: 0,
   minutes: '',
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url
@@ -48,7 +48,7 @@ decision = Decision.new(
   description: "Contrats relevant du nettoyage des classes",
   result: 0,
   minutes: '',
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url
@@ -61,7 +61,7 @@ decision = Decision.new(
   description: "Suite aux déboires judiciaires de notre ancien éducateur sportif, nous devons en trouver un plus adapté à notre ville",
   result: 0,
   minutes: '',
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url
@@ -75,7 +75,7 @@ decision = Decision.new(
   description: "Les frelons reviennent en force, ils faut s'en occuper rapidement",
   result: 0,
   minutes: '',
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url

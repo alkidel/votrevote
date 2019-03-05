@@ -1,6 +1,7 @@
 DECISIONS_PAST = [Date.new(2019, 02, 12), Date.new(2019, 01, 15), Date.new(2018, 12, 11), Date.new(2018, 11, 13), Date.new(2018, 10, 16)]
+NEXT_COUNCIL_DATE = Date.new(2019, 03, 12)
+
 require 'faker'
-require_relative 'alki_seed'
 
 Vote.destroy_all
 Decision.destroy_all
@@ -79,12 +80,23 @@ town = Town.create(name: 'Paris', user_id: alki.id)
 puts "Created #{User.count} users"
 
 
+puts "Creating team's seeds"
+
+require_relative 'seed_greg'
+require_relative 'pierre_seed'
+require_relative 'mathieu_seed'
+require_relative 'alki_seed'
+require_relative 'manual_seed'
+
+puts "Finished creating team's seeds"
+
 # DECISIONS_PAST_RESULT = [1,1,1,1,2,2,3]
 PHOTOS = %w(aaron-burden-60068-unsplash cindy-bonfini-hotlosz-354736-unsplash fancycrave-371079-unsplash nick-karvounis-451562-unsplash maxine-ficheux-1290089-unsplash christian-joudrey-90289-unsplash)
 VOTES_RESULT = []
 
 
-puts 'Creating 10 fake decisions for next city council...'
+
+puts 'Creating 5 fake decisions for next city council...'
 5.times do
   ran_num = rand(0..5)
   url = "https://res.cloudinary.com/alkidel/image/upload/v1551176533/votrevote/#{PHOTOS[ran_num]}.jpg"
@@ -94,16 +106,16 @@ puts 'Creating 10 fake decisions for next city council...'
     description: Faker::Lorem.paragraph(3, true),
     result: 0,
     minutes: "",
-    council_date: Date.new(2019, 03, 12),
+    council_date: NEXT_COUNCIL_DATE,
     town_id: Town.first.id
   )
   decision.remote_photo_url = url
   decision.save!
 end
 
-puts 'Creating 20 fake decisions for last 5 city councils...'
+puts 'Creating 10 fake decisions for last 5 city councils...'
 
-20.times do
+10.times do
   ran_num = rand(0..5)
   url = "https://res.cloudinary.com/alkidel/image/upload/v1551176533/votrevote/#{PHOTOS[ran_num]}.jpg"
   decision = Decision.new(
