@@ -1,6 +1,8 @@
 DECISIONS_PAST = [Date.new(2019, 02, 12), Date.new(2019, 01, 15), Date.new(2018, 12, 11), Date.new(2018, 11, 13), Date.new(2018, 10, 16)]
 require 'faker'
 require_relative 'pierre_seed'
+require_relative 'alki_seed'
+
 
 Vote.destroy_all
 Decision.destroy_all
@@ -110,9 +112,9 @@ puts 'Creating 20 fake decisions for last 5 city councils...'
     title: Faker::Lorem.sentence(5),
     category: Decision.categories.keys.sample,
     description: Faker::Lorem.paragraph(3, true),
-    accepted_votes: rand(6..10),
-    rejected_votes: rand(5..10),
-    deferred_votes: rand(2..10),
+    accepted_votes: rand(1..10),
+    rejected_votes: rand(1..8),
+    deferred_votes: rand(1..3),
     minutes: Faker::Lorem.paragraph(10, true),
     council_date: DECISIONS_PAST.sample,
     town_id: Town.first.id
