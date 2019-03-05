@@ -59,9 +59,14 @@
   font-weight: bold;
   margin: 0;
   color: white;
-
+  bottom: 120px;
+  position: absolute;
+  width: 260px;
 }
 
+.former-title{
+  bottom: 100px !important;
+}
 .card-decision-title-former {
   padding-bottom: 70px;
 }
@@ -113,8 +118,12 @@
     &.tr-rejected {
       border-top-color: $red;  // border: 1px solid $red;
     }
-    &.tr-deferred {
+    &.tr-pending {
       border-top-color: $orange;  // border: 1px solid $red;
+      .fa-clock{
+        top: -34px;
+        right: 14px;
+      }
     }
     &.tr-accepted {
       border-top-color: $green;  // border: 1px solid $red;
