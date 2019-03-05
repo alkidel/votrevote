@@ -12,9 +12,9 @@
       </div>
 
   </div>
-
-  <%= link_to 'Create PDF document', decisions_path(:format => :pdf) %>
-
+  <% if current_user.id == Town.first.user_id %>
+  <h4> <%= link_to 'Create PDF document', pdf_pages_path(:format => :pdf) %> </h4>
+  <% end %>
     <hr>
   <div class="row">
     <% @future_decisions.each do |decision| %>

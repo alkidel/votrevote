@@ -1,0 +1,28 @@
+.pdf-container{
+  width: 85%;
+  text-align: center;
+  margin: 0px auto;
+  min-height: 1330px;
+  background-color: white !important;
+}
+
+.pdf-body{
+  background-color: white !important;
+}
+
+.pdf-decision-description{
+  text-align: justify;
+  font-size: 16px;
+}
+
+.pdf-decision-title{
+  text-align: left;
+  font-size: 32px;
+}
+
+.pdf-category{
+  text-align: left;
+  background-color: rgba(40,40,40,.4);
+  color: $white;
+  padding: 3px 6px;
+}

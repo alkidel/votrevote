@@ -30,18 +30,25 @@ class DecisionsController < ApplicationController
         @future_decisions = Decision.future.category(params[:category])
       else
         @future_decisions = Decision.future
-        respond_to do |format|
-   format.html
-   format.pdf do
-     render pdf: "index",
-     template: "decisions_controller/index.html.erb",
-     layout: 'pdf.html'
-
-   end
-  end
       end
     else
       redirect_to root_path
+    end
+  end
+
+  def index_pdf
+    @future_decisions = Decision.future
+    respond_to do |format|
+     format.html
+     format.pdf do
+       render pdf: "index_pdf",
+              template: "decisions/index_pdf.html.erb",
+              layout: 'pdf.html',
+              show_as_html: params.key?('debug'), # allow debugging based on url
+              title: 'Ordre du jour',
+              encoding: 'TEXT',
+              background: false
+     end
     end
   end
 
