@@ -1,6 +1,13 @@
 // Specific CSS for your home-page
 .card-home{
   display: flex;
+  text-decoration: none;
+  a{
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+    }
+  }
 }
 
 .card-home-display{
