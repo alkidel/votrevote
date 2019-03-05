@@ -104,7 +104,7 @@ decision.save!
 url = "https://unsplash.com/photos/vP3G46hrjno"
 decision = Decision.new(
   title: "ENLEVEMENT DES ORDURES MENAGERES
-MODIFICATION DES FREQUENCES DE COLLECTE"
+MODIFICATION DES FREQUENCES DE COLLECTE",
   category: "Environnement",
   description: "Il vous est proposé de diminuer les fréquences des collectes des ordures ménagères (bacs à
 couvercle vert), à compter du 1er janvier 2019.
@@ -158,7 +158,7 @@ Un fonds de concours sera sollicité de la commune, à hauteur de 50 % du coût
 résiduel du génie civil. ",
   result: 0,
   minutes: '',
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url
@@ -178,7 +178,7 @@ MR 2009.6.3., MR 2009.6.4., MR 2009.7.1., MR 2009.8.1., MR 2009.8.2., MR 2009.8.
 2009.9.1., ainsi que différentes documentations, conformément à la liste jointe en annexe.",
 result: 0,
 minutes: "",
-council_date: Date.new(2019, 03, 12),
+council_date: NEXT_COUNCIL_DATE,
 town_id: Town.first.id
 )
 decision.remote_photo_url = url
@@ -200,7 +200,7 @@ decision = Decision.new(
   proposé l’ouverture de crédits d’investissement, au titre de l’exercice 2019.",
   result: 0,
   minutes: "",
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url

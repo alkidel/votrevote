@@ -205,7 +205,7 @@ decision = Decision.new(
   A l’unanimité, le Conseil municipal autorise Monsieur le Maire à présenter auprès des services de la Préfecture un
   dossier de demande de subvention dans le cadre de l’appel à projets « FIPDR 2017 » en vue de l’installation à l’école
   d’une protection intrusion comprenant la mise en place d’une alarme spécifique d’alerte « attentat-intrusion ».",
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
   )
 decision.remote_photo_url = url
@@ -220,7 +220,7 @@ decision = Decision.new(
   minutes: "Un jardin partagé sera prochainement mis en place à proximité de l’Arméria. Cet espace sera nettoyé à l’occasion de
 la matinée verte du 8 avril avant d’être mis à la disposition des jardiniers amateurs qui pourront en disposer
 librement dans le respect de l’environnement.",
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
 )
 decision.remote_photo_url = url
@@ -245,7 +245,7 @@ decision = Decision.new(
   pour une durée de 3 ans. Le coût pour la période du 01/09/2016 au 31/08/2018 est de 888,26 € compte-tenu de l’aide
   financière de la Communauté de communes, et 1 110,33 € pour la période du 01/09/2018 au 31/08/2019, sous réserve
   d’actualisation.",
-  council_date: Date.new(2019, 03, 12),
+  council_date: NEXT_COUNCIL_DATE,
   town_id: Town.first.id
   )
 decision.remote_photo_url = url
