@@ -1,4 +1,11 @@
 import "bootstrap";
+
+//= require jquery.slick
+import 'slick-carousel'
+import 'slick-carousel/slick/slick.scss'
+import 'slick-carousel/slick/slick-theme.scss'
+import slick from 'slick-carousel';
+
 import Chartkick from "chartkick";
 window.Chartkick = Chartkick;
 
@@ -16,3 +23,6 @@ function dropdownBlackToggle() {
 }
 
 dropdownBlackToggle()
+
+import { slicker } from '../plugins/slicker';
+slicker()
