@@ -118,7 +118,7 @@
     &.tr-rejected {
       border-top-color: $red;  // border: 1px solid $red;
     }
-    &.tr-pending {
+    &.tr-deferred {
       border-top-color: $orange;  // border: 1px solid $red;
       .fa-clock{
         top: -34px;
