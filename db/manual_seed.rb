@@ -68,7 +68,7 @@ decision.remote_photo_url = url
 decision.save!
 
 
-url = "https://mvistatic.com/photosmvi/2018/10/04/P18322720D3532934G.jpg"
+url = "https://www.cree.com/media/wysiwyg/environmental_management2.jpg"
 decision = Decision.new(
   title: "Participation financière pour la destruction des nids de frelons",
   category: "Environnement",
