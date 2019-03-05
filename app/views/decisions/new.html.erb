@@ -1,23 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1>Créez une nouvelle décision</h1>
+      <div class="form-card">
+        <h3 class="text-center">Créez une décision</h3>
 
-        <%= simple_form_for ([@user, @decision]) do |f| %>
-        <div class="form-inputs">
-        <%= f.input :title, placeholder: "Titre", label: false %>
-        <%= f.input :category, placeholder: "Catégorie", label: false %>
-        <%= f.input :description, placeholder: "Description", label: false %>
-        <%= f.input :result, placeholder: "Résultat 0 pour nouvelle", label: false %>
-        <%= f.input :minutes, placeholder: "Minutes", label: false %>
-        <%= f.input :town_id, placeholder: "Town id", label: false %>
-        <%= f.input :council_date, placeholder: "Council date - new => 12/3/19, 12/02/19, 15/01,19, 11/12/18, 13/11/18, 16/10/18", label: false %>
+          <%= simple_form_for ([@user, @decision]) do |f| %>
+          <div class="form-inputs">
+          <%= f.input :title, placeholder: "Titre", label: false %>
+          <%= f.input :category, placeholder: "Catégorie", label: false %>
+          <%= f.input :description, placeholder: "Description", label: false %>
+          <%= f.input :accepted_votes, placeholder: "Votes acceptés", label: "Votes acceptés" %>
+          <%= f.input :rejected_votes, placeholder: "Votes rejetés", label: "Votes rejetés" %>
+          <%= f.input :deferred_votes, placeholder: "Votes reportés", label: "Votes reportés" %>
+          <%= f.input :minutes, placeholder: "Minutes", label: false %>
+          <%= f.input :town_id, placeholder: "Town id", label: false %>
+          <%= f.input :council_date, placeholder: "Council date - new => 12/3/19, 12/02/19, 15/01,19, 11/12/18, 13/11/18, 16/10/18", label: false %>
 
-        <%= f.file_field  :photo %>
-        </div>
-        <div class="form-actions">
-        <%= f.button :submit, class: "btn-form" %>
-        </div>
+          <%= f.file_field  :photo %>
+          </div>
+          <div class="form-actions">
+          <%= f.button :submit, "Créez une décision", class: "btn-form" %>
+          </div>
+      </div>
 
 
         <% end  %>
