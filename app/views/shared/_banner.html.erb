@@ -1,20 +1,20 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path Decision.first.photo %>')">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path Decision.future.first.photo %>')">
     <div class="banner-countdown">
         <h3>
           <i class="far fa-calendar-alt"></i>
-          J-<%= (Decision.first.council_date - Date.today).to_i%> avant le prochain conseil municipal
+          J-<%= (Decision.future[0].council_date - Date.today).to_i%> avant le prochain conseil municipal
         </h3>
     </div>
     <div class="banner-content">
       <div class="banner-buttons">
-        <h2><%= link_to Decision.first.category, decisions_path, class: "btn-category" %>
+        <h2><%= link_to Decision.future.first.category, decisions_path, class: "btn-category" %>
         </h2>
-        <h2><%= link_to "Next Decisions", decisions_path, class: "btn-category-decisions" %></h2>
+        <h2><%= link_to "Prochaines Décisions", decisions_path, class: "btn-category-decisions" %></h2>
       </div>
       <%= link_to decisions_path do %>
         <div class="white-background">
-          <h3><%= Decision.last.title %></h3>
-          <p><%= Decision.last.description %></p>
+          <h3><%= Decision.future.first.title %></h3>
+          <p><%= Decision.future.first.description %></p>
         </div>
       <% end %>
       <div class="call_to_action text-center">
