@@ -30,6 +30,15 @@ class DecisionsController < ApplicationController
         @future_decisions = Decision.future.category(params[:category])
       else
         @future_decisions = Decision.future
+        respond_to do |format|
+   format.html
+   format.pdf do
+     render pdf: "index",
+     template: "decisions_controller/index.html.erb",
+     layout: 'pdf.html'
+
+   end
+  end
       end
     else
       redirect_to root_path
