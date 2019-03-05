@@ -1,6 +1,7 @@
 class Decision < ApplicationRecord
   # belongs_to :town
   has_many :votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :users, through: :votes
 
   mount_uploader :photo, PhotoUploader

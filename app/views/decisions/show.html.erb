@@ -3,10 +3,27 @@
 
     <% if @decision.future? %>
       <%= link_to decisions_path do %>
-        <div class="back">
-          <i class="fas fa-arrow-left"></i>
-          <p>Back</p>
-        </div>
+      <div class="back">
+        <i class="fas fa-arrow-left"></i>
+        <p>Back</p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to former_path do %>
+      <div class="back">
+        <i class="fas fa-arrow-left"></i>
+        <p>Back</p>
+      </div>
+    <% end %>
+  <% end %>
+
+    <div class="final_vote">
+      <% if @decision.past?  %>
+        <% if @decision.result == "accepted" %>
+          <p id="accept">DÉCISION ACCEPTÉE </p>
+        <% else %>
+          <p id="reject"> DÉCISION REJETÉE </p>
+        <% end %>
       <% end %>
     <% else %>
       <%= link_to former_path do %>
@@ -87,6 +104,27 @@
       <h4><%= @decision.description %></h4>
     </div>
 
+      </div>
+    <div role="tabpanel" class="tab-pane fade" id="minutes"><h1><%= @decision.minutes %> </h1></div>
+  </div>
+  <div class="comment_title">
+     <h3>
+      Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.
+    </h3>
+  </div>
+  <div class="comment_list">
+    <ul>
+      <% @decision.comments.each do |comment| %>
+        <li>
+           <div id="comment_content">
+            <div class="comment_user">
+              <%= comment.user.photo %> <%= comment.user.first_name %> <%= comment.user.last_name %>
+            </div>
+            <%= comment.content %>
+           </div>
+        </li>
+      <% end %>
+    </ul>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="stats">
       <% if @decision.past? %>
@@ -105,5 +143,12 @@
   </div>
 </div>
 
+  <div class="comment_form">
+    <%= simple_form_for [@decision, Comment.new ] do |f| %>
+      <%= f.input :content, placeholder: "Laissez-nous votre avis", label:"Commentaires:"  %>
+      <%= f.submit "Ajouter votre commentaire", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
 
