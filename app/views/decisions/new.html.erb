@@ -7,7 +7,8 @@
           <%= simple_form_for ([@user, @decision]) do |f| %>
           <div class="form-inputs">
           <%= f.input :title, placeholder: "Titre", label: false %>
-          <%= f.input :category, placeholder: "Catégorie", label: false %>
+          <%= f.input :category, collection: [["Environnement", 0], ["Finance",1]],
+          placeholder: "Catégorie", label: false %>
           <%= f.input :description, placeholder: "Description", label: false %>
           <%= f.input :accepted_votes, placeholder: "Votes acceptés", label: "Votes acceptés" %>
           <%= f.input :rejected_votes, placeholder: "Votes rejetés", label: "Votes rejetés" %>
