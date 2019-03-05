@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :users, only: [:destroy, :edit, :update, :show]
 
   get 'former', to: 'decisions#former', as: :former
+  get 'pdf_pages', :to => 'decisions#index_pdf', format: 'pdf'
 end
