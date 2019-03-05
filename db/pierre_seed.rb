@@ -5,13 +5,14 @@ decision = Decision.new(
   title: "Contribution aux dépenses de fonctionnement de l'école Notre-Dame",
   category: "Education",
   description: "Proposition de versement de la contribution obligatoire de la ville à hauteur de 67 000€ aux frais de fonctionnement de l'école Notre-Dame, prévu au compte 6558 du budget 2019",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: '',
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -25,9 +26,9 @@ decision = Decision.new(
 l’option alimentation secourue, le contrôle des accès aux écoles avec système de
 badges marque Intratone,
 Estimation ………………………………… 37.402,60 € hors taxes",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "LE CONSEIL MUNICIPAL
 –Ayant entendu l'exposé du Rapporteur,
 –Vu la possibilité d’obtenir une aide concernant les travaux de
@@ -53,6 +54,7 @@ délégation, à signer toutes pièces relatives au dossier de demande de subven
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -75,9 +77,9 @@ l’Education Nationale.
 Fort de cet avis, il est proposé aux membres du Conseil Municipal de constater la
 désaffectation du domaine public communal de l’ensemble immobilier dit « École
 Jules FERRY », ainsi que du terrain d’assiette.",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "LE CONSEIL MUNICIPAL
 
 - Ayant entendu l’exposé du Rapporteur,
@@ -98,6 +100,7 @@ documents utiles à l’application de la présente délibération.",
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -116,9 +119,9 @@ Il est donc proposé que soit ainsi établie la collecte des ordures ménagères
 couvercle vert comme suit :
 · du 1er septembre au 30 juin : trois jours par semaine
 · du 1er juillet au 31 août : 5 jours par semaine",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "Le conseil municipal décide que la fréquence des collectes des ordures ménagères (bacs à couvercles verts) soit ramenée
 à trois jours par semaine, au lieu de quatre jours actuellement, pour la période du
 1
@@ -127,6 +130,7 @@ septembre au 30 juin, à compter du 1er janvier 2019.",
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 

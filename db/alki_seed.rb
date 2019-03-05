@@ -19,6 +19,7 @@ durée d’un an reconductible 3 fois par reconduction expresse, pour un montant
     council_date: DECISIONS_PAST.sample,
     town_id: Town.first.id
   )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -47,6 +48,7 @@ d’attribuer une subvention de 100,00 € au Collège Victoire Daubié de Plouz
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -77,6 +79,7 @@ convention et tout document relatif à ce dossier.",
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -111,6 +114,7 @@ decision = Decision.new(
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -136,6 +140,7 @@ decision = Decision.new(
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
   )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -159,6 +164,7 @@ decision = Decision.new(
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
   )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -181,6 +187,7 @@ decision = Decision.new(
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
   )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 

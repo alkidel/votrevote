@@ -21,9 +21,9 @@ decision = Decision.new(
   Vu l’enquête publique qui s’est tenue du 30 octobre 2017 au 1er décembre 2017 inclus;
   Vule  rapport,  les  conclusions  et  avis  ducommissaire-enquêteur,  déposés  le  18/12/2017,  qui  a  émis  un  avis favorable sans réserves ;
   Considérant que le projet de modification tel qu’il est présenté au conseil municipal est prêt à être approuvé conformément à l’article L. 123-10 du code de l’urbanisme;",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "Après en avoir délibéré à l’unanimité, le conseil municipal décide:
   - D’approuver la modification n° 4 du Plan Local d’Urbanisme; le dossier comprenant la notice explicative, le règlement graphique, le règlement de la zone 1AUb et les Orientations d’Aménagement du secteur du «Prieuré»;
   - Dit que la présente délibération fera l’objet, conformément à l’article R. 153-21 du code de l’urbanisme, d’un affichage en mairie pendant un mois, mention de cet affichage sera insérée en caractères apparents dans un journal diffusé dans le département;
@@ -31,6 +31,7 @@ decision = Decision.new(
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -52,9 +53,9 @@ decision = Decision.new(
   Durée du bail : 9 années entières à compter du 1er juillet 2017
   Le loyer du mois de septembre s’élève à 1183,13 € HT/HC.
   Je vous remercie d’approuver le cahier des charges de rétrocession du droit au bail",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "M . GILLET souhaite savoir comment se définit le centre-ville et connaitre le prix au m2 du loyer. M. CARRE lui répond que la ville n’est pas propriétaire et n’intervient donc pas sur le loyer.
   Puis il rappelle que le centre-ville a été déterminé le cadre du périmètre de sauvegarde du commerce qui avait été voté en conseil municipal en son temps et déterminé en partenariat avec la chambre de commerce et d’industrie.
   Il ajoute que la superficie de la commune étant assez restreinte, son centre-ville est assez facile à situer et que les travaux actuellement en cours vont permettre de le relier à la Place Jean Jaurès sur laquelle l’implantation de nouveaux commerces est déjà à l’étude, ainsi que sur l’avenue de la République et par voie de conséquence l’étendre.
@@ -66,6 +67,7 @@ decision = Decision.new(
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -78,14 +80,15 @@ decision = Decision.new(
   La Chambre de Commerce et d’Industrie de la région qui intervient en matière de développement économique, dispose de moyens humains et techniques afin de mener à bien des études et des actions en faveur du développement économique.
   Elle est donc à même d’intervenir dans l’élaboration de projets en faveur du commerce et de l’artisanat, en assurant un rôle de conseil et d’expertise auprès des communes, et en accompagnant les communes dans leurs programmes de redynamisation et maintien du commerce.
   De plus, l’Union des Commerçants et Artisans souhaite développer avec la ville, de nouvelles actions en faveur du commerce de proximité afin de permettre ce nouveau partenariat.",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "M. MOULY souhaitant connaitre les actions qui seront menées en faveur du commerce par la CCI, M. CARRE lui précise que la chambre de commerce aide au développement du commerce sur la commune par sa présence au sein des comités de commerces et de marchés, par son aide à la formation ou autres, participent également aux appels à projet.
   M. DROUET demande ce qu’il en est des locaux du centre évangélique. M. CARRE lui répond qu’il n’ y a rien de prévu à cet endroit, mais que par contre la société affiliée va se charger des bas d’immeubles du programme prévu au niveau du 95 avenue de la République.",
   council_date: Date.new(2019, 03, 12),
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -104,6 +107,7 @@ Le Conseil Municipal, après en avoir délibéré et à l’unanimité,
 council_date: DECISIONS_PAST.sample,
 town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -122,9 +126,9 @@ decision = Decision.new(
  Possibilité d’expérimenter un système de cotation de la demande Un projet de création d’un lieu d’accueil mutualisé des demandeurs de logement social a émergé des ateliers de travail du PPGDLS, et s’inscrit au-delà de la réforme nationale de la loi ALUR. Ce projet d’envergure résulte d’une réelle volonté politique de mutualiser les compétences des communes.
  En effet, parallèlement, le Conseil Communautaire, après avis des conseils municipaux, a adopté en décembre 2015 un schéma de mutualisation 2015-2020 sur son territoire. Ce schéma représente ainsi un outil supplémentaire pour répondre aux besoins des communes de mutualiser les compétences des fonctions supports et de partage de moyens d’expertises, afin d’accompagner le développement de la coopération entre communes et intercommunalité dans la production de politiques publiques.
  Le service d’accueil des demandeurs de logement social, constitue ainsi le 1er socle d’un projet plus vaste de création de Maison de l’Habitat. La création d’un tel lieu a été souhaitée afin de proposer un guichet unique d’informations et de démarches pour tous les habitants concernant une problématique majeure du territoire : l’accès au logement",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
  minutes: "Le  transfert du personnel de la ville est prévu pour le 15 juin prochain. L’ouverture effective du service est planifiée pour le 19 juin prochain.
 Pour rappel, le « service commun » constitue un outil juridique de mutualisation permettant de regrouper les services et équipements d’un EPCI à fiscalité propre et de ses communes membres, de mettre en commun des moyens afin de favoriser l’exercice des missions de ces structures contractantes et de rationaliser les moyens mis en œuvre pour l’accomplissement de leurs missions.
 La mise à disposition des moyens mutualisés s’effectue à titre payant, via une participation  des  communes  représentatives  des  charges  de  fonctionnement  et d’investissement résultant de l’exercice des conventions. Les conventions ci-jointes ont donc pour objet de définir les modalités de mise en place de ce service commun pour l’accueil des demandeurs en logement sociaux auprès des communes membres de l'agglomération qui en font la demande.
@@ -142,6 +146,7 @@ Le Conseil Municipal, après en avoir délibéré, à l’unanimité moins trois
 council_date: DECISIONS_PAST.sample,
 town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 

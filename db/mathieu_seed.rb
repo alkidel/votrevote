@@ -10,9 +10,9 @@ b) Partenariat de classe à projet artistique et culturel « Autour de Federico 
 Convention avec le collège Molière
 c) Partenariat de classe à projet artistique et culturel « Le récit d’aventures »
 Convention avec le collège Molière",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "a) APPROUVE la convention financière avec le lycée Romain Rolland relative à la poursuite du projet d’éducation artistique et culturelle (enseignement facultatif cinéma) pour l’année scolaire 2018/2019.
 b) APPROUVE la convention financière avec le collège Molière relative à la mise en œuvre de la classe à projet artistique et culturel « Autour de Federico Fellini » pour l’année scolaire 2018/2019.
 c) APPROUVE la convention financière avec le collège Molière relative à la mise en œuvre de la classe à projet artistique et culturel « Le récit d’aventures » pour l’année scolaire 2018/2019.
@@ -20,6 +20,7 @@ c) APPROUVE la convention financière avec le collège Molière relative à 
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -29,9 +30,9 @@ decision = Decision.new(
   title: "Projet de plan métropolitain de l’habitat et de l’hébergement (PMHH)",
   category: "Logement",
   description: "Avis sur le PMHH approuvé par le Conseil métropolitain du 28 juin 2018",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+ accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "DONNE un avis favorable au projet de plan métropolitain de l’habitat et de l’hébergement approuvé par le Conseil métropolitain du 28 juin 2018 assorti des réserves suivantes :
 - la Métropole propose de venir en complément des aides financières de l’Etat (sous condition des moyens dédiés au budget métropolitain et de l’engagement de l’Etat) : la Métropole doit confirmer son engagement de façon soutenue sur le volet financier et il sera nécessaire de veiller à ce que la responsabilité de l’Etat en matière de logement social soit réaffirmée ;
 - la Métropole doit répondre aux enjeux d’un vaste territoire mais tout en tenant compte des besoins locaux, notamment sur la production de logements sociaux en nombre suffisant, dont les logements à prêt locatif aidé d'intégration (PLAI) et en veillant à la répartition équilibrée sur la Métropole du nombre de logements construits. Sur le supplément de loyer de solidarité (SLS), la municipalité souhaite maintenir l’exonération sur les secteurs retenus dans le PLHI ;
@@ -42,6 +43,7 @@ decision = Decision.new(
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
@@ -51,46 +53,33 @@ decision = Decision.new(
   title: "Usine SYLO",
   category: "Urbanisme",
   description: "Avis sur le dossier de demandes de permis de construire et d'autorisation d'exploiter l'unité de valorisation énergétique (UVE) comprenant l'étude d'impact du projet",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "EMET un avis favorable sur le dossier de demandes de permis de construire et d’autorisation d’exploiter l’Unité de Valorisation Energétique (UVE), comprenant l’étude d’impact du projet, soumis à enquête publique dans le cadre de l’évaluation environnementale prévue par la loi.
   ",
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
-# url = "https://images.radio-canada.ca/q_auto,w_1600/v1/ici-info/16x9/uneprem-salle-cinema.jpg"
-# decision = Decision.new(
-#   title: "Cinéma municipal Le Luxy",
-#   category: "Culture",
-#   description: "Demandes de subventions auprès du Conseil Régional d’Ile-de-France et du SIPPEREC, dans le cadre de l’aide à la rénovation et à la modernisation des salles de cinéma",
-#   accepted_votes: rand(6..10),
-#   rejected_votes: rand(5..10),
-#   deferred_votes: rand(2..10),
-#   minutes: "SOLLICITE, dans le cadre de la rénovation et de la modernisation du Cinéma municipal Le Luxy, d’une part, une subvention à hauteur de 30% maximum du coût de l’opération auprès du Conseil Régional au titre du soutien à la rénovation et à la modernisation des salles de cinéma de la région, et, d’autre part, une subvention auprès du SIPPEREC pour la rénovation de l’éclairage.
-#   ",
-#   council_date: DECISIONS_PAST.sample,
-#   town_id: Town.first.id
-# )
-# decision.remote_photo_url = url
-# decision.save!
 
 url = "https://mairie2.lyon.fr/sites/mairie2/files/content/restfiles/2018_06_7/Perspective_coeur_presquile_victor_hugo_p.jpg"
 decision = Decision.new(
   title: "Acquisition 2/22, rue René Villars et 12/16, rue André Voguet",
   category: "Urbanisme",
   description: "Acquisition d’un volume immobilier à la société civile de construction vente dénommée « CARIVRY »",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
+  accepted_votes: rand(1..10),
+  rejected_votes: rand(1..8),
+  deferred_votes: rand(1..3),
   minutes: "APPROUVE l’acquisition à la SCCV « CARIVRY » (ou à tout substitué) du volume immobilier portant le numéro 4 conformément à l’état descriptif de division volumétrique établi le 7 septembre 2018 par le cabinet de géomètres GTA, et dépendant actuellement du périmètre du projet immobilier de la société « CARIVRY », sis 2/22, rue René Villars et 12/16, rue André Voguet, sur les parcelles nouvellement cadastrées section K n° 270, 272 et 275.
   ",
   council_date: DECISIONS_PAST.sample,
   town_id: Town.first.id
 )
+decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
 decision.remote_photo_url = url
 decision.save!
 
