@@ -39,7 +39,7 @@
 
 .banner-buttons {
   display: flex;
-  width: 220px;
+  width: 250px;
   justify-content: space-between;
 
 }
@@ -50,6 +50,7 @@
   padding: 20px;
   width: 80%;
   transition: .4s;
+
    &:hover {
       text-decoration: none;
       color: $green;
@@ -63,8 +64,13 @@
     p {
       padding:0px;
       margin: 0px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 75ch;
     }
 }
+
 
 // .title{
 //     font-weight: bold;

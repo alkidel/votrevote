@@ -1,6 +1,6 @@
 # FORMER DECISIONS
 
-url = "https://unsplash.com/photos/OyCl7Y4y0Bk"
+url = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1418&q=80"
 decision = Decision.new(
   title: "Contribution aux dépenses de fonctionnement de l'école Notre-Dame",
   category: "Education",
@@ -15,7 +15,7 @@ decision = Decision.new(
 decision.remote_photo_url = url
 decision.save!
 
-url = "https://unsplash.com/photos/MH-yBNIpryc"
+url = "https://images.unsplash.com/photo-1447920794601-37a69492c8c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80"
 decision = Decision.new(
   title: "Contribution aux dépenses de fonctionnement du Groupe Scolaire La CLAIRIERE",
   category: "Education",
@@ -101,7 +101,7 @@ documents utiles à l’application de la présente délibération.",
 decision.remote_photo_url = url
 decision.save!
 
-url = "https://unsplash.com/photos/vP3G46hrjno"
+url = "https://images.unsplash.com/photo-1518778578946-2adac1f0ecbf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=654&q=80"
 decision = Decision.new(
   title: "ENLEVEMENT DES ORDURES MENAGERES
 MODIFICATION DES FREQUENCES DE COLLECTE",
@@ -136,11 +136,10 @@ decision.save!
 
 # FUTURE DECISIONS
 
-url = "https://unsplash.com/photos/RkIsyD_AVvc"
+url = "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
 decision = Decision.new(
   title: "DÉCHETS MENAGERS – VERRE : FOURNITURE ET POSE DE COLONNES
-ENTERRÉES – CONVENTION D'OCCUPATION DU DOMAINE PUBLIC, DOMAINE
-PRIVÉ",
+ENTERRÉES",
   category: "Environnement",
   description: "Ces colonnes devant être implantées sur le domaine public, il convenait de conclure
 une convention d'occupation du domaine public communal, pour chaque implantation.
@@ -164,7 +163,7 @@ résiduel du génie civil. ",
 decision.remote_photo_url = url
 decision.save!
 
-url = "https://unsplash.com/photos/BNvk1zqEAjc"
+url = "https://images.unsplash.com/photo-1506845347893-bc5faede1eec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
 decision = Decision.new(
 title: "ACCEPTATION DES DONS AU PROFIT DU MUSEE
 POUR L'ANNEE 2018",
@@ -184,7 +183,7 @@ town_id: Town.first.id
 decision.remote_photo_url = url
 decision.save!
 
-url = "https://unsplash.com/photos/fV16wyjGCmI"
+url = "https://images.unsplash.com/photo-1505081979142-f9e60c0e5973?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
 decision = Decision.new(
   title: "OUVERTURE DE CRÉDITS POUR L’EXERCICE 2019
   (SECTION INVESTISSEMENT) ",

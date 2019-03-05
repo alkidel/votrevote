@@ -25,11 +25,11 @@ class DecisionsController < ApplicationController
     if Decision.future.length.positive?
       @user_result = Vote.where(user: current_user)
       if params[:query].present?
-        @future_decisions = Decision.future.order(created_at: :DESC).search_by_title_and_description_and_minutes(params[:query])
+        @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
       elsif params[:category]
-        @future_decisions = Decision.future.order(created_at: :DESC).category(params[:category])
+        @future_decisions = Decision.future.category(params[:category])
       else
-        @future_decisions = Decision.future.order(created_at: :DESC)
+        @future_decisions = Decision.future
       end
     else
       redirect_to root_path

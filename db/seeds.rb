@@ -2,11 +2,6 @@ DECISIONS_PAST = [Date.new(2019, 02, 12), Date.new(2019, 01, 15), Date.new(2018,
 NEXT_COUNCIL_DATE = Date.new(2019, 03, 12)
 
 require 'faker'
-require_relative 'pierre_seed'
-require_relative 'mathieu_seed'
-require_relative 'alki_seed'
-require_relative 'manual_seed'
-
 
 Vote.destroy_all
 Decision.destroy_all
@@ -84,6 +79,16 @@ town = Town.create(name: 'Paris', user_id: alki.id)
 
 puts "Created #{User.count} users"
 
+
+puts "Creating team's seeds"
+
+require_relative 'seed_greg'
+require_relative 'pierre_seed'
+require_relative 'mathieu_seed'
+require_relative 'alki_seed'
+require_relative 'manual_seed'
+
+puts "Finished creating team's seeds"
 
 # DECISIONS_PAST_RESULT = [1,1,1,1,2,2,3]
 PHOTOS = %w(aaron-burden-60068-unsplash cindy-bonfini-hotlosz-354736-unsplash fancycrave-371079-unsplash nick-karvounis-451562-unsplash maxine-ficheux-1290089-unsplash christian-joudrey-90289-unsplash)

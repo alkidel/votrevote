@@ -62,21 +62,21 @@ decision = Decision.new(
 decision.remote_photo_url = url
 decision.save!
 
-url = "https://images.radio-canada.ca/q_auto,w_1600/v1/ici-info/16x9/uneprem-salle-cinema.jpg"
-decision = Decision.new(
-  title: "Cinéma municipal Le Luxy",
-  category: "Culture",
-  description: "Demandes de subventions auprès du Conseil Régional d’Ile-de-France et du SIPPEREC, dans le cadre de l’aide à la rénovation et à la modernisation des salles de cinéma",
-  accepted_votes: rand(6..10),
-  rejected_votes: rand(5..10),
-  deferred_votes: rand(2..10),
-  minutes: "SOLLICITE, dans le cadre de la rénovation et de la modernisation du Cinéma municipal Le Luxy, d’une part, une subvention à hauteur de 30% maximum du coût de l’opération auprès du Conseil Régional au titre du soutien à la rénovation et à la modernisation des salles de cinéma de la région, et, d’autre part, une subvention auprès du SIPPEREC pour la rénovation de l’éclairage.
-  ",
-  council_date: DECISIONS_PAST.sample,
-  town_id: Town.first.id
-)
-decision.remote_photo_url = url
-decision.save!
+# url = "https://images.radio-canada.ca/q_auto,w_1600/v1/ici-info/16x9/uneprem-salle-cinema.jpg"
+# decision = Decision.new(
+#   title: "Cinéma municipal Le Luxy",
+#   category: "Culture",
+#   description: "Demandes de subventions auprès du Conseil Régional d’Ile-de-France et du SIPPEREC, dans le cadre de l’aide à la rénovation et à la modernisation des salles de cinéma",
+#   accepted_votes: rand(6..10),
+#   rejected_votes: rand(5..10),
+#   deferred_votes: rand(2..10),
+#   minutes: "SOLLICITE, dans le cadre de la rénovation et de la modernisation du Cinéma municipal Le Luxy, d’une part, une subvention à hauteur de 30% maximum du coût de l’opération auprès du Conseil Régional au titre du soutien à la rénovation et à la modernisation des salles de cinéma de la région, et, d’autre part, une subvention auprès du SIPPEREC pour la rénovation de l’éclairage.
+#   ",
+#   council_date: DECISIONS_PAST.sample,
+#   town_id: Town.first.id
+# )
+# decision.remote_photo_url = url
+# decision.save!
 
 url = "https://mairie2.lyon.fr/sites/mairie2/files/content/restfiles/2018_06_7/Perspective_coeur_presquile_victor_hugo_p.jpg"
 decision = Decision.new(
