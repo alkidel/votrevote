@@ -135,18 +135,20 @@ puts 'Creating 10 fake decisions for last 5 city councils...'
 
   end
 
-  puts 'Adding fake votes for each decisions'
-  Decision.past.each do |decision|
-    User.all.each do |user|
-    vote = user.votes.where(decision_id: decision.id)
-    vote[0].result = rand(0..2)
-    vote[0].save!
-    end
-  end
 
+  # Decision.past.each do |decision|
+  #   User.all.each do |user|
+  #   vote = user.votes.where(decision_id: decision.id)
+  #   vote[0].result = rand(0..2)
+  #   vote[0].save!
+  #   end
+  # end
+
+puts 'Updating votes'
 
 Vote.all.each do |vote|
     vote.result = rand(0..2)
+    vote.save!
 end
 
 
