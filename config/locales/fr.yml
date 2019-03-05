@@ -228,3 +228,9 @@ fr:
     show_all: "Tout voir"
   dashboard:
     title: "Hello %{user}, voici vos statistiques"
+
+  decision:
+    accepted: "acceptée"
+    rejected: "rejetée"
+    pending: "en attente"
+    blank_vote: "vote blanc"

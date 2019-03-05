@@ -12,9 +12,9 @@
       </div>
 
   </div>
-
-
-
+  <% if current_user.id == Town.first.user_id %>
+  <h4> <%= link_to 'Create PDF document', pdf_pages_path(:format => :pdf) %> </h4>
+  <% end %>
     <hr>
   <div class="row">
     <% @future_decisions.each do |decision| %>
@@ -25,7 +25,7 @@
           <%= link_to decision_path(decision) do %>
             <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 400, crop: :fill %>');">
 
-                <h2><%=decision.title %></h2>
+                <h2><%=decision.title.capitalize %></h2>
             </div>
           <% end %>
           <div class="card-decision-infos">

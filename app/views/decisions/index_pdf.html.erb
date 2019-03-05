@@ -1,0 +1,17 @@
+<div class="pdf-container">
+  <h4>Commune de Villemur-sur Tarn</h4>
+  <h2>Ordre du jour </h2>
+  <h4>Conseil municipal du : <strong><%= l(@future_decisions.first.council_date, format: :long) %></strong></h4>
+
+  <div class="pdf-decisions">
+    <% categories = %i[Environnement Finance Education Urbanisme Culture Logement] %>
+    <% categories.each do |category| %>
+      <h3 class="pdf-category"> <%= category %></h3>
+      <% @future_decisions = Decision.future.where(category: category) %>
+      <% @future_decisions.each do |decision| %>
+        <h2 class="pdf-decision-title"><%=decision.title.capitalize %></h2>
+        <p class="pdf-decision-description"><%= decision.description %></p>
+        <% end %>
+    <% end %>
+  </div>
+</div>

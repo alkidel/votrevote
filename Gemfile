@@ -24,6 +24,8 @@ gem 'carrierwave', '~> 1.2'
 gem 'faker'
 gem 'pg_search'
 gem 'postmark-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 gem "jquery-slick-rails"
 

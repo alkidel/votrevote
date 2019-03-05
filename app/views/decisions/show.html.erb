@@ -17,20 +17,21 @@
       <% end %>
     <% end %>
 
-
       <div class="final_vote">
         <% if @decision.past?  %>
-          <% if @decision.result == "accepté" %>
+          <% if @decision.result == "accepted" %>
             <p id="accept">DÉCISION ACCEPTÉE </p>
-          <% else %>
+          <% elsif @decision.result == "rejected" %>
             <p id="reject"> DÉCISION REJETÉE </p>
+          <% else %>
+            <p id="reject"> DÉCISION REPORTÉE </p>
           <% end %>
         <% end %>
       </div>
 
 
     <div class="show-banner-card">
-      <h1> <%= @decision.title %> </h1>
+      <h1> <%= @decision.title.capitalize %> </h1>
       <div class="card-decision-infos" id="decision-<%= @decision.id %>">
         <div class="card-decision-infos-category <%= @decision.category.downcase %>">
           <%= @decision.category %>

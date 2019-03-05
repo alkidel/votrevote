@@ -1,4 +1,11 @@
-.new-decision-container {
-  width: 600px;
+.form-card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin: 20px;
   padding: 10px;
+  color-background: black;
+  opacity: 1;
+  a:hover {
+      text-decoration: none;
+    }
 }
