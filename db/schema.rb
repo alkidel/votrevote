@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_03_04_164539) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_164539) do
 
   create_table "decisions", force: :cascade do |t|
     t.string "title"
-    t.string "category"
+    t.integer "category", default: 0
     t.text "description"
     t.integer "result", default: 0
     t.text "minutes"
@@ -36,6 +37,9 @@ ActiveRecord::Schema.define(version: 2019_03_04_164539) do
     t.datetime "updated_at", null: false
     t.bigint "town_id"
     t.string "photo"
+    t.integer "accepted_votes", default: 0
+    t.integer "rejected_votes", default: 0
+    t.integer "deferred_votes", default: 0
     t.index ["town_id"], name: "index_decisions_on_town_id"
   end
 

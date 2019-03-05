@@ -1,11 +1,11 @@
-Towrequire 'faker'
+require 'faker'
 
 Vote.destroy_all
 Decision.destroy_all
 Town.destroy_all
 User.destroy_all
 
-puts 'Creating 4 real users & 100 fake users ...'
+puts 'Creating 4 real users & 10 fake users ...'
 
 greg =  User.new({
   first_name: "Grégoire",
@@ -54,7 +54,7 @@ mathieu.remote_photo_url = "https://avatars2.githubusercontent.com/u/45971412"
 mathieu.save!
 
 
-100.times do
+10.times do
   pwd = Faker::Lorem.characters(10)
   user = User.new(
     first_name: Faker::Name.first_name,
@@ -76,21 +76,19 @@ town = Town.create(name: 'Paris', user_id: alki.id)
 
 puts "Created #{User.count} users"
 
-DECISIONS_CATEGORY = ["Education", "Environment", "Works", "Commerce", "Transport", "Waste"]
 DECISIONS_PAST = [Date.new(2019, 02, 12), Date.new(2019, 01, 15), Date.new(2018, 12, 11), Date.new(2018, 11, 13), Date.new(2018, 10, 16)]
-DECISIONS_PAST_RESULT = [1,1,1,1,2,2,3]
+# DECISIONS_PAST_RESULT = [1,1,1,1,2,2,3]
 PHOTOS = %w(aaron-burden-60068-unsplash cindy-bonfini-hotlosz-354736-unsplash fancycrave-371079-unsplash nick-karvounis-451562-unsplash maxine-ficheux-1290089-unsplash christian-joudrey-90289-unsplash)
-VOTES_NUMBER = rand(50..500)
 VOTES_RESULT = []
 
 
-puts 'Creating 20 fake decisions for next city council...'
-20.times do
+puts 'Creating 10 fake decisions for next city council...'
+5.times do
   ran_num = rand(0..5)
   url = "https://res.cloudinary.com/alkidel/image/upload/v1551176533/votrevote/#{PHOTOS[ran_num]}.jpg"
   decision = Decision.new(
     title: Faker::Lorem.sentence(5),
-    category: DECISIONS_CATEGORY[ran_num],
+    category: Decision.categories.keys.sample,
     description: Faker::Lorem.paragraph(3, true),
     result: 0,
     minutes: "",
@@ -99,40 +97,40 @@ puts 'Creating 20 fake decisions for next city council...'
   )
   decision.remote_photo_url = url
   decision.save!
-  User.all.each do |user|
-      vote = Vote.new(
-        user_id: user.id,
-        decision_id: decision.id,
-        result: rand(0..3)
-        )
-      vote.save!
-    end
 end
 
-puts 'Creating 100 fake decisions for last 5 city councils...'
+puts 'Creating 20 fake decisions for last 5 city councils...'
 
-100.times do
+20.times do
   ran_num = rand(0..5)
   url = "https://res.cloudinary.com/alkidel/image/upload/v1551176533/votrevote/#{PHOTOS[ran_num]}.jpg"
   decision = Decision.new(
     title: Faker::Lorem.sentence(5),
-    category: DECISIONS_CATEGORY[ran_num],
+    category: Decision.categories.keys.sample,
     description: Faker::Lorem.paragraph(3, true),
-    result: DECISIONS_PAST_RESULT.sample,
+    accepted_votes: rand(6..10),
+    rejected_votes: rand(5..10),
+    deferred_votes: rand(2..10),
     minutes: Faker::Lorem.paragraph(10, true),
     council_date: DECISIONS_PAST.sample,
     town_id: Town.first.id
   )
+  decision.add_results(decision.accepted_votes, decision.rejected_votes, decision.deferred_votes)
   decision.remote_photo_url = url
   decision.save!
-  User.all.each do |user|
-      vote = Vote.new(
-        user_id: user.id,
-        decision_id: decision.id,
-        result: rand(0..2)
-        )
-      vote.save!
+
+  end
+
+  puts 'Adding fake votes for each decisions'
+  Decision.past.each do |decision|
+    User.all.each do |user|
+    vote = user.votes.where(decision_id: decision.id)
+    vote[0].result = rand(0..2)
+    vote[0].save!
     end
-end
+  end
+
+
+
 
 puts 'Finished!'

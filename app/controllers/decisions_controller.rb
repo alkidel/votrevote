@@ -4,6 +4,17 @@ class DecisionsController < ApplicationController
   def show
     @decision = Decision.find(params[:id])
     @user_result = Vote.where(user: current_user, decision: @decision).first.result
+    @public_result = @decision.future? ? 0 : public_result
+    @public_results_by_numbers = Vote.where(decision: @decision).with_results.group(:result).count
+    @council_results_by_numbers = council_results_numbers
+  end
+
+  def public_result
+    Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0]
+  end
+
+  def council_results_numbers
+    return {"Accepté" => @decision.accepted_votes, "Refusé" => @decision.rejected_votes, "Reporté" => @decision.deferred_votes}
   end
 
   def index
@@ -55,6 +66,7 @@ class DecisionsController < ApplicationController
     @decision = Decision.new(decision_params)
     # @boat.user = current_user
     # authorize @boat
+
     if @decision.save
       redirect_to decision_path(@decision)
     else
@@ -79,7 +91,7 @@ class DecisionsController < ApplicationController
 
   def decision_params
     result = params[:result].to_i
-    params.require(:decision).permit(:title, :category, :description, :council_date, result, :minutes, :town_id, :photo)
+    params.require(:decision).permit(:title, :category, :description, :council_date, result, :minutes, :town_id, :photo, :accepted_votes, :rejected_votes, :deferred_votes)
   end
 
   def set_decision

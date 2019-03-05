@@ -8,7 +8,8 @@ class Decision < ApplicationRecord
 
   # before_destroy :delete_photo
 
-  enum result: %i[pending accepted rejected deferred]
+  enum result: %i[attente accepté refusé reporté]
+  enum category: %i[Environnement Finance Education Urbanisme Culture Logement]
 
   validates :title, presence: true
   validates :category, presence: true
@@ -53,6 +54,13 @@ class Decision < ApplicationRecord
       vote.decision = self
       vote.save!
     end
+  end
+
+  def add_results(accepted, rejected, deferred)
+    council_results = [accepted, rejected, deferred]
+    max_votes = council_results.max
+    self.result = council_results.index(max_votes) + 1
+    self.save!
   end
 
   include PgSearch
