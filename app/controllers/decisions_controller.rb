@@ -80,8 +80,6 @@ class DecisionsController < ApplicationController
 
   def create
     @decision = Decision.new(decision_params)
-    # @boat.user = current_user
-    # authorize @boat
 
     if @decision.save
       redirect_to decision_path(@decision)
