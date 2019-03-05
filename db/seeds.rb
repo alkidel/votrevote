@@ -1,4 +1,6 @@
+DECISIONS_PAST = [Date.new(2019, 02, 12), Date.new(2019, 01, 15), Date.new(2018, 12, 11), Date.new(2018, 11, 13), Date.new(2018, 10, 16)]
 require 'faker'
+require_relative 'pierre_seed'
 
 Vote.destroy_all
 Decision.destroy_all
@@ -76,7 +78,7 @@ town = Town.create(name: 'Paris', user_id: alki.id)
 
 puts "Created #{User.count} users"
 
-DECISIONS_PAST = [Date.new(2019, 02, 12), Date.new(2019, 01, 15), Date.new(2018, 12, 11), Date.new(2018, 11, 13), Date.new(2018, 10, 16)]
+
 # DECISIONS_PAST_RESULT = [1,1,1,1,2,2,3]
 PHOTOS = %w(aaron-burden-60068-unsplash cindy-bonfini-hotlosz-354736-unsplash fancycrave-371079-unsplash nick-karvounis-451562-unsplash maxine-ficheux-1290089-unsplash christian-joudrey-90289-unsplash)
 VOTES_RESULT = []
