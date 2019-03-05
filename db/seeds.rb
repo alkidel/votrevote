@@ -145,6 +145,9 @@ puts 'Creating 10 fake decisions for last 5 city councils...'
   end
 
 
+Vote.all.each do |vote|
+    vote.result = rand(0..2)
+end
 
 
 puts 'Finished!'
