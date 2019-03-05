@@ -8,7 +8,8 @@ class Decision < ApplicationRecord
 
   # before_destroy :delete_photo
 
-  enum result: %i[attente accepté refusé reporté]
+  enum result: %i[pending accepted rejected deferred]
+
   enum category: %i[Environnement Finance Education Urbanisme Culture Logement]
 
   validates :title, presence: true
