@@ -1,25 +1,44 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path Decision.future.first.photo %>')">
+<div class="slider">
+  <% Decision.first(3).each do|decision| %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path decision.photo %>')">
     <div class="banner-countdown">
         <h3>
           <i class="far fa-calendar-alt"></i>
-          J-<%= (Decision.future[0].council_date - Date.today).to_i%> avant le prochain conseil municipal
+          J-<%= (decision.council_date - Date.today).to_i%> avant le prochain conseil municipal
         </h3>
     </div>
     <div class="banner-content">
       <div class="banner-buttons">
-        <h2><%= link_to Decision.future.first.category, decisions_path, class: "btn-category" %>
+        <h2><%= link_to decision.category, decisions_path, class: "btn-category" %>
         </h2>
-        <h2><%= link_to "Prochaines Décisions", decisions_path, class: "btn-category-decisions" %></h2>
+        <h2><%= link_to "Next Decisions", decisions_path, class: "btn-category-decisions" %></h2>
       </div>
       <%= link_to decisions_path do %>
         <div class="white-background">
-          <h3><%= Decision.future.first.title %></h3>
-          <p><%= Decision.future.first.description %></p>
+          <h3><%= decision.title %></h3>
+          <p><%= decision.description %></p>
         </div>
       <% end %>
       <div class="call_to_action text-center">
 
       </div>
     </div>
+</div>
+<% end %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "image_banner.jpg" %>')">
+    <div class="banner-countdown">
+        <h3>
+          <i class="far fa-calendar-alt"></i>
+          J-<%= (Decision.first.council_date - Date.today).to_i%> avant le prochain conseil municipal
+        </h3>
+        <div class="decision_banner">
+          <%= link_to 'Voir toutes les décisions', decisions_path, class: "btn btn-category" %>
+        </div>
+
+      </div>
+    </div>
+
+</div>
 
 </div>

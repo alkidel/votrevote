@@ -27,6 +27,8 @@ gem 'postmark-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+gem "jquery-slick-rails"
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
@@ -39,3 +41,4 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
