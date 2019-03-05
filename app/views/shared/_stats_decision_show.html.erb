@@ -12,9 +12,9 @@ pour cette décision !</h4>
     <div class="chart-container">
       <h4 class="text-center">Conseil Municipal</h4>
       <p class="text-center">Cette décision a été<strong>
-         <% if @decision.result == "accepté" %>
+         <% if @decision.result == "accepted" %>
           acceptée
-        <% elsif @decision.result == "refusé" %>
+        <% elsif @decision.result == "rejected" %>
           refusée
         <% else %>
           reportée

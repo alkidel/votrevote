@@ -39,6 +39,22 @@ class DecisionsController < ApplicationController
     end
   end
 
+  def index_pdf
+    @future_decisions = Decision.future
+    respond_to do |format|
+     format.html
+     format.pdf do
+       render pdf: "index_pdf",
+              template: "decisions/index_pdf.html.erb",
+              layout: 'pdf.html',
+              show_as_html: params.key?('debug'), # allow debugging based on url
+              title: 'Ordre du jour',
+              encoding: 'TEXT',
+              background: false
+     end
+    end
+  end
+
   def former
     # @decisions = Decision.all
     # @past_decisions = Decision.past
@@ -69,6 +85,7 @@ class DecisionsController < ApplicationController
     decision_attributes = decision_params
     decision_attributes["category"] = decision_attributes["category"].to_i
     @decision = Decision.new(decision_attributes)
+
 
     if @decision.save
       redirect_to decision_path(@decision)
