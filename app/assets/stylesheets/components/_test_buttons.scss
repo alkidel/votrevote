@@ -3,7 +3,7 @@
   color: white;
   border: 1px solid #CCCCCC;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 6px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -11,4 +11,12 @@
 
 .btn-ghost:hover {
   opacity: 1;
+}
+.position_right{
+  margin-left: 873px;
+}
+
+.form_design{
+  border:none !important;
+
 }

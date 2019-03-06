@@ -113,7 +113,11 @@
       <div class="comment_form">
         <%= render 'form', decision: @decision, comment: @comment %>
       </div>
-      <%= render 'comment', decision: @decision %>
+      <div id='commentslist'>
+        <% @decision.comments.each do |comment| %>
+          <%= render 'comment', comment: comment %>
+      <% end %>
+    </div>
   </div>
   <hr>
 </div>
