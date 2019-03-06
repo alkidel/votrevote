@@ -1,0 +1,8 @@
+ <div class="container">
+   <div class="comment_form">
+          <%= simple_form_for @comment do |f| %>
+            <%= f.input :content, placeholder: @comment.content, label:false  %>
+            <%= f.submit "Mettre à jour", class: "btn-ghost btn-ghost:hover" %>
+          <% end %>
+        </div>
+ </div>

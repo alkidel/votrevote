@@ -2,6 +2,7 @@ class Vote < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :decision
 
+
   enum result: %i[pending accepted rejected blank_vote]
 
   validates :user, presence: true

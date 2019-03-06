@@ -81,7 +81,6 @@ Jules FERRY », ainsi que du terrain d’assiette.",
   rejected_votes: rand(1..8),
   deferred_votes: rand(1..3),
   minutes: "LE CONSEIL MUNICIPAL
-
 - Ayant entendu l’exposé du Rapporteur,
 - Vu le Code Général des Collectivités Territoriales,
 - Vu le Code Général de la Propriété des Personnes Publiques,
