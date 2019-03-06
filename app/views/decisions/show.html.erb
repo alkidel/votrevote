@@ -88,7 +88,9 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active extra-padding" id="description">
-      <p><%= @decision.description %></p>
+
+      <h4><%= @decision.description.html_safe %></h4>
+
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="stats">
@@ -98,7 +100,9 @@
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="minutes">
-      <p><%= @decision.minutes %> </p>
+
+      <h4><%= @decision.minutes.html_safe %> </h4>
+
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="commentaires">
