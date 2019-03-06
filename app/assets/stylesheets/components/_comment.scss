@@ -30,6 +30,10 @@ ul{
   font-size: 14px;
 }
 
+.comment_title h5{
+  margin-bottom:50px;
+}
+
 .comment_form{
   // margin-left:46px;
 }
@@ -52,12 +56,7 @@ ul{
   display:flex;
   justify-content: space-around;
   margin-top:20px;
-  width:10%;
+  width:150px;
 }
 
-.far{
-  color:#909090;
-}
-.far:hover{
-  opacity:1;
-}
+

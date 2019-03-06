@@ -16,7 +16,24 @@
   margin-left: 873px;
 }
 
-.form_design{
-  border:none !important;
-
+.update_comment{
+  .far{
+  color:#CCCCCC;
+  opacity: 0.6;
+  }
+  .far:hover{
+    opacity:1;
+  }
 }
+
+.form-control{
+  transition:none;
+  border-top:none;
+  border-right: none;
+  border-left:none;
+  box-shadow: none;
+  line-height: 0.7;
+  padding: 15px 10px;
+
+  }
+
