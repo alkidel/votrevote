@@ -1,0 +1,9 @@
+function updateFormerByCategory() {
+
+  const updateFormerByCategory = document.getElementById('former-decisions-wrapper');
+  if (updateFormerByCategory) {
+    updateFormerByCategory.innerHTML = "<%= j render 'former_decisions', former_decisions: @former_decisions %>";
+  }
+}
+updateFormerByCategory();
+
