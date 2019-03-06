@@ -20,8 +20,8 @@ fr:
       timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
     sessions:
-      signed_in: "Réussite de la connexion."
-      signed_out: "Réussite de la deconnexion."
+      signed_in: "Bienvenu (e)"
+      signed_out: "Déconnexion réussie, à bientôt !"
     passwords:
       send_instructions: "Vous allez recevoir un courriel avec des instructions pour changer votre mot de passe."
       updated: "Votre mot de passe a été changé. Vous êtes maintenant connecté."
@@ -52,8 +52,8 @@ fr:
     common:
       forgot_your_password?: "Mot de passe oublié?"
       hello: "Bonjour"
-      sign_in: "Se connecter"
-      sign_up: "Se déconnecter"
+      sign_in: "Connexion"
+      sign_up: "Déconnexion"
     shared:
       links:
         didnt_receive_confirmation_instructions?: "Vous n'avez pas reçu de courriel de confirmation?"
