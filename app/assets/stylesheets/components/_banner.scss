@@ -38,6 +38,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  position: relative;
+  bottom: -180px;
   a:hover {
       text-decoration: none;
     }
