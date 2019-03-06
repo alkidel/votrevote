@@ -40,7 +40,6 @@
   font-weight: bold;
   &:hover {
     text-decoration: none;
-    color:$green;
     background-color: $white;
     transition: .4s;
     }
@@ -146,6 +145,70 @@
     color: white;
     background-color: $finance;
     transition: .4s;
+  }
+}
+.home-education {
+color: white;
+  padding: 11px;
+  // background-color: white;
+  background-color: $education;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.home-environnement {
+  border:none;
+  color: white;
+  padding: 11px;
+  // background-color: white;
+  background-color: $environment;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.home-culture {
+  border:none;
+  color: white;
+  padding: 11px;
+  // background-color: white;
+  background-color: $culture;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.home-urbanisme {
+  border:none;
+  color: white;
+  padding: 11px;
+  // background-color: white;
+  background-color: $public-works;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.home-logement {
+  border:none;
+  color: white;
+  padding: 11px;
+  // background-color: white;
+  background-color: $housing;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.home-finance {
+  border:none;
+  color: white;
+  padding: 11px;
+  // background-color: white;
+  background-color: $finance;
+  &:hover {
+    text-decoration: none;
   }
 }
 

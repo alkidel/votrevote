@@ -37,6 +37,10 @@ class DecisionsController < ApplicationController
     else
       redirect_to root_path
     end
+    respond_to do |format|
+     format.html
+     format.js
+    end
   end
 
   def index_pdf
@@ -70,6 +74,10 @@ class DecisionsController < ApplicationController
       end
     else
       redirect_to root_path
+    end
+    respond_to do |format|
+     format.html
+     format.js
     end
   end
 
