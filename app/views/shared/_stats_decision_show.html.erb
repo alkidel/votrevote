@@ -23,12 +23,12 @@ pour cette décision !</h4>
         par le conseil municipal.</p>
     <div class="pie-chart-container-decision">
         <div class="pie-chart-legend">
-          <div class="legend-all legend-finance">Accepté</div>
-          <div class="legend-all legend-culture">Refusé</div>
-          <div class="legend-all legend-housing">A reporter</div>
+          <div class="legend-all legend-environment">Accepté</div>
+          <div class="legend-all legend-education">Refusé</div>
+          <div class="legend-all legend-deferred">A reporter</div>
         </div>
       <div class='accepted-rejected'>
-        <%= pie_chart @council_results_by_numbers, height: "250px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false, donut: true %>
+        <%= pie_chart @council_results_by_numbers, height: "250px", colors: ["#32B796", "#EE5F5B", "#C9C9C9"], legend: false, donut: true %>
       </div>
     </div>
     </div>
@@ -42,11 +42,11 @@ pour cette décision !</h4>
       par le public.</p>
       <div class="pie-chart-container-decision">
           <div class="pie-chart-legend">
-            <div class="legend-all legend-finance">Accepté</div>
-            <div class="legend-all legend-culture">Refusé</div>
+            <div class="legend-all legend-environment">Accepté</div>
+            <div class="legend-all legend-education">Refusé</div>
           </div>
       <div class='accepted-rejected'>
-        <%= pie_chart @public_results_by_numbers, height: "250px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false, donut: true %>
+        <%= pie_chart @public_results_by_numbers, height: "250px", colors: ["#32B796", "#EE5F5B", "#C9C9C9"], legend: false, donut: true %>
       </div>
     </div>
     </div>
