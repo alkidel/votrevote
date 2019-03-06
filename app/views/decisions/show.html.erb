@@ -114,7 +114,7 @@
         <%= render 'form', decision: @decision, comment: @comment %>
       </div>
       <div id='commentslist'>
-        <% @decision.comments.each do |comment| %>
+        <% @decision.comments.order('created_at DESC').each do |comment| %>
           <%= render 'comment', comment: comment %>
       <% end %>
     </div>
