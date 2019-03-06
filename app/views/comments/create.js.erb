@@ -13,6 +13,6 @@ function addReview(reviewHTML) {
 <% if @comment.errors.any? %>
   refreshForm('<%= j render "decisions/form", decision: @decision, comment: @comment %>');
 <% else %>
-  addReview('<%= j render "decisions/comment", decision: @decision %>');
+  addReview('<%= j render "decisions/comment", comment: @comment %>');
   refreshForm('<%= j render "decisions/form", decision: @decision, comment: Comment.new %>');
 <% end %>
