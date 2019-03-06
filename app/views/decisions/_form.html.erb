@@ -1,0 +1,4 @@
+<%= simple_form_for([ decision, comment ], remote: true) do |f| %>
+  <%= f.input :content, placeholder: "Ajouter un commentaire public...", label:false, class: "form_design" %>
+  <%= f.submit "Ajouter un commentaire", class: "position_right btn-ghost btn-ghost:hover" %>
+<% end %>
