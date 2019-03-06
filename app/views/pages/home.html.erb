@@ -11,7 +11,7 @@
         <%= link_to former_path(council_date: array) do %>
           <div class="card-home-display">
             <div class="card-product">
-              <%= image_tag photo_address[index] %>
+              <%= image_tag photo_address[index], secure: true %>
               <div class="card-product-infos">
                 <h2>Conseil municipal du <br> <%= l(array, format: :long) %></h2>
               </div>
