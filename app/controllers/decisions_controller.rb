@@ -85,8 +85,7 @@ class DecisionsController < ApplicationController
     decision_attributes = decision_params
     decision_attributes["category"] = decision_attributes["category"].to_i
     @decision = Decision.new(decision_attributes)
-
-
+    @decision.minutes = "" if @decision.minutes.nil?
     if @decision.save
       redirect_to decision_path(@decision)
     else
@@ -95,9 +94,13 @@ class DecisionsController < ApplicationController
   end
 
   def update
-    authorize @decision
+    # authorize @decision
     # authorize @boat
-    @decision.update(decision_params)
+    if @decision.update(decision_params)
+      redirect_to decision_path(@decision)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -111,7 +114,8 @@ class DecisionsController < ApplicationController
 
   def decision_params
     result = params[:result].to_i
-    params.require(:decision).permit(:title, :category, :description, :council_date, result, :minutes, :town_id, :photo, :accepted_votes, :rejected_votes, :deferred_votes)
+    category = params[:category].to_i
+    params.require(:decision).permit(:title, category, :description, :council_date, result, :minutes, :town_id, :photo, :accepted_votes, :rejected_votes, :deferred_votes)
   end
 
   def set_decision
