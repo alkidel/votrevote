@@ -1,6 +1,6 @@
 <div class="slider">
   <% Decision.future.first(3).each do|decision| %>
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path decision.photo %>')">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path decision.photo, secure: true %>')">
         <div class="banner-countdown">
             <h3>
               <i class="far fa-calendar-alt"></i>
@@ -26,7 +26,7 @@
     </div>
   <% end %>
 
-  <div class="banner" style="background-image: linear-gradient(rgba(40,40,40,0.7), rgba(40,40,40,0.7)), url('<%= image_path "image_banner.jpg" %>')">
+  <div class="banner" style="background-image: linear-gradient(rgba(40,40,40,0.7), rgba(40,40,40,0.7)), url('<%= image_path "image_banner.jpg", secure: true %>')">
     <div class="last-card">
       <div class="banner-countdown">
           <h3>
