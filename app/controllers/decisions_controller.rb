@@ -7,6 +7,7 @@ class DecisionsController < ApplicationController
     @public_result = @decision.future? ? 0 : public_result
     @public_results_by_numbers = Vote.where(decision: @decision).with_results.group(:result).count
     @council_results_by_numbers = council_results_numbers
+    @comment = Comment.new
   end
 
   def public_result

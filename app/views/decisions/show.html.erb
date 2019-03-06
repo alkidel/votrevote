@@ -100,33 +100,16 @@
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="commentaires">
       <div class="comment_title">
-        <h3>Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.</h3>
+        <h5>Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.</h5>
       </div>
 
       <div class="comment_form">
-        <%= simple_form_for [@decision, Comment.new ] do |f| %>
-          <%= f.input :content, placeholder: "Laissez-nous votre avis", label:"Commentaires:"  %>
-          <%= f.submit "Ajouter votre commentaire", class: "btn btn-primary" %>
-        <% end %>
+        <%= render 'form', decision: @decision, comment: @comment %>
       </div>
-
-      <div class="comment_list">
-        <ul>
-          <% @decision.comments.each do |comment| %>
-            <li>
-               <div id="comment_content">
-                <div class="comment_user">
-                  <%= comment.user.photo %> <%= comment.user.first_name %> <%= comment.user.last_name %>
-                </div>
-                <%= comment.content %>
-               </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+      <%= render 'comment', decision: @decision %>
   </div>
   <hr>
 </div>
+
 
 
