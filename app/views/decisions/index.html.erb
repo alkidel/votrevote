@@ -13,7 +13,7 @@
 
   </div>
   <% if current_user.id == Town.first.user_id %>
-  <h4> <%= link_to 'Create PDF document', pdf_pages_path(:format => :pdf) %> </h4>
+  <h4> <%= link_to '<i class="fas fa-print"></i>'.html_safe, pdf_pages_path(:format => :pdf) %> </h4>
   <% end %>
     <hr>
   <div class="row" id="decisions-wrapper">
