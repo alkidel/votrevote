@@ -8,7 +8,7 @@ Decision.destroy_all
 Town.destroy_all
 User.destroy_all
 
-puts 'Creating 4 real users & 10 fake users ...'
+puts 'Creating 4 real users & 100 fake users ...'
 
 greg =  User.new({
   first_name: "Grégoire",
@@ -57,7 +57,7 @@ mathieu.remote_photo_url = "https://avatars2.githubusercontent.com/u/45971412"
 mathieu.save!
 
 
-10.times do
+100.times do
   pwd = Faker::Lorem.characters(10)
   user = User.new(
     first_name: Faker::Name.first_name,
