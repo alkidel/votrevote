@@ -31,8 +31,10 @@
 
 
     <div class="show-banner-card">
-      <h1> <%= @decision.title.capitalize %> </h1>
-      <div class="card-decision-infos" id="decision-<%= @decision.id %>">
+
+      <h1><%= @decision.title.capitalize %></h1>
+
+      <div class="card-decision-infos-show" id="decision-<%= @decision.id %>">
         <div class="card-decision-infos-category <%= @decision.category.downcase %>">
           <%= @decision.category %>
         </div>
@@ -55,7 +57,7 @@
         </div>
         <% end %>
         <div class="votes-infos">
-          <h4 id="votes-count" class="text-center"><%= @decision.votes_count %> </h4>
+          <h4 id="votes-count" class="text-center"><%= @decision.votes_count %></h4>
           <p class="text-center">votes</p>
         </div>
       </div>
@@ -86,7 +88,9 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active extra-padding" id="description">
+
       <h4><%= @decision.description.html_safe %></h4>
+
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="stats">
@@ -96,7 +100,9 @@
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="minutes">
+
       <h4><%= @decision.minutes.html_safe %> </h4>
+
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="commentaires">

@@ -143,10 +143,13 @@ overflow: hidden;
     position: absolute;
     left: 4%;
     bottom: -1px;
-    width: 40%;
-    height: 200px;
+    width: 45%;
+    height: 250px;
     padding: 3% 3% 5px;
     background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
       h1 {
         color: $header-grey;
         font-family: $headers-font;
