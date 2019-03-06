@@ -14,7 +14,7 @@
            <!--  <div class = "result <%= decision.result %>">
             <%= decision.result.capitalize %>
             </div> -->
-            <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 200, crop: :fill %>');">
+            <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 400, crop: :fill %>');">
               <div class="vote-logo">
                 <div class="triangle-topright tr-<%= decision.result %>">
                   <% if decision.result == "accepted" %>
