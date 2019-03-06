@@ -11,12 +11,6 @@
 
 
 }
-  // .home-container{
-  //   width: 47%;
-  //   right: 53px;
-  //   position: relative;
-  //   bottom: 20px;
-  //   padding: 40px 119px;
 
 .decision_banner {
        padding-top: 35px;
@@ -47,9 +41,12 @@
 
 .banner-buttons {
   display: flex;
-  width: 250px;
-  justify-content: space-between;
+  width: 280px;
+  justify-content: start;
+}
 
+.banner-margin{
+  margin-left: 10px;
 }
 
 .white-background{
@@ -79,17 +76,29 @@
     }
 }
 
-
-// .title{
-//     font-weight: bold;
-//     font-size: 24px;
-//     font-family: 'Playfair Display', serif;
-//       p {
-//         opacity: .8;
-//         font-size: 16px;
-//         font-weight: lighter;
-//       }
-// }
+.last-card{
+  background-color: white;
+  text-align: center;
+  border-radius: 3px;
+  width: 50%;
+  margin: 0 auto;
+  transform: translate(0, 50%);
+  .banner-countdown{
+    color: $header-grey;
+    padding-top: 30px;
+    .decision_banner{
+      a{
+        font-size: 100%;
+        color: $white;
+        background-color: $green;
+        border-radius: 3px;
+        padding: 10px 30px;
+        margin-bottom: 20px;
+        width: 80%;
+      }
+    }
+  }
+}
 
 .call_to_action{
   margin-top: 20px;
@@ -102,8 +111,6 @@
   margin-top: 30px;
   }
 }
-
-
 
 .show-banner {
 background-size: cover;
@@ -191,6 +198,7 @@ overflow: hidden;
     border-color: $green;
     background-color:$green;
 }
+
 #reject {
     border-color: $red;
     background-color: $red;

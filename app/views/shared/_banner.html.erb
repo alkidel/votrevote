@@ -10,7 +10,7 @@
         <div class="banner-content">
           <div class="banner-buttons">
             <h2><%= link_to "Next Decisions", decisions_path, class: "btn-category-decisions" %></h2>
-            <h2><%= link_to decision.category, decisions_path, class: "btn-category" %>
+            <h2><%= link_to decision.category, decisions_path, class: "btn-category banner-margin home-#{decision.category.downcase}" %>
             </h2>
           </div>
           <%= link_to decisions_path do %>
@@ -26,15 +26,17 @@
     </div>
   <% end %>
 
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "image_banner.jpg" %>')">
-    <div class="banner-countdown">
-        <h3>
-          <i class="far fa-calendar-alt"></i>
-          J-<%= (Decision.first.council_date - Date.today).to_i%> avant le prochain conseil municipal
-        </h3>
-        <div class="decision_banner">
-          <%= link_to 'Voir toutes les décisions', decisions_path, class: "btn btn-category" %>
-        </div>
+  <div class="banner" style="background-image: linear-gradient(rgba(40,40,40,0.7), rgba(40,40,40,0.7)), url('<%= image_path "image_banner.jpg" %>')">
+    <div class="last-card">
+      <div class="banner-countdown">
+          <h3>
+            <i class="far fa-calendar-alt"></i>
+            J-<%= (Decision.future.first.council_date - Date.today).to_i%> avant le prochain conseil municipal
+          </h3>
+          <div class="decision_banner">
+            <%= link_to 'Voir toutes les décisions', decisions_path, class: "btn btn-category" %>
+          </div>
+      </div>
     </div>
   </div>
 
