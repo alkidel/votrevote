@@ -11,7 +11,10 @@ class DecisionsController < ApplicationController
   end
 
   def public_result
-    Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0]
+    if @decision.result == "pending"
+    else
+      Vote.where(decision: @decision).with_results.group(:result).count.sort_by {|k,v| v}.reverse.first[0]
+    end
   end
 
   def council_results_numbers
@@ -26,14 +29,34 @@ class DecisionsController < ApplicationController
     if Decision.future.length.positive?
       @user_result = Vote.where(user: current_user)
       if params[:query].present?
-        @future_decisions = Decision.future.order(created_at: :DESC).search_by_title_and_description_and_minutes(params[:query])
+        @future_decisions = Decision.future.search_by_title_and_description_and_minutes(params[:query])
       elsif params[:category]
-        @future_decisions = Decision.future.order(created_at: :DESC).category(params[:category])
+        @future_decisions = Decision.future.category(params[:category])
       else
-        @future_decisions = Decision.future.order(created_at: :DESC)
+        @future_decisions = Decision.future
       end
     else
       redirect_to root_path
+    end
+    respond_to do |format|
+     format.html
+     format.js
+    end
+  end
+
+  def index_pdf
+    @future_decisions = Decision.future
+    respond_to do |format|
+     format.html
+     format.pdf do
+       render pdf: "index_pdf",
+              template: "decisions/index_pdf.html.erb",
+              layout: 'pdf.html',
+              show_as_html: params.key?('debug'), # allow debugging based on url
+              title: 'Ordre du jour',
+              encoding: 'TEXT',
+              background: false
+     end
     end
   end
 
@@ -53,6 +76,10 @@ class DecisionsController < ApplicationController
     else
       redirect_to root_path
     end
+    respond_to do |format|
+     format.html
+     format.js
+    end
   end
 
   def new
@@ -64,9 +91,10 @@ class DecisionsController < ApplicationController
   end
 
   def create
-    @decision = Decision.new(decision_params)
-    # @boat.user = current_user
-    # authorize @boat
+    decision_attributes = decision_params
+    decision_attributes["category"] = decision_attributes["category"].to_i
+    @decision = Decision.new(decision_attributes)
+
 
     if @decision.save
       redirect_to decision_path(@decision)

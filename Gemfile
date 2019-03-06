@@ -24,6 +24,10 @@ gem 'carrierwave', '~> 1.2'
 gem 'faker'
 gem 'pg_search'
 gem 'postmark-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+gem "jquery-slick-rails"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -37,3 +41,4 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+

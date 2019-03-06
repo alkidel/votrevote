@@ -1,0 +1,9 @@
+function updateIndexByCategory() {
+
+  const updateIndexByCategory = document.getElementById('decisions-wrapper');
+  if (updateIndexByCategory) {
+    updateIndexByCategory.innerHTML = "<%= j render 'decisions', future_decisions: @future_decisions %>";
+  }
+}
+updateIndexByCategory();
+

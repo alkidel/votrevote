@@ -1,22 +1,22 @@
 <div class="categories-decisions hidden-xs">
   <div class="navbar-decisions">
   <% if request.env['PATH_INFO'] == decisions_path %>
-  <%= link_to "Finance", decisions_path(category: "Finance"), class: "finance" %>
-  <%= link_to "Education", decisions_path(category: "Education"), class: "education" %>
-  <%= link_to "Environnement", decisions_path(category: "Environnement"), class: "environnement" %>
-  <%= link_to "Urbanisme", decisions_path(category: "Urbanisme"), class: "urbanisme" %>
-  <%= link_to "Culture", decisions_path(category: "Culture"), class: "culture" %>
-  <%= link_to "Logement", decisions_path(category: "Logement"), class: "logement" %>
-  <%= link_to "Tout voir", decisions_path, class: "btn-all" %>
+  <%= link_to "Finance", decisions_path(category: "Finance"), class: "finance", remote: true %>
+  <%= link_to "Education", decisions_path(category: "Education"), class: "education", remote: true %>
+  <%= link_to "Environnement", decisions_path(category: "Environnement"), class: "environnement", remote: true %>
+  <%= link_to "Urbanisme", decisions_path(category: "Urbanisme"), class: "urbanisme", remote: true %>
+  <%= link_to "Culture", decisions_path(category: "Culture"), class: "culture", remote: true %>
+  <%= link_to "Logement", decisions_path(category: "Logement"), class: "logement", remote: true %>
+  <%= link_to "Tout voir", decisions_path, class: "btn-all", remote: true %>
 
 <% else %>
-  <%= link_to "Finance", former_path(category: "Finance"), class: "finance" %>
-  <%= link_to "Education", former_path(category: "Education"), class: "education" %>
-  <%= link_to "Environnement", former_path(category: "Environnement"), class: "environnement" %>
-  <%= link_to "Urbanisme", former_path(category: "Urbanisme"), class: "urbanisme" %>
-  <%= link_to "Culture", former_path(category: "Culture"), class: "culture" %>
-  <%= link_to "Logement", former_path(category: "Logement"), class: "logement" %>
-  <%= link_to "Tout voir", former_path, class: "btn-all" %>
+  <%= link_to "Finance", former_path(category: "Finance"), class: "finance", remote: true %>
+  <%= link_to "Education", former_path(category: "Education"), class: "education", remote: true %>
+  <%= link_to "Environnement", former_path(category: "Environnement"), class: "environnement", remote: true %>
+  <%= link_to "Urbanisme", former_path(category: "Urbanisme"), class: "urbanisme", remote: true %>
+  <%= link_to "Culture", former_path(category: "Culture"), class: "culture", remote: true %>
+  <%= link_to "Logement", former_path(category: "Logement"), class: "logement", remote: true %>
+  <%= link_to "Tout voir", former_path, class: "btn-all", remote: true %>
 
 <% end %>
   </div>
@@ -28,52 +28,30 @@
   <div class="navbar-decisions">
     <% if request.env['PATH_INFO'] == decisions_path %>
       <div class='extra-padding'>
-        <%= link_to "Finance", decisions_path(category: "Finance"), class: "finance" %>
-        <%= link_to "Education", decisions_path(category: "Education"), class: "education" %>
-        <%= link_to "Environnement", decisions_path(category: "Environnement"), class: "environnement" %>
+        <%= link_to "Finance", decisions_path(category: "Finance"), class: "finance", remote: true %>
+        <%= link_to "Education", decisions_path(category: "Education"), class: "education", remote: true %>
+        <%= link_to "Environnement", decisions_path(category: "Environnement"), class: "environnement", remote: true %>
       </div>
       <div class='extra-padding'>
-        <%= link_to "Urbanisme", decisions_path(category: "Urbanisme"), class: "urbanisme" %>
-        <%= link_to "Culture", decisions_path(category: "Culture"), class: "culture" %>
-        <%= link_to "Logement", decisions_path(category: "Logement"), class: "logement" %>
+        <%= link_to "Urbanisme", decisions_path(category: "Urbanisme"), class: "urbanisme", remote: true %>
+        <%= link_to "Culture", decisions_path(category: "Culture"), class: "culture", remote: true %>
+        <%= link_to "Logement", decisions_path(category: "Logement"), class: "logement", remote: true %>
       </div>
     <% else %>
-      <div>
-        <%= link_to "Finance", former_path(category: "Finance"), class: "finance" %>
-        <%= link_to "Education", former_path(category: "Education"), class: "education" %>
-        <%= link_to "Environnement", former_path(category: "Environnement"), class: "environnement" %>
+      <div class='extra-padding'>
+        <%= link_to "Finance", former_path(category: "Finance"), class: "finance", remote: true %>
+        <%= link_to "Education", former_path(category: "Education"), class: "education", remote: true %>
+        <%= link_to "Environnement", former_path(category: "Environnement"), class: "environnement", remote: true %>
       </div>
-      <div>
-        <%= link_to "Urbanisme", former_path(category: "Urbanisme"), class: "urbanisme" %>
-        <%= link_to "Culture", former_path(category: "Culture"), class: "culture" %>
-        <%= link_to "Logement", former_path(category: "Logement"), class: "logement" %>
+      <div class='extra-padding'>
+        <%= link_to "Urbanisme", former_path(category: "Urbanisme"), class: "urbanisme", remote: true %>
+        <%= link_to "Culture", former_path(category: "Culture"), class: "culture", remote: true %>
+        <%= link_to "Logement", former_path(category: "Logement"), class: "logement", remote: true %>
       </div>
-  <% end %>
-      <div class='extra-padding search-responsive'>
-        <%= render 'shared/searchbar' %>
-      </div>
+    <% end %>
   </div>
-</div>
-
-<!--
-<div class="navbar-wagon-item hidden-sm hidden-md hidden-lg">
-  <div class="dropdown-black">
-    <div class="dropdown-title">
-      <div>Catégorie</div>
-      <div><i class="fa fa-bars dropdown-toggle dropdown-black" id="dropdown-black-btn"></i>
-      </div>
-    </div>
-    <ul class="dropdown-black-none navbar-wagon-dropdown-menu list-unstyled" id='dropdown-black-items'>
-      <li><%= link_to "Commerce", decisions_path(category: "Commerce") %></li>
-      <li><%= link_to "Education", decisions_path(category: "Education") %></li>
-      <li><%= link_to "Environment", decisions_path(category: "Environment") %></li>
-      <li><%= link_to "Transport", decisions_path(category: "Transport")%></li>
-      <li><%= link_to "Waste", decisions_path(category: "Waste") %></li>
-      <li><%= link_to "Show All", decisions_path %></li>
-    </ul>
+  <div class='extra-padding search-responsive'>
+    <%= render 'shared/searchbar' %>
   </div>
+
 </div>
-
-
- -->
-

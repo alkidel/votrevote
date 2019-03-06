@@ -12,51 +12,12 @@
       </div>
 
   </div>
-
-
-
+  <% if current_user.id == Town.first.user_id %>
+  <h4> <%= link_to 'Create PDF document', pdf_pages_path(:format => :pdf) %> </h4>
+  <% end %>
     <hr>
-  <div class="row">
-    <% @future_decisions.each do |decision| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-
-        <div class="card-decision" id="decision-<%= decision.id %>">
-
-          <%= link_to decision_path(decision) do %>
-            <div class="card-decision-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, height: 400, crop: :fill %>');">
-
-                <h2><%=decision.title %></h2>
-            </div>
-          <% end %>
-          <div class="card-decision-infos">
-            <div class="card-decision-infos-category">
-              <%= link_to decision.category, decisions_path(category: decision.category), class: decision.category.downcase %>
-              <%=  %>
-            </div>
-            <div class="vote">
-              <div>
-                <% user_vote = decision.votes.find_by(user: current_user) %>
-                <%= link_to accepted_vote_path(user_vote), remote: true do %>
-                  <i class="far fa-thumbs-up <%= 'selected' if user_vote.result == "accepted" %>"></i>
-                <% end if user_vote %>
-              </div>
-              <div>
-                <%= link_to rejected_vote_path(user_vote), remote: true do %>
-                  <i class="far fa-thumbs-down <%= 'selected' if user_vote.result == "rejected" %>"></i>
-                <% end if user_vote %>
-              </div>
-              <!-- <div><a href="#"><i class="far fa-thumbs-up"></i></a></div>
-              <div><a href="#"><i class="far fa-thumbs-down"></i></a></div> -->
-            </div>
-            <div class="votes-infos">
-              <h4 class="text-center" id="decision-<%= decision.id %>-votes-count"><%= decision.votes_count %> </h4>
-
-              <p class="text-center">votes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <div class="row" id="decisions-wrapper">
+    <%= render 'decisions', future_decisions: @future_decisions %>
   </div>
 
   <hr>
