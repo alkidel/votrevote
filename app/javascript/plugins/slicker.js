@@ -5,7 +5,7 @@ const slicker = () => {
     speed: 300,
     slidesToShow: 1,
     adaptiveHeight: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     arrows: true
   });
