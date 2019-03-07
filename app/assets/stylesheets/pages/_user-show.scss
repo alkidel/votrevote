@@ -133,3 +133,22 @@
 .legend-finance {
   background-color: $finance;
 }
+
+
+@media (max-width: 568px) {
+  .accepted-rejected {
+  width: 300px;
+}
+
+.graph-council-dates {
+  width: 300px;
+}
+.categories-chart {
+  width: 300px;
+}
+
+.pie-chart-legend {
+  padding-left: 30px;
+}
+
+  }
