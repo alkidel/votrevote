@@ -26,3 +26,38 @@ dropdownBlackToggle()
 
 import { slicker } from '../plugins/slicker';
 slicker()
+
+let categoryButtons = document.querySelectorAll('.category-btn');
+  categoryButtons.forEach((categoryButton) => {
+    categoryButton.addEventListener("click", (event) => {
+
+    let nonSelectedButtons = document.querySelectorAll('.category-btn');
+    nonSelectedButtons.forEach((nonSelectedButton) => {
+      nonSelectedButton.style.backgroundColor = 'white';
+      nonSelectedButton.style.color = 'black';
+    });
+
+
+    let borderColor = window.getComputedStyle(categoryButton).borderColor;
+    categoryButton.style.backgroundColor = borderColor;
+    categoryButton.style.color = 'white';
+
+    });
+  });
+
+// when clicked, toggle active
+// let categoryButton = document.querySelector('.culture');
+
+// categoryButton.addEventListener("click", (event) => {
+//   let borderColor = window.getComputedStyle(categoryButton).borderColor;
+//   categoryButton.style.backgroundColor = borderColor;
+//   });
+
+// buttons.forEach((button) => {
+//   button.addEventListener('click', displayClickedElement);
+// });
+
+// let finance = fff
+
+// finance add event list
+//  finance.style.border
