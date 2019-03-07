@@ -1,17 +1,10 @@
-<div class="extra-padding">
-
-  <h4 class="text-center text-design">Le conseil municipal et la population sont en
-    <% if @decision.result == @public_result %>
-      <strong>accord</strong>
-    <% else %>
-      <strong>désaccord</strong>
-    <% end %>
-    pour cette décision !
-  </h4>
+<div class="row">
+  <div class="col-xs-12">
+    <h4 class="text-center text-design">Les résultats de cette décision :
+    </h4>
 </div>
 
 
-<div class="row">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
     <div class="stats-table">
       <div class="stats-column">
@@ -20,9 +13,9 @@
           <p><% if @decision.result == "accepted" %>
             <i class="fas fa-check"></i>
           <% elsif @decision.result == "rejected" %>
-            refusée
+            <i class="fas fa-times"></i>
           <% else %>
-            reportée
+            <i class="fas fa-times"></i>
             <% end  %>
           </p>
         </div>
@@ -57,12 +50,22 @@
     </div>
   </div>
 
-
+<div class="col-xs-12">
+    <h4 class="text-center text-design">Le conseil municipal et la population sont en
+      <% if @decision.result == @public_result %>
+        <strong>accord</strong>
+      <% else %>
+        <strong>désaccord</strong>
+      <% end %>
+      pour cette décision !
+    </h4>
+</div>
 
   <div class="col-xs-12 col-sm-6">
     <div class="chart-container">
-      <h4 class="text-center">Conseil Municipal
+      <h4 class="text-center">
         <i class="fas fa-landmark"></i>
+        Conseil Municipal
       </h4>
       <p class="text-center">Cette décision a été<strong>
          <% if @decision.result == "accepted" %>
@@ -89,8 +92,9 @@
   </div>
     <div class="col-xs-12 col-sm-6">
       <div class="chart-container">
-        <h4 class="text-center">Habitants
+        <h4 class="text-center">
           <i class="fas fa-users"></i>
+          Habitants
         </h4>
         <p class="text-center">Cette décision a été <strong><%= @public_result == "accepted" ? "acceptée" : "refusée"  %> </strong>
 
