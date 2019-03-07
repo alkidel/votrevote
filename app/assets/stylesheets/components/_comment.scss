@@ -7,10 +7,18 @@
 ul{
   list-style-type:none;
 }
+
+.comment-container {
+  width: 90%;
+}
+
+.comment-button {
+  display: flex;
+  justify-content: flex-end;
+}
 .commentcontent{
-  display:flex;
+  display: flex;
   overflow: hidden;
-  width: 70vw;
   height: auto;
   background: white;
   // box-shadow: 0 0 7px rgba(0,0,0,0.2);
@@ -34,21 +42,10 @@ ul{
   margin-bottom:50px;
 }
 
-.comment_form{
-  // margin-left:46px;
-  width:50vw;
-}
-
-.comment_photo{
-  // width:50px;
-}
-
 .comment_detail{
   margin-left:8px;
 }
-.comment_user{
 
-}
 .comment_txt{
   font-size:15px;
 

@@ -106,9 +106,7 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active extra-padding" id="description">
-
       <h4><%= @decision.description.html_safe %></h4>
-
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="stats">
@@ -118,23 +116,23 @@
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="minutes">
-
       <h4><%= @decision.minutes.html_safe %> </h4>
-
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="commentaires">
       <div class="comment_title">
         <h5>Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.</h5>
       </div>
-
-      <div class="comment_form">
-        <%= render 'form', decision: @decision, comment: @comment %>
+      <div class="comment-container">
+        <div class="comment_form">
+          <%= render 'form', decision: @decision, comment: @comment %>
+        </div>
+        <div id='commentslist'>
+          <% @decision.comments.order('created_at DESC').each do |comment| %>
+            <%= render 'comment', comment: comment %>
+        <% end %>
+        </div>
       </div>
-      <div id='commentslist'>
-        <% @decision.comments.order('created_at DESC').each do |comment| %>
-          <%= render 'comment', comment: comment %>
-      <% end %>
     </div>
   </div>
   <hr>
