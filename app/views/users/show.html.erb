@@ -14,7 +14,7 @@
 
           <% hash_votes = {"En accord avec le conseil" => @user_council_accord, "En accord avec le public" => @user_public_accord } %>
           <div class="categories-chart">
-            <%= bar_chart hash_votes, max: 100, colors: ["#EE5F5B"], height: "200px" %>
+            <%= bar_chart hash_votes, max: 100, colors: ["#EE5F5B"], suffix: "%", height: "200px" %>
           </div>
         </div>
       </div>
