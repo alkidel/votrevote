@@ -1,7 +1,7 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 <div class="container">
   <%= render 'shared/banner' %>
-  <h2>Derniers conseils municipaux</h2>
+  <h2 class="home-title">Derniers conseils municipaux</h2>
   <div class="row">
     <% Decision.dates.first(3).each_with_index do |array, index| %>
     <% photo_address = ["vote_banner.jpg","echarpe.jpg","vote_main.jpg"] %>
