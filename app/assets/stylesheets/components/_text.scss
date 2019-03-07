@@ -1,9 +1,12 @@
  .text-design{
-    font-size: 16px;
+
     font-weight: lighter;
     color:$header-grey;
-    font-family:$body-font;
     line-height: 1.7;
+    padding-bottom: 10px;
+    h4 {
+      font-size: 20px;
+    }
   }
 .justify{
   text-align: justify;

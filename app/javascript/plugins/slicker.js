@@ -5,8 +5,8 @@ const slicker = () => {
     speed: 300,
     slidesToShow: 1,
     adaptiveHeight: true,
-    autoplay: false,
-    autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 4000,
     arrows: true
   });
 };

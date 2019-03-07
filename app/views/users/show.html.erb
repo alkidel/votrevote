@@ -20,7 +20,7 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <h4>Vos votes par catégorie:</h4>
+          <h4>Vos votes par catégorie</h4>
           <div class="text-center">La catégorie pour laquelle vous avez la plus votée : <strong><%= @user_top_category %></strong>
             (<%= @user_top_category_number_of_votes.round %>% de vos votes)
           </div>
@@ -34,7 +34,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <h4>Vos choix:</h4>
+          <h4>Vos choix</h4>
             <div class="text-center">Vous avez voté pour <strong><%= Vote.of(@user).with_results.group(:result).count["accepted"] %></strong> propositions et contre <strong><%= Vote.of(@user).with_results.group(:result).count["rejected"] %></strong> propositions :
             </div>
             <div class="pie-chart-container">
@@ -51,8 +51,8 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <h4>Quand est-ce que vous avez voté ?</h4>
-          <div>Nombre de votes par conseil municipal:</div>
+          <h4>Vos votes par date</h4>
+          <div>Nombre de votes par conseil municipal :</div>
           <div class="graph-council-dates">
             <%= line_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count, height: "200px", colors: ["#D34286"], points: false%>
           </div>
