@@ -13,7 +13,7 @@
 }
 
 .decision_banner {
-       padding-top: 35px;
+  padding-top: 35px;
   }
 
 .banner-countdown{
@@ -25,6 +25,15 @@
       padding: 0px;
       margin: 0px;
     }
+    a{
+      color:white;
+    }
+      a:hover {
+        text-decoration: none;
+        color: $green;
+        transition: .4s;
+        opacity: .9;
+      }
   }
 
 .banner-content {
@@ -33,7 +42,7 @@
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  bottom: -180px;
+  bottom: -120px;
   a:hover {
       text-decoration: none;
     }
@@ -53,7 +62,7 @@
   background-color: $white;
   color: black;
   padding: 20px;
-  width: 80%;
+  width: 60%;
   transition: .4s;
 
    &:hover {
@@ -92,7 +101,7 @@
         color: $white;
         background-color: $green;
         border-radius: 3px;
-        padding: 10px 30px;
+        padding: 10px 20px;
         margin-bottom: 20px;
         width: 80%;
       }
@@ -106,10 +115,28 @@
 
 
 @media (max-width: 568px) {
-.banner-content {
-  display: block;
-  margin-top: 30px;
+  .banner-content {
+  bottom: -30px;
+
+
   }
+
+  .white-background {
+    width: 280px;
+    padding: 10px;
+  }
+
+  .last-card {
+    width: 250px;
+    padding: 10px;
+    transform: translate(0, 10%);
+    a{
+        font-size: 60%;
+      }
+
+
+  }
+
 }
 
 .show-banner {
