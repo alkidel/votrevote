@@ -10,20 +10,18 @@
           <% end %>
         </div>
         <div class="banner-content">
-          <div class="banner-buttons">
-            <h2><%= link_to "Prochaines Décisions", decisions_path, class: "btn-category-decisions" %></h2>
-            <h2><%= link_to decision.category, decisions_path, class: "btn-category banner-margin home-#{decision.category.downcase}" %>
-            </h2>
-          </div>
-          <%= link_to decisions_path do %>
+<!--           <div class="banner-buttons">
+          </div> -->
+          <%= link_to decision_path(decision) do %>
             <div class="white-background">
-              <h3><%= decision.title %></h3>
-              <p><%= decision.description %></p>
+            <div class="home-div card-decision-infos-category <%= decision.category.downcase %>">
+            <%= decision.category %>
+        </div>
+                <h3><%= decision.title %></h3>
+<!--                   <%= link_to 'En savoir plus', decisions_path, class: "btn btn-category" %>
+                </div> -->
             </div>
           <% end %>
-          <div class="call_to_action text-center">
-
-          </div>
         </div>
     </div>
   <% end %>
