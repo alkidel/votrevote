@@ -1,10 +1,13 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700');
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text|Montserrat:300');
 @import url('https://fonts.googleapis.com/css?family=Lora');
+
 // Define fonts for body and headers
 $headers-font: 'Lora', "serif";
 $body-font: 'Montserrat', "sans-serif";
+$open-font: "Open Sans", "sans-serif";
 
 
 // To use a font file (.woff) uncomment following lines
