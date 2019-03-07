@@ -14,7 +14,7 @@
 
           <% hash_votes = {"En accord avec le conseil" => @user_council_accord, "En accord avec le public" => @user_public_accord } %>
           <div class="categories-chart">
-            <%= bar_chart hash_votes, max: 100, colors: ["#EE5F5B"], suffix: "%", height: "200px" %>
+            <%= bar_chart hash_votes, max: 100, colors: ["#8380B6"], suffix: "%", height: "200px" %>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
           </div>
 
           <div class="categories-chart">
-            <%= column_chart @user_categories, colors: ["#62BDE9"], height: "300px" %>
+            <%= column_chart @user_categories, colors: ["#D34286"], height: "300px" %>
           </div>
         </div>
       </div>
@@ -36,15 +36,16 @@
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
           <h4>Accepter, réfuser, quelle est votre tendance ?</h4>
-            <div>Vous avez accepté <strong><%= Vote.of(@user).with_results.group(:result).count["accepté"] %></strong> décisions et refusé <strong><%= Vote.of(@user).with_results.group(:result).count["refusé"] %></strong> décisions :
+            <div>Vous avez accepté <strong><%= Vote.of(@user).with_results.group(:result).count["accepted"] %></strong> décisions et refusé <strong><%= Vote.of(@user).with_results.group(:result).count["rejected"] %></strong> décisions :
             </div>
             <div class="pie-chart-container">
               <div class="pie-chart-legend">
-                <div class="legend-all legend-finance">Accepté</div>
-                <div class="legend-all legend-culture">Refusé</div>
+                <div class="legend-all legend-environment">Accepté</div>
+                <div class="legend-all legend-education">Refusé</div>
               </div>
+
               <div class='accepted-rejected'>
-                <%= pie_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#8380B6", "#D34286", "#FDB631"], legend: false %>
+                <%= pie_chart Vote.of(@user).with_results.group(:result).count, height: "200px", colors: ["#EE5F5B", "#32B796", "#FDB631"], legend: false %>
               </div>
             </div>
         </div>
