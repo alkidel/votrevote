@@ -1,28 +1,26 @@
 <div class="slider">
   <% Decision.future.first(3).each do|decision| %>
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, secure: true %>')">
+      <div class="banner-container">
         <div class="banner-countdown">
           <%= link_to decisions_path do %>
             <h3>
-              <i class="far fa-calendar-alt"></i>
-              J-<%= (decision.council_date - Date.today).to_i%> avant le prochain conseil municipal
+              <!-- <i class="far fa-calendar-alt"></i> -->
+              Conseil municipal : J-<%= (decision.council_date - Date.today).to_i%>
             </h3>
           <% end %>
         </div>
         <div class="banner-content">
-<!--           <div class="banner-buttons">
-          </div> -->
           <%= link_to decision_path(decision) do %>
             <div class="white-background">
-            <div class="home-div card-decision-infos-category <%= decision.category.downcase %>">
-            <%= decision.category %>
-        </div>
-                <h3><%= decision.title %></h3>
-<!--                   <%= link_to 'En savoir plus', decisions_path, class: "btn btn-category" %>
-                </div> -->
+              <div class="home-div card-decision-infos-category <%= decision.category.downcase %>">
+              <%= decision.category %>
+              </div>
+              <h3><%= decision.title %></h3>
             </div>
           <% end %>
         </div>
+      </div>
     </div>
   <% end %>
 
