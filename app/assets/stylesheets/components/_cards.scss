@@ -143,20 +143,27 @@
 
 .fa-thumbs-up {
   color: black;
-  opacity: 0.8;
+  opacity: 0.4;
   padding: 10px;
-  &:hover, &.selected {
-    color: $green;
+  &:hover{
+    opacity:0.8;
   }
-
+  &.selected {
+    color: $green;
+    opacity:0.8;
+  }
 }
 
 .fa-thumbs-down {
   color: black;
-  opacity: 0.8;
+  opacity: 0.4;
   padding: 10px;
-  &:hover, &.selected {
+  &:hover{
+    opacity:0.8;
+  }
+  &.selected {
     color: $red;
+    opacity:0.8;
   }
 }
 
