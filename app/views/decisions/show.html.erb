@@ -48,7 +48,7 @@
         <% if @decision.past? %>
           <div>
             <% if Vote.all.where(user_id: current_user).where(decision_id: @decision).first.result == 'accepted' %>
-                <p class="your_vote">Votre <span class="your_vote_y">POUR</span></p></p>
+                <p class="your_vote">Votre Vote: <span class="your_vote_y">POUR</span></p></p>
            <% elsif Vote.all.where(user_id: current_user).where(decision_id: @decision).first.result == 'rejected' %>
                 <p class="your_vote">Votre Vote: <span class="your_vote_n">CONTRE</span></p>
             <% else %>
