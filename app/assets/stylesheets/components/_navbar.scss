@@ -35,7 +35,25 @@
   }
 }
 
-
+.tab-active{
+  // background-color: $green;
+  // padding: 16px 20px !important;
+  color: $green !important;
+  border-bottom: 3px solid $green;
+  height: 33px !important;
+  transform: translate(0px,8px);
+  &:hover{
+    color: $white !important;
+  }
+}
+// .tab-active{
+//   background-color: $green;
+//   padding: 16px 20px !important;
+//   color: $white;
+//   &:hover{
+//     color: $header-grey !important;
+//   }
+// }
 
 .brand-name{
   font-size: 22px;
