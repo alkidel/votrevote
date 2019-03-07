@@ -267,7 +267,6 @@ overflow: hidden;
     -webkit-transform: rotate(40deg);
     text-align: center;
 }
-
 #accept {
     border-color: $green;
     background-color:$green;
@@ -282,3 +281,35 @@ overflow: hidden;
     border-color: $orange;
     background-color: $orange;
 }
+
+.final_vote_index{
+    position: absolute;
+    top: 17px;
+    right: -127px;
+    width: 355px;
+    font-size: 17px;
+    border: solid;
+    border-right: none;
+    border-left: none;
+    font-weight: bold;
+    padding:4px;
+    opacity:0.90;
+    color:white;
+    -webkit-transform: rotate(40deg);
+    text-align: center;
+}
+.accept_card {
+    border-color: $green;
+    background-color:$green;
+}
+
+.reject_card {
+    border-color: $red;
+    background-color: $red;
+}
+
+.deferred_card {
+    border-color: $orange;
+    background-color: $orange;
+}
+
