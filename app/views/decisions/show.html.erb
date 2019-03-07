@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="show-banner" style="background-image: url('<%= @decision.photo.url %>')">
+  <div class="show-banner" style="background-image: url('<%= cl_image_path @decision.photo, secure: true; %>')">
 
       <% if @decision.future? %>
         <%= link_to decisions_path do %>

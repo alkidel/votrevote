@@ -1,6 +1,6 @@
 <div class="slider">
   <% Decision.future.first(3).each do|decision| %>
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path decision.photo, secure: true %>')">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path decision.photo, secure: true %>')">
         <div class="banner-countdown">
           <%= link_to decisions_path do %>
             <h3>
