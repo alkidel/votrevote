@@ -107,7 +107,9 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active extra-padding" id="description">
 
+
       <p class="text-design justify"><%= @decision.description.html_safe %></p>
+
 
     </div>
 
@@ -127,14 +129,16 @@
       <div class="comment_title">
         <p class="text-design justify">Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.</p>
       </div>
-
-      <div class="comment_form">
-        <%= render 'form', decision: @decision, comment: @comment %>
+      <div class="comment-container">
+        <div class="comment_form">
+          <%= render 'form', decision: @decision, comment: @comment %>
+        </div>
+        <div id='commentslist'>
+          <% @decision.comments.order('created_at DESC').each do |comment| %>
+            <%= render 'comment', comment: comment %>
+        <% end %>
+        </div>
       </div>
-      <div id='commentslist'>
-        <% @decision.comments.order('created_at DESC').each do |comment| %>
-          <%= render 'comment', comment: comment %>
-      <% end %>
     </div>
   </div>
   <hr>
