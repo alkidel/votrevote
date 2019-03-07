@@ -2,11 +2,11 @@ const slicker = () => {
     $('.slider').slick({
     dots: true,
     infinite: true,
-    speed: 300,
+    speed: 1000,
     slidesToShow: 1,
     adaptiveHeight: true,
-    autoplay: false,
-    autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 4000,
     arrows: true
   });
 };

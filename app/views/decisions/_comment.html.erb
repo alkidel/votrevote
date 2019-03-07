@@ -2,27 +2,27 @@
     <div class="commentcontent" data-comment-id="<%= comment.id %>">
     <!-- <div> -->
     <!-- <div> -->
-      <div class="comment_photo">
+      <div>
         <%= cl_image_tag comment.user.photo, secure: true, class:"avatar-large" %>
       </div>
-        <div class="comment_detail">
-          <div class="comment_user">
-            <%= comment.user.first_name %> <%= comment.user.last_name %>
-          </div>
-          <div class="comment_txt">
-           <%= comment.content %>
-          </div>
-          <div class="update_comment">
-            <% if current_user == comment.user %>
-              <%= link_to edit_comment_path(comment) do %>
-                <i class="far fa-edit"></i>
-              <% end %>
-              <%= link_to comment_path(comment), method: :delete, remote: true do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-            <% end %>
-          </div>
+      <div class="comment_detail">
+        <div class="comment_user">
+          <%= comment.user.first_name %> <%= comment.user.last_name %>
         </div>
+        <div class="comment_txt">
+          <%= comment.content %>
+        </div>
+        <div class="update_comment">
+          <% if current_user == comment.user %>
+            <%= link_to edit_comment_path(comment) do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+            <%= link_to comment_path(comment), method: :delete, remote: true do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     <!-- </div> -->
     <!-- </div> -->
     </div>

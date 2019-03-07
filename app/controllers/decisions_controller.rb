@@ -23,8 +23,6 @@ class DecisionsController < ApplicationController
   end
 
   def index
-    # @decisions = Decision.all
-    # @past_decisions = Decision.past
     @vote_counter = current_user.votes.joins(:decision).where("council_date >?",Date.today).where.not(result:"pending").count
 
     if Decision.future.length.positive?
@@ -62,8 +60,6 @@ class DecisionsController < ApplicationController
   end
 
   def former
-    # @decisions = Decision.all
-    # @past_decisions = Decision.past
     if Decision.past.length.positive?
       if params[:query].present?
         @former_decisions = Decision.past.search_by_title_and_description_and_minutes(params[:query])
@@ -72,7 +68,7 @@ class DecisionsController < ApplicationController
       elsif params[:category]
         @former_decisions = Decision.past.category(params[:category])
       else
-        @former_decisions = Decision.past
+        @former_decisions = Decision.past.order(updated_at: :DESC)
       end
     else
       redirect_to root_path

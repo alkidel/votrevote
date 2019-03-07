@@ -71,6 +71,7 @@
 
 .white-background{
   background-color: $white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color: black;
   padding: 10px;
   width: 60%;
@@ -138,28 +139,7 @@
 }
 
 
-@media (max-width: 568px) {
-  .banner-content {
-  bottom: -30px;
 
-
-  }
-
-  .white-background {
-    width: 280px;
-    padding: 10px;
-  }
-
-  .last-card {
-    width: 250px;
-    padding: 10px;
-    transform: translate(0, 10%);
-    a{
-        font-size: 60%;
-    }
-  }
-
-}
 
 .show-banner {
 background-size: cover;
@@ -282,6 +262,7 @@ overflow: hidden;
     background-color: $orange;
 }
 
+
 .final_vote_index{
     position: absolute;
     top: 17px;
@@ -311,5 +292,42 @@ overflow: hidden;
 .deferred_card {
     border-color: $orange;
     background-color: $orange;
+}
+
+
+@media (max-width: 568px) {
+  .banner-content {
+  bottom: -30px;
+  }
+
+  .white-background {
+    width: 280px;
+    padding: 10px;
+  }
+
+  .last-card {
+    width: 250px;
+    padding: 10px;
+    transform: translate(0, 10%);
+    a{
+        font-size: 60%;
+    }
+  }
+
+  .show-banner-card {
+    position: absolute;
+    left: 4%;
+    bottom: 10px;
+    width: 90%;
+    height: 200px;
+    padding: 3% 3% 5px;
+    h1 {
+      font-size: 20px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      line-height: 24px;
+      }
+  }
+
 }
 
