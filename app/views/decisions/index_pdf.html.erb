@@ -10,7 +10,7 @@
       <% @future_decisions = Decision.future.where(category: category) %>
       <% @future_decisions.each do |decision| %>
         <h2 class="pdf-decision-title"><%=decision.title.capitalize %></h2>
-        <p class="pdf-decision-description"><%= decision.description %></p>
+        <p class="pdf-decision-description"><%= decision.description.html_safe %></p>
         <% end %>
     <% end %>
   </div>
