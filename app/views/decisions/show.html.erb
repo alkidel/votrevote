@@ -106,7 +106,11 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active extra-padding" id="description">
-      <h4><%= @decision.description.html_safe %></h4>
+
+
+      <p class="text-design justify"><%= @decision.description.html_safe %></p>
+
+
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="stats">
@@ -116,12 +120,14 @@
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="minutes">
-      <h4><%= @decision.minutes.html_safe %> </h4>
+
+      <p class="text-design justify"><%= @decision.minutes.html_safe %> </p>
+
     </div>
 
     <div role="tabpanel" class="tab-pane fade extra-padding" id="commentaires">
       <div class="comment_title">
-        <h5>Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.</h5>
+        <p class="text-design justify">Vos commentaires enrichissent les futures propositions du conseil municipal, merci de vos contributions.</p>
       </div>
       <div class="comment-container">
         <div class="comment_form">

@@ -2,10 +2,10 @@
   background-color: $white;
   display: block;
   width: 100%;
-  margin-top: 20px;
-  h1{
-    font-size: 25px;
-    color:$body-grey;
+  margin-top: 30px;
+  a{
+    font-size: 18px;
+    color:$header-grey;
     font-family:$body-font;
   }
 
@@ -39,6 +39,7 @@ a.nav-item.active {
   padding: 2% 4%;
 
 }
+
 }
 
 .active > .bdt-color-finance {
