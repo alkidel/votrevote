@@ -18,8 +18,6 @@
           </div>
         </div>
       </div>
-
-
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
           <h4>Votre catégorie préferée</h4>
@@ -28,11 +26,12 @@
           </div>
 
           <div class="categories-chart">
-            <%= column_chart @user_categories, colors: ["#D34286"], height: "300px" %>
+            <%= column_chart @user_categories, colors: ["#FDB631"], height: "300px" %>
           </div>
         </div>
       </div>
-
+    </div>
+    <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
           <h4>Accepter, réfuser, quelle est votre tendance ?</h4>
@@ -50,18 +49,18 @@
             </div>
         </div>
       </div>
-
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
           <h4>Quand est-ce que vous avez voté ?</h4>
           <div>Nombre de votes par date :</div>
           <div class="graph-council-dates">
-            <%= line_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count, height: "200px", colors: ["#32B796"] %>
+            <%= line_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count, height: "200px", colors: ["#D34286"] %>
           </div>
         </div>
       </div>
-
     </div>
+
+
     <hr>
   </div>
 </div>
