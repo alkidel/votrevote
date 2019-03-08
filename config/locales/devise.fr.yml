@@ -19,8 +19,9 @@ fr:
       invalid_token: "Jeton d'authentification incorrect."
       timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
+      already_authenticated: "Vous êtes déjà connecté."
     sessions:
-      signed_in: "Bienvenu (e)"
+      signed_in: "Bienvenu (e) sur votre Vote"
       signed_out: "Déconnexion réussie, à bientôt !"
     passwords:
       send_instructions: "Vous allez recevoir un courriel avec des instructions pour changer votre mot de passe."
