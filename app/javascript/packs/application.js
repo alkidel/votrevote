@@ -37,6 +37,8 @@ const addToggleToNavbar = () => {
 
 addToggleToNavbar()
 
+$(".alert" ).fadeOut(1000);
+
 import { slicker } from '../plugins/slicker';
 slicker()
 
