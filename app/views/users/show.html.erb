@@ -54,7 +54,7 @@
           <h4>Vos votes par date</h4>
           <div>Nombre de votes par conseil municipal :</div>
           <div class="graph-council-dates">
-            <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count.sort_by{|k,v| k}, height: "200px", colors: ["#D34286"], points: false%>
+            <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count.sort_by{|k,v| k.strftime("%b %d, %Y")}, height: "200px", colors: ["#D34286"], points: false%>
           </div>
         </div>
       </div>

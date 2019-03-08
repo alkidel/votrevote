@@ -32,7 +32,7 @@ class DecisionsController < ApplicationController
       elsif params[:category]
         @future_decisions = Decision.future.category(params[:category])
       else
-        @future_decisions = Decision.future
+        @future_decisions = Decision.future.order(updated_at: :DESC)
       end
     else
       redirect_to root_path
