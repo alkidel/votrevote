@@ -3,30 +3,32 @@
 
     <h3>Bonjour <%= @user.first_name %>, vous avez voté pour <strong><%= @user.votes.with_results.count %></strong> propositions!</h3>
     <hr>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="chart-container">
-          <h4>Vos votes par date</h4>
-          <div>Nombre de votes par conseil municipal :</div>
-          <div class="graph-council-dates">
-            <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count.sort_by{|k,v| k}, height: "200px", colors: ["#D34286"], points: false%>
+    <div class="graph-margin-bottom">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="chart-container">
+            <h4>Vos votes par date</h4>
+            <div>Nombre de votes par conseil municipal :</div>
+            <div class="graph-council-dates">
+              <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count.sort_by{|k,v| k}, height: "200px", colors: ["#D34286"], points: false%>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="chart-container">
-          <h4>En accord avec :</h4>
-          <div class="text-center">Le conseil municipal <strong><%= @user_council_accord.round %>%</strong> du temps.</div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="chart-container">
+            <h4>En accord avec :</h4>
+            <div class="text-center">Le conseil municipal <strong><%= @user_council_accord.round %>%</strong> du temps.</div>
 
-           <div class="text-center">La population <strong><%= @user_public_accord.round %>%</strong> du temps.</div>
-           <br>
+             <div class="text-center">La population <strong><%= @user_public_accord.round %>%</strong> du temps.</div>
+             <br>
 
-          <% hash_votes = {"En accord avec le conseil" => @user_council_accord, "En accord avec la population" => @user_public_accord } %>
-          <div class="categories-chart">
-            <%= bar_chart hash_votes, max: 100, colors: ["#8380B6"], suffix: "%", height: "200px" %>
+            <% hash_votes = {"En accord avec le conseil" => @user_council_accord, "En accord avec la population" => @user_public_accord } %>
+            <div class="categories-chart">
+              <%= bar_chart hash_votes, max: 100, colors: ["#8380B6"], suffix: "%", height: "200px" %>
+            </div>
           </div>
-        </div>
       </div>
+    </div>
 
     </div>
     <div class="row">
