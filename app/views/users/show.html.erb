@@ -6,6 +6,15 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
+          <h4>Vos votes par date</h4>
+          <div>Nombre de votes par conseil municipal :</div>
+          <div class="graph-council-dates">
+            <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count.sort_by{|k,v| k}, height: "200px", colors: ["#D34286"], points: false%>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="chart-container">
           <h4>En accord avec :</h4>
           <div class="text-center">Le conseil municipal <strong><%= @user_council_accord.round %>%</strong> du temps.</div>
 
@@ -18,18 +27,7 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="chart-container">
-          <h4>Vos votes par catégorie</h4>
-          <div class="text-center">La catégorie pour laquelle vous avez la plus votée : <strong><%= @user_top_category %></strong>
-            (<%= @user_top_category_number_of_votes.round %>% de vos votes)
-          </div>
 
-          <div class="categories-chart">
-            <%= column_chart @user_categories, colors: ["#FDB631"], height: "300px" %>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
@@ -51,10 +49,13 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="chart-container">
-          <h4>Vos votes par date</h4>
-          <div>Nombre de votes par conseil municipal :</div>
-          <div class="graph-council-dates">
-            <%= column_chart Vote.of(@user).with_results.joins(:decision).group(:council_date).count.sort_by{|k,v| k}, height: "200px", colors: ["#D34286"], points: false%>
+          <h4>Vos votes par catégorie</h4>
+          <div class="text-center">La catégorie pour laquelle vous avez la plus votée : <strong><%= @user_top_category %></strong>
+            (<%= @user_top_category_number_of_votes.round %>% de vos votes)
+          </div>
+
+          <div class="categories-chart">
+            <%= column_chart @user_categories, colors: ["#FDB631"], height: "300px" %>
           </div>
         </div>
       </div>
