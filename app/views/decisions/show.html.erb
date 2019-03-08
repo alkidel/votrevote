@@ -37,7 +37,7 @@
             <%= link_to "",edit_decision_path(@decision.id), class: "far fa-edit" %>
             <%= link_to "",decision_path(@decision.id), method: :delete, class: "far fa-trash-alt", data: {:confirm=>'Etes-vous certain de vouloir supprimer cette décision ?'} %>
         <% end %>
-        <%= @decision.title.capitalize %>
+        <%= @decision.title %>
 
       </h1>
 
