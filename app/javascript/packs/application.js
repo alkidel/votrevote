@@ -24,6 +24,19 @@ function dropdownBlackToggle() {
 
 dropdownBlackToggle()
 
+const addToggleToNavbar = () => {
+  document.querySelectorAll(".navbar-wagon-item").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    document.querySelectorAll(".navbar-wagon-item").forEach((thing) => {
+      thing.classList.remove("tab-active");
+    });
+    event.currentTarget.classList.toggle("tab-active");
+  });
+});
+};
+
+addToggleToNavbar()
+
 import { slicker } from '../plugins/slicker';
 slicker()
 
