@@ -13,16 +13,10 @@ window.Chartkick = Chartkick;
 import Chart from "chart.js";
 Chartkick.addAdapter(Chart);
 
-function dropdownBlackToggle() {
-  if(document.querySelector("#dropdown-black-btn")) {
-    const button = document.querySelector("#dropdown-black-btn");
-    button.addEventListener("click", (event) => {
-      document.querySelector("#dropdown-black-items").classList.toggle("dropdown-black-none");
-    });
-  }
-}
+$(".alert" ).fadeOut(1000);
 
-dropdownBlackToggle()
+import { slicker } from '../plugins/slicker';
+slicker()
 
 const addToggleToNavbar = () => {
   document.querySelectorAll(".navbar-wagon-item").forEach((link) => {
@@ -37,28 +31,67 @@ const addToggleToNavbar = () => {
 
 addToggleToNavbar()
 
-$(".alert" ).fadeOut(1000);
 
-import { slicker } from '../plugins/slicker';
-slicker()
-
-let categoryButtons = document.querySelectorAll('.category-btn');
-  categoryButtons.forEach((categoryButton) => {
-    categoryButton.addEventListener("click", (event) => {
-
-    let nonSelectedButtons = document.querySelectorAll('.category-btn');
-    nonSelectedButtons.forEach((nonSelectedButton) => {
-      nonSelectedButton.style.backgroundColor = 'white';
-      nonSelectedButton.style.color = 'black';
+const addToggleToCategories = () => {
+  document.querySelectorAll(".category-btn").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    document.querySelectorAll(".category-btn").forEach((otherButton) => {
+      otherButton.classList.remove("active");
     });
-
-
-    let borderColor = window.getComputedStyle(categoryButton).borderColor;
-    categoryButton.style.backgroundColor = borderColor;
-    categoryButton.style.color = 'white';
-
-    });
+    event.currentTarget.classList.add("active");
   });
+});
+};
+
+addToggleToCategories()
+
+// const categoryButtons = document.querySelectorAll('.category-btn');
+
+// const displayClickedElement = (event) => {
+//   event.currentTarget.classList.add("active");
+// };
+
+// const removeOtherElements = (event) => {
+//   event.currentTarget.classList.remove("active");
+// };
+
+// categoryButtons.forEach((button) => {
+//   let nonSelectedButtons = document.querySelectorAll('.category-btn');
+//       nonSelectedButtons.forEach((nonSelectedButton) => {
+//         nonSelectedButton.removeOtherElements;
+//       });
+//   button.addEventListener('click', displayClickedElement);
+// });
+
+  // categoryButtons.forEach((categoryButton) => {
+  //   categoryButton.addEventListener("click", (event) => {
+
+    // // let nonSelectedButtons = document.querySelectorAll('.category-btn');
+    // // nonSelectedButtons.forEach((nonSelectedButton) => {
+    // //   nonSelectedButton.style.backgroundColor = 'white';
+    // //   nonSelectedButton.style.color = 'black';
+    // });
+
+
+  //   let borderColor = window.getComputedStyle(categoryButton).borderColor;
+  //   categoryButton.style.backgroundColor = borderColor;
+  //   categoryButton.style.color = 'white';
+
+  //   });
+  // });
+
+// const buttons = document.querySelectorAll('.clickable');
+
+// // when clicked, toggle active
+
+// const displayClickedElement = (event) => {
+//   event.currentTarget.classList.toggle("active");
+// };
+
+// buttons.forEach((button) => {
+//   button.addEventListener('click', displayClickedElement);
+// });
+
 
 // when clicked, toggle active
 // let categoryButton = document.querySelector('.culture');
@@ -76,3 +109,15 @@ let categoryButtons = document.querySelectorAll('.category-btn');
 
 // finance add event list
 //  finance.style.border
+
+
+// function dropdownBlackToggle() {
+//   if(document.querySelector("#dropdown-black-btn")) {
+//     const button = document.querySelector("#dropdown-black-btn");
+//     button.addEventListener("click", (event) => {
+//       document.querySelector("#dropdown-black-items").classList.toggle("dropdown-black-none");
+//     });
+//   }
+// }
+
+// dropdownBlackToggle()

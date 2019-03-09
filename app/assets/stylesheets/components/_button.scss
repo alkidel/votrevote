@@ -156,9 +156,9 @@ a:focus {
     transition: .4s;
   }
 }
-.home-education {
+.bg-education.active {
 color: white;
-  padding: 11px;
+  padding: 5px;
   // background-color: white;
   background-color: $education;
   &:hover {
@@ -166,10 +166,10 @@ color: white;
   }
 }
 
-.home-environnement {
+.bg-environnement.active {
   border:none;
   color: white;
-  padding: 11px;
+  padding: 5px;
   // background-color: white;
   background-color: $environment;
   &:hover {
@@ -177,10 +177,10 @@ color: white;
   }
 }
 
-.home-culture {
+.bg-culture.active {
   border:none;
   color: white;
-  padding: 11px;
+  padding: 5px;
   // background-color: white;
   background-color: $culture;
   &:hover {
@@ -188,10 +188,10 @@ color: white;
   }
 }
 
-.home-urbanisme {
+.bg-urbanisme.active {
   border:none;
   color: white;
-  padding: 11px;
+  padding: 5px;
   // background-color: white;
   background-color: $public-works;
   &:hover {
@@ -199,10 +199,10 @@ color: white;
   }
 }
 
-.home-logement {
+.bg-logement.active {
   border:none;
   color: white;
-  padding: 11px;
+  padding: 5px;
   // background-color: white;
   background-color: $housing;
   &:hover {
@@ -210,12 +210,23 @@ color: white;
   }
 }
 
-.home-finance {
+.bg-finance.active {
   border:none;
   color: white;
-  padding: 11px;
+  padding: 5px;
   // background-color: white;
   background-color: $finance;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.bg-btn-all.active {
+  border:none;
+  color: white;
+  padding: 5px;
+  // background-color: white;
+  background-color: $education;
   &:hover {
     text-decoration: none;
   }
